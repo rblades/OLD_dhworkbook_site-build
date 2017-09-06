@@ -40,7 +40,7 @@
         <a href="#skip-nav">Skip navigation menu</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input id="search-box" type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
       </div>
@@ -296,7 +296,7 @@ library('igraph')
 </code></pre>
 
 <h2 id="getting-the-data-into-your-project">getting the data into your project</h2>
-<p>For future reference, we're adapting our script from a more in-depth <a href="http://kateto.net/networks-r-igraph">tutorial</a>.</p>
+<p>For future reference, we're adapting our script from a more in-depth <a href="http://kateto.net/networks-r-igraph">tutorial of R igraph</a>.</p>
 <p>Bringing data into R is straightforward. We create a variable 'nodes' and a variable for 'links' and load the data from our csv files into them:</p>
 <pre><code class="R"># now let's load up the data by putting the csv files into nodes and links.
 nodes &lt;- read.csv(&quot;texasnodes.csv&quot;, header=T, as.is=T)
@@ -368,7 +368,7 @@ plot(net, edge.arrow.size=.4,vertex.label=NA)
 </code></pre>
 
 <p>Before we jump down the rabbit hole of visualization, let's recognize right now that <em>visualizing</em> a network is only rarely of analytical value. The value of network analysis comes from the various questions we can now start posing of our data when it is represented as a network. In this correspondence network, who is in the centre of the web? To whom would information flow? To whom would information leak? Are there cliques or ingroups? When we identify such individuals, how does that confirm or confound our expectations of the period and place?</p>
-<p>Many different kinds of metrics can be calculated (and <a href="http://kateto.net/networks-r-igraph">this tutorial will show you how</a>) but it's always worth remembering that a metric is only meaningful for a given network when we're dealing with like things - a network of people who write letters to one another; a network of banks that swap mortgages with one another. These are called 'one mode networks'. A network of people connected to the banks they use - a two mode network, because it connects two different kinds of things - might be useful to <em>visualize</em> but the metrics calculated might not be <em>valid</em> if the metric was designed to work on a one-mode network (for more on this and allied issues, see <a href="http://www.scottbot.net/HIAL/index.html@p=6279.html">Scott Weingart</a>).</p>
+<p>Many different kinds of metrics can be calculated (and <a href="http://kateto.net/networks-r-igraph">the Kateto R igraph tutorial will show you how</a>) but it's always worth remembering that a metric is only meaningful for a given network when we're dealing with like things - a network of people who write letters to one another; a network of banks that swap mortgages with one another. These are called 'one mode networks'. A network of people connected to the banks they use - a two mode network, because it connects two different kinds of things - might be useful to <em>visualize</em> but the metrics calculated might not be <em>valid</em> if the metric was designed to work on a one-mode network (for more on this and allied issues, visit <a href="http://www.scottbot.net/HIAL/index.html@p=6279.html">Scott Weingart's website</a>).</p>
 <p>Given our correspondence network, let's imagine that 'closeness' (eg a measure of how central a person is) and 'betweenness' (a measure of how many different strands of the network pass through this person) are the most historically interesting. Further, we're going to try to determine if there are subgroups in our network, cliques.</p>
 <pre><code class="R">## the 'degree' of a node is the count of its connections. In this code chunk, we calculate degree, then make both a histogram of the counts and a plot of the network where we size the nodes proportionately to their degree. What do we learn from these two visualizations?
 deg &lt;- degree(net, mode=&quot;all&quot;)
