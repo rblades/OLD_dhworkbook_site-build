@@ -2,8 +2,13 @@
     "docs": [
         {
             "location": "/", 
-            "text": "This workbook supports \n#HIST3814o\n in the Late Summer term at \nCarleton University\n. This is the third major reworking of the workbook.\n\n\nThe original \nWinter 2015 version is here.\n\n\nFor more advanced tutorials and help, please see\n\n\n\n\n\n\nThe Programming Historian\n\n\n\n\n\n\nDigital History Methods in R\n\n\n\n\n\n\nShawn Graham, shawn dot graham at carleton dot ca, \n@electricarchaeo\n\n\n\n\n\n\nOriginal content by Shawn Graham is \n\n\nlicensed under a \nCreative Commons Attribution-NonCommercial 4.0 International License\n.\n\n\nCite this workbook:", 
+            "text": "Crafting Digital History, A Workbook by Shawn Graham\n\n\n\n\nThis workbook supports \n#HIST3814o\n in the Late Summer term at \nCarleton University\n. This is the third major reworking of the workbook.\n\n\nThe original \nWinter 2015 version is here.\n\n\nFor more advanced tutorials and help, please see\n\n\n\n\n\n\nThe Programming Historian\n\n\n\n\n\n\nDigital History Methods in R\n\n\n\n\n\n\nShawn Graham, shawn dot graham at carleton dot ca, \n@electricarchaeo\n\n\n\n\n\n\nOriginal content by Shawn Graham is \n\n\nlicensed under a \nCreative Commons Attribution-NonCommercial 4.0 International License\n.\n\n\nCite this workbook:", 
             "title": "Home"
+        }, 
+        {
+            "location": "/#crafting-digital-history-a-workbook-by-shawn-graham", 
+            "text": "This workbook supports  #HIST3814o  in the Late Summer term at  Carleton University . This is the third major reworking of the workbook.  The original  Winter 2015 version is here.  For more advanced tutorials and help, please see    The Programming Historian    Digital History Methods in R    Shawn Graham, shawn dot graham at carleton dot ca,  @electricarchaeo    Original content by Shawn Graham is   licensed under a  Creative Commons Attribution-NonCommercial 4.0 International License .  Cite this workbook:", 
+            "title": "Crafting Digital History, A Workbook by Shawn Graham"
         }, 
         {
             "location": "/introduction/crafting-digital-history/", 
