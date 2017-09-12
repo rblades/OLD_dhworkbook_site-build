@@ -40,7 +40,7 @@
         <a href="#skip-nav">Skip navigation menu</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <label hidden for="search-box" aria-hidden="true">Search Documents
+    <label hidden for="search-box" aria-hidden="false">Search Documents
     </label>
     <input id="search-box" type="text" name="q" placeholder="Search docs" />
   </form>
@@ -268,7 +268,8 @@
               
                 <h1 id="using-git-with-rstudio-pubs-static">Using Git with rstudio-pubs-static</h1>
 <p>Before you can use Git to keep track of your changes to your R project, you need to tell the Git program (which keeps snapshots of your changes) who you are. Do this with these two commands via the command line:
-<code>$ git config --global user.email "you@example.com"``</code>$ git config --global user.name "Your Name"`</p>
+<code>$ git config --global user.email "you@example.com"</code>
+<code>$ git config --global user.name "Your Name"</code></p>
 <p>Go back to R Studio. Under 'Tools' select 'Version Control' then 'project setup'. Under 'Version control system' select 'Git'.</p>
 <p>You now have a new option in the pane at top right, beside 'environment' and 'history': 'git'. Click on 'git'.</p>
 <p>The panel now displays all of the files created in this project folder. Tick off the ones you want to commit. Then click on the 'Commit' button.</p>
@@ -280,7 +281,6 @@
 <p>open shell</p>
 <pre><code class="shell">$ git remote add origin https://github.com/YOUR-ACCOUNT/YOUR-REPO.git
 $ git config remote.origin.url https://github.com/YOUR-ACCOUNT/YOUR-REPO.git
-$ git pull -u origin master
 $ git pull -u origin master
 </code></pre>
 

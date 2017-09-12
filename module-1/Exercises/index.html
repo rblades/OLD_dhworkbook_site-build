@@ -40,7 +40,7 @@
         <a href="#skip-nav">Skip navigation menu</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <label hidden for="search-box" aria-hidden="true">Search Documents
+    <label hidden for="search-box" aria-hidden="false">Search Documents
     </label>
     <input id="search-box" type="text" name="q" placeholder="Search docs" />
   </form>
@@ -308,7 +308,7 @@
 <p>(For a richer discussion of some more ways markdown and pandoc can make your research sustainable, see Tenen and Wythoff, <a href="http://programminghistorian.org/lessons/sustainable-authorship-in-plain-text-using-pandoc-and-markdown">Sustainable Authorship in Plain Text Using Pandoc and Markdown</a>)</p>
 <h2 id="exercise-2-getting-familiar-with-dhbox">EXERCISE 2: Getting familiar with DHBox</h2>
 <p>Many of the exercises in this workbook work without issue on a Mac or Linux computer, at the terminal. (On a Mac, you can find the terminal under applications &gt; utilities). If you're on a Windows machine, it can be more difficult to get all of the various bits and pieces properly configured. If you're on a tablet, most digital history things you might like to do are not really feasible. One solution is for all of us to use the <em>same</em> computer. The CUNY Graduate Centre has created a digital-humanities focused virtual computer for just such an occasion.</p>
-<p>In this exercise, you are going to set up an instance of a DHBox for your own use.</p>
+<p>In this exercise, you are going to set up an instance of a DHBox for your own use. We will be using the command line interface which is an essential way to interact with your computer. Normally, when you're on your mac or your pc, you're clicking on icons or menus or windows of various sorts to get things done. You're clicking and dragging text. All of these graphical elements sit on top of sequences of commands that you don't have to type out, that only the computer sees. The command line (aka terminal, aka prompt) lets you dispense with the graphical elements, and type the commands you want the way you want them. </p>
 <p><strong>NB this workbook assumes that you are using a DHBox</strong></p>
 <ol>
 <li>Carleton students: If you are on campus or are logged into Carleton's systems via a VPN, go to <a href="http://134.117.26.132:5000/signup">http://134.117.26.132:5000/signup</a>. Other folks: Go to <a href="http://dhbox.org/signup">http://dhbox.org/signup</a>. These are two separate installations of DHBox; whichever one you start with, continue to use.</li>
@@ -343,7 +343,7 @@
 <p><code>$ sudo apt-get install nano</code>.</p>
 <p>The computer makes things a little more difficult sometimes when you're asking it to do something that changes or adds capabilities, so simply typing <code>apt-get</code> wouldn't work. <code>sudo</code> tells the computer, I really do want to this (it stands for 'super-user do'). Any 'sudo' command will make the computer ask for your password to confirm that you really do want to run that command.</p>
 <p><a href="https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/">Visit this guide to using the Nano text editor</a> which you should check out now.</p>
-<p>In Nano, with your file open, make a header (use <code>#</code> to indicate a header, remember) at the start of the file which has today's date in it, and add some text explaining what you're trying to do. Then, hit ctrl+x to edit Nano. Nano will ask you if you want to 'Save modified buffer?'. Hit <code>y</code>, then when it asks you for the file name, hit enter.</p>
+<p>In Nano, with your file open, make a header (use <code>#</code> to indicate a header, remember) at the start of the file which has today's date in it, and add some text explaining what you're trying to do with this exercise. Then, hit ctrl+x to edit Nano. Nano will ask you if you want to 'Save modified buffer?'. Hit <code>y</code>, then when it asks you for the file name, hit enter.</p>
 <p>Use the file manager to save a copy of <code>dhbox-work-today.md</code> onto your own computer. One last thing: let's convert the markdown file into both Word and HTML. Pandoc is capable of quite sophisticated transformations, but these are two of the easiest. Try this:</p>
 <p><code>$ pandoc -o todayscommands.docx dhbox-work-today.md</code></p>
 <p>This says to pandoc, create an output file ( the -o) called 'todayscommands.docx' from 'dhbox-work-today.md'. Type <code>ls</code> after running this command to see if you've made the file. Any guesses how to create an HTML file? Pandoc is smart enough to know the kind of output you want from the file extension, so retype the command but use .html instead of .docx this time. Use filemanager to save copies of the .docx and .html files to your own machine. (Incidentally, if you use the arrow up and arrow down keys on your keyboard when you're at the command line, you can page through commands that you've previously typed).</p>
