@@ -267,18 +267,25 @@
             <div class="section">
               
                 <h1 id="using-git-with-rstudio-pubs-static">Using Git with rstudio-pubs-static</h1>
-<p>Before you can use Git to keep track of your changes to your R project, you need to tell the Git program (which keeps snapshots of your changes) who you are. Do this with these two commands via the command line:
+<p>1. Before you can use Git to keep track of your changes to your R project, you need to tell the Git program (which keeps snapshots of your changes) who you are. To do this, execute the following commands in the command line:
 <code>$ git config --global user.email "you@example.com"</code>
 <code>$ git config --global user.name "Your Name"</code></p>
-<p>Go back to R Studio. Under 'Tools' select 'Version Control' then 'project setup'. Under 'Version control system' select 'Git'.</p>
-<p>You now have a new option in the pane at top right, beside 'environment' and 'history': 'git'. Click on 'git'.</p>
-<p>The panel now displays all of the files created in this project folder. Tick off the ones you want to commit. Then click on the 'Commit' button.</p>
+<p>2. Go back to R Studio. Under 'Tools' select 'Version Control' then 'project setup'.</p>
+<p>3. Under 'Version control system' select 'Git'.</p>
+<p>You now have a new option in the pane at top right, beside 'environment' and 'history': 'git'. </p>
+<p>4. Click on 'git'.</p>
+<p>The panel now displays all of the files created in this project folder. </p>
+<p>5. Tick off the files you want to commit. </p>
+<p>6. Click on the 'Commit' button.</p>
 <p><img alt="Image of the Git panel in RStudio" src="https://i.imgur.com/6CiY06Q.png" /></p>
-<p>A new window opens called 'RStudio: Review Changes'. This window shows you a preview of the text of each file, in green where material has been added, red where material has been deleted (these are the 'difs'). Add a commit message int the top right 'commit message' box.</p>
+<p>A new window opens called 'RStudio: Review Changes'. This window shows you a preview of the text of each file, in green where material has been added, red where material has been deleted (these are the 'difs'). </p>
+<p>7. Add a commit message int the top right 'commit message' box.</p>
 <p>You've now made a local commit to your git repository! If things go horribly wrong, you can roll back the changes. Now, let's setup your github repo for this.</p>
-<p>Go to your github account. Make a new repository; initialize it with a readme.md</p>
-<p>Back in RStudio, click on the 'more' gearwheel on the Git tab. Select shell (you could do this from the command line too, when you're in your project folder). This will open up a box into which you can type commands; we're going to tell Git the location of our remote repository, add that info into the config, and do two pulls.</p>
-<p>open shell</p>
+<p>8. Go to your github account. </p>
+<p>9. Make a new repository; initialize it with a readme.md</p>
+<p>10. Back in RStudio, click on the 'more' gearwheel on the Git tab. </p>
+<p>11. Select shell (you could do this from the command line too, when you're in your project folder). This will open up a box into which you can type commands; we're going to tell Git the location of our remote repository, add that info into the config, and do two pulls.</p>
+<p>12. Open shell</p>
 <pre><code class="shell">$ git remote add origin https://github.com/YOUR-ACCOUNT/YOUR-REPO.git
 $ git config remote.origin.url https://github.com/YOUR-ACCOUNT/YOUR-REPO.git
 $ git pull -u origin master

@@ -279,7 +279,7 @@
             <div class="section">
               
                 <h1 id="topic-modeling-in-r-dhbox-version">Topic Modeling in R, DHBox version</h1>
-<p>In this exercise, we're going to grab the Colonial Newspaper Database from my github page, do some exploratory visualizations, and then create a topic model whose output can then be visualized further in other platforms (including as a network in Gephi or other such packaged). At the appropriate point, I show you how to import a directory of texts rather than a single file of data, and to feed that into the script.</p>
+<p>In this exercise, we're going to grab the Colonial Newspaper Database from my Github page, do some exploratory visualizations, and then create a topic model whose output can then be visualized further in other platforms (including as a network in Gephi or other such packaged). At the appropriate point, I show you how to import a directory of texts rather than a single file of data, and to feed that into the script.</p>
 <p>Go to your DHBox, and click on RStudio. At the right hand side where it says 'project (none)', click and create a new project in a new empty directory. (If you want to put this directory under version control with git, so that you can push your work to your github account, please read <a href="../git-rstudio/">the RStudio instructions</a>.)</p>
 <p>In the script panel (top left; click on the green plus side and select new R script if this pane isn't open) paste the following code and then run each line by putting the cursor in the line and hitting code &gt; run lines.</p>
 <pre><code class="r">install.packages(&quot;mallet&quot;)
@@ -288,7 +288,7 @@ install.packages('RCurl')
 library(RCurl)
 </code></pre>
 
-<p>In the future, now that you've installed these packages you won't have to again, so you can comment them out by placing a # in front.</p>
+<p>In the future, now that you've installed these packages you won't have to again, so you can comment them out by placing a <code>\#</code>in front.</p>
 <h2 id="importing-data-directly-from-the-web">Importing data directly from the web</h2>
 <p>Melodee Beals has been using TEI to markup newspaper articles, creating the Colonial Newspapers Database (which she shared on github). We then used Github Pages and an XLST stylesheet to convert that database into a table of comma-separated values, a copy of which is at https://raw.githubusercontent.com/shawngraham/exercise/gh-pages/CND.csv. We are now going to topic model the text of those newspaper articles, to see what patterns of discourse may lie within.</p>
 <p>Now we want to tell R Studio to grab our data from our github page. The thing is, R Studio can easily grab materials from websites where the url is http; but when it is https (as it is with github), things get a bit more fussy. So what we do is use a special package to grab the data, and then shove it into a variable that we can then tease apart for our analysis.</p>
@@ -329,7 +329,7 @@ barplot(years, main=&quot;Publication Year&quot;, xlab=&quot;Year&quot;, ylab=&q
 mallet.instances &lt;- mallet.import(documents$id, documents$text, &quot;en.txt&quot;, token.regexp = &quot;\\p{L}[\\p{L}\\p{P}]+\\p{L}&quot;)
 </code></pre>
 
-<p><strong>nb do either one or the other, but not both: read from a file, where each row contains the complete text of the document, or read from a folder where each file contains the complete text of the document.</strong></p>
+<p><strong>NB Do either one or the other, but not both: read from a file, where each row contains the complete text of the document, or read from a folder where each file contains the complete text of the document.</strong></p>
 <h2 id="building-the-topic-model">Building the topic model</h2>
 <p>The 'correct' number of topics is going to require trial-and-error. You don't want too few, because that would hide the complexity of your data; too many, and you're starting to split hair.</p>
 <pre><code class="r">#set the number of desired topics
