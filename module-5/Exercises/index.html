@@ -138,7 +138,7 @@
     
         <ul>
         
-            <li><a class="toctree-l4" href="#by-the-way-raster-v-vector">By the way: Raster v Vector</a></li>
+            <li><a class="toctree-l4" href="#by-the-way-raster-versus-vector">By the way: Raster versus Vector</a></li>
         
             <li><a class="toctree-l4" href="#sprucing-up-a-pdf-in-inkscape">Sprucing up a pdf in Inkscape</a></li>
         
@@ -298,9 +298,9 @@
 <p><a href="#sprucing-up-a-pdf-in-inkscape">Sprucing up a PDF in Inkscape</a> | <a href="#typography">Typography</a> | <a href="#colour">Colour</a> | <a href="#layout">Layout</a> | <a href="#more">More</a></p>
 <p><img alt="Image showing Ukrainian Parliament fist fight three times: 1 the original; 2 the photo with the Fibonnaci Golden spiral overlayed; 3 the photo as a Renaissance painting" src="http://uploads.neatorama.com/images/posts/587/74/74587/1407463055-0.jpg" /></p>
 <p><a href="http://www.theguardian.com/artanddesign/2014/aug/06/accidental-renaissance-photojournalism-italian-painting-ukraine-frank-lampard">Ukraine fist fight</a></p>
-<h3 id="by-the-way-raster-v-vector">By the way: Raster v Vector</h3>
+<h2 id="by-the-way-raster-versus-vector">By the way: Raster versus Vector</h2>
 <p>The first thing to know is that graphic images come in two distinct flavours - raster, and vector.</p>
-<p>Raster images are composed of pixels, such that if you zoom into them, they become a pointilist blur (if you remember <strong>Ferris Beuller's Day Off</strong>, there's a scene where Cameron stares and stares at a painting, falling into its individual points of colour...). Vector images on the other hand are described by mathematical functions, of lines and arcs and areas. No matter how deep you delve into these kinds of images, the image is always sharp - because the zoom is just another function of the mathematics describing the image.</p>
+<p>Raster images are composed of pixels, such that if you zoom into them, they become a pointilist blur (if you remember <strong>Ferris Beuller's Day Off</strong>, there's a scene where Cameron stares and stares at a painting, falling into its individual points of colour). Vector images on the other hand are described by mathematical functions, of lines and arcs and areas. No matter how deep you delve into these kinds of images, the image is always sharp - because the zoom is just another function of the mathematics describing the image.</p>
 <p><strong>Rasters:</strong> blocks of colours</p>
 <p><strong>Vectors:</strong> descriptions of points and arcs</p>
 <h2 id="sprucing-up-a-pdf-in-inkscape">Sprucing up a pdf in Inkscape</h2>
@@ -312,7 +312,8 @@
 <li>Open that pdf. It's a pretty plain graphic. Right away there are at least two things we could do to make it more visually appealling. We could change the orientation of the characters in the y-axis to make them more legible. We can highlight bars of interest. And we could apply a colour scheme more generally that would make our graphic legible to folks with colour-blindness (see the 'going further' section at bottom).</li>
 <li>Start Inkscape. </li>
 <li>Click File &gt;&gt; Import &gt;&gt; and then navigate to where you save the 'publication-year.pdf'. </li>
-<li>Click Ok when you've got it selected. In the next pop-up, just accept the default settings and click 'ok'. Your Inkscape window should now look like this:<br><img alt="Image showing graph scaling in Inkscape" src="https://raw.githubusercontent.com/hist3907b-winter2015/module5-humanitiesvisualization/master/inkscape1.png" /></li>
+<li>Click Ok when you've got it selected. </li>
+<li>In the next pop-up, just accept the default settings and click 'ok'. Your Inkscape window should now look like this:<br><img alt="Image showing graph scaling in Inkscape" src="https://raw.githubusercontent.com/hist3907b-winter2015/module5-humanitiesvisualization/master/inkscape1.png" /></li>
 <li>The pdf is now a layer in the new image you are creating in Inkscape. You can save this drawing, <strong>with its information about the layers and what is in each one</strong> by clicking File &gt;&gt; Save As. (<a href="https://raw.githubusercontent.com/hist3907b-winter2015/module5-humanitiesvisualization/master/exercise1drawing-final.svg">visit Github for my version</a>). 'SVG' stands for 'scalable vector graphic'. (SVG is a kind of text file that describes the complete geometry of your illustration).</li>
 <li>Do you see the bounding box around the plot? If you grab any of those handles (the double-arrow things), you can make it bigger or smaller on your sheet. We can't edit any of the other elements yet - we can't change the colour of the bars, or the fonts of the text. We have to tell Inkscape to 'explode' these elements into their own 'objects'. In the menu bar at top, got to Object &gt;&gt; Ungroup. There are now a series of overlapping bounding boxes around each object.</li>
 <li>Zoom in (by pressing the + sign on your keyboard) so that you're looking at the numbers of the y-axis. We're going to rotate these by 90 degrees to make them more legible. Select the arrow icon from the toolbar on the left side of the screen.</li>
@@ -326,24 +327,16 @@
 <li>Go to File &gt;&gt; Export Bitmap. Never mind the options in the popup; just hit 'Export'. Inkscape will automatically assign your drawing a name with .png; here's <a href="https://raw.githubusercontent.com/hist3907b-winter2015/module5-humanitiesvisualization/master/g3161.png">my version on Github</a>. Remember, if you want to edit this image again later, hit the 'save' button to save it as an svg. The svg will preserve all your layer information, while the png file is the visual representation (the png is in fact a raster graphic). Most browsers can handle svg files, so you could use that in your website; programs like Word seem to be able to handle raster graphics better than they do svg. You might want to experiment. In any event, every journal has different requirements for image formats. You would export your image to whatever those specifications are.</li>
 </ol>
 <h3 id="going-further">Going further</h3>
-<p>In the <a href="http://infoheap.com/create-and-use-color-palettes-in-inkscape/">infoheap tutorial on inkscape</a>, you will learn how to load a custom colour palette. Why might you want to do that? You should be designing your work so that it is as universally accessible as possible. Many folks are colour-blind. Use <a href="http://colorbrewer2.org/">Color-brewer</a> to generate a colour-blind safe palette. Then look for the 'GIMP and Inkscape - GIMP color palette for this scheme.' Click on that link, and you'll get a text file with the scheme you generated. Use that scheme to alter the colours on your plot.</p>
+<p>In <a href="http://infoheap.com/create-and-use-color-palettes-in-inkscape/">infoheap's tutorial on inkscape</a>, you will learn how to load a custom colour palette. Why might you want to do that? You should be designing your work so that it is as universally accessible as possible. Many folks are colour-blind. Use <a href="http://colorbrewer2.org/">Color-brewer</a> to generate a colour-blind safe palette. Then look for the 'GIMP and Inkscape - GIMP color palette for this scheme.' Click on that link, and you'll get a text file with the scheme you generated. Use that scheme to alter the colours on your plot.</p>
 <hr />
 <h2 id="typography">Typography</h2>
 <p>Typographic plays an important role in visual communication. It can do everything from reduce eyestrain (do a search for 'easiest fonts to read on screen') to communicate power and authority. Is it any wonder that strong bold capitals come to be known as 'Roman'? But first: <a href="http://www.comicsanscriminal.com/">are you a comic sans criminal?</a></p>
 <p>In this exercise,</p>
 <ul>
-<li>
-<p>I want you to read and understand the section on <a href="https://owl.english.purdue.edu/owl/resource/705/01/">font choices from the Owl at Purdue</a>.</p>
-</li>
-<li>
-<p>Then, play some rounds of <a href="http://www.typeconnection.com/index.php">Typeconnection</a>. Pay attention to why - or why not - various pairings work.</p>
-</li>
-<li>
-<p>Then, I want to consider the document you will be preparing for me that accounts for your learning in this course - the document where you choose your best exercises from the modules and explain how your approach to history, data, the digital, etc, has changed over this course. What typographic pair would work best for you?</p>
-</li>
-<li>
-<p>Finally, you'll make a webpage that uses those fonts and explains why they work.</p>
-</li>
+<li>I want you to read and understand the section on <a href="https://owl.english.purdue.edu/owl/resource/705/01/">font choices from the Owl at Purdue</a>.</li>
+<li>Then, play some rounds of <a href="http://www.typeconnection.com/index.php">Typeconnection</a>. Pay attention to why - or why not - various pairings work.</li>
+<li>Then, I want to consider the document you will be preparing for me that accounts for your learning in this course - the document where you choose your best exercises from the modules and explain how your approach to history, data, the digital, etc, has changed over this course. What typographic pair would work best for you?</li>
+<li>Finally, you'll make a webpage that uses those fonts and explains why they work.</li>
 </ul>
 <p>The first part of this exercise then is to find a pair of fonts and to understand why they work best for you. </p>
 <ol>
@@ -370,7 +363,7 @@
 <h2 id="colour">Colour</h2>
 <p>There's a lot of bumpf out there on the 'pyschology of colour'. Google it to see what I mean (<a href="http://www.youthedesigner.com/graphic-design-resources/infographic-graphic-design-resources/infographic-a-color-guide-for-designers/">Youth Designer has a good example</a>). A lot of what you see here isn't so much psychology as it is associations (and indeed, western associations, at that). Associations are important of course; you don't want to undermine your message by making some unfortunate connections.</p>
 <ul>
-<li>In this exercise, I want you to take the webpage you developed in the previous exercise, and make two versions of it: one, where the colours support the broader message of the page (a prototype for your exercises assessment piece, remember?), and the other where the colours <em>undermine</em> that broader message. Explain, in both cases, how your colour choices enhance/detract.</li>
+<li>In this exercise, I want you to take the webpage you developed in the previous exercise, and make two versions of it: one, where the colours support the broader message of the page (a prototype for your exercises assessment piece, remember?), and the other where the colours <strong>undermine</strong> that broader message. Explain, in both cases, how your colour choices enhance and/or detract.</li>
 </ul>
 <blockquote>
 <p>Alternatively, you can make a one page slide in powerpoint doing the same thing.</p>
@@ -386,16 +379,24 @@
 <h2 id="layout">Layout</h2>
 <p>'Layout' can mean different things in different contexts. A general overview on issues in layout is covered by <a href="http://www.lynda.com/Illustrator-tutorials/What-makes-design-great/161817/177322-4.html">'What makes design great, Lynda.com</a> and <a href="http://www.lynda.com/Illustrator-tutorials/Exploring-principles-layout-composition/161817/177323-4.html">'Exploring principles of layout and composition'</a>. This <a href="http://www.slideshare.net/kernlearningsolutions/what-is-an-effective-layout-3435438">slideshare</a> gives you a sense of things to watch out for as well.</p>
 <p>For academic posters in particular, consider <a href="http://www.apa.org/gradpsych/2011/01/poster.aspx">these suggestions from the APA</a>.</p>
-<p>In essence, good layout makes your argument legible, intuitive, and reinforces the rhetorical points you are trying to make. You should take into account 'principles of universal design' - consider these issues with <a href="http://accessproject.colostate.edu/udl/modules/powerpoint/mod_ppt.php">powerpoint</a> and with <a href="http://accessproject.colostate.edu/udl/modules/html/mod_html.php">websites</a> (although some of the technical solutions proposed in those two documents are a bit out of date, the general principles hold!)</p>
+<p>In essence, good layout makes your argument legible, intuitive, and reinforces the rhetorical points you are trying to make. You should take into account 'principles of universal design' - consider some issues with <a href="http://accessproject.colostate.edu/udl/modules/powerpoint/mod_ppt.php">powerpoint</a> and with <a href="http://accessproject.colostate.edu/udl/modules/html/mod_html.php">websites</a> (although some of the technical solutions proposed in those two documents are a bit out of date, the general principles hold!)</p>
 <p>In this exercise, you will design a new poster OR modify an existing poster. You can use either Inkscape or Powerpoint.</p>
-<ul>
-<li>
-<p>Inkscape: download one of the scientific poster templates from <a href="https://github.com/ugosan/svg-conference-poster">Ugo Sangiorgi</a> (These are developed from <a href="http://blog.felixbreuer.net/2010/10/24/poster.html">Felix Breuer's blog post</a>; note his discussion on design). Open it in Inkscape. Make notes in your open notebook: <em>from the point of view of layout</em>, what elements of the design work? What aren't working? How would you repurpose this poster to fit the requirements of the assessment exercise (<a href="https://github.com/hist3907b-winter2015/syllabus/blob/master/exercise_assessment_guideline.md">remember, details here</a>)?  <br> Here's <a href="https://inkscape.org/en/doc/tutorials/basic/tutorial-basic.en.html">help with the basics of Inkscape</a>. Modify the poster, and upload the svg or pdf or png version to your repository.</p>
-</li>
-<li>
-<p>PPT: there's a lot of information out there on making posters with powerpoint. <a href="http://www.makesigns.com/tutorials/scientific-poster-parts.aspx">Read parts 1,2, and 3 here</a> and then consider <a href="http://colinpurrington.com/tips/poster-design">Colin Purrington's advice</a>. Once you've read and digested, pick a poster from <a href="https://www.flickr.com/groups/pimpmyposter/pool/">Pimp my poster</a> that strikes use. Make notes in your open notebook: <em>from the point of view of layout</em> what elements of the design work? What aren't working? How would you repurpose this posert to fit the requirements ot he assessment exercises (<a href="https://github.com/hist3907b-winter2015/syllabus/blob/master/exercise_assessment_guideline.md">remember, visit Github for the details</a>)? <br> Grab a template from <a href="http://colinpurrington.com/tips/poster-design#templates">from Colin Purrington's</a>, and use it to prototype a poster that works. Upload the poster as a pdf to your repository.</p>
-</li>
-</ul>
+<p>Inkscape:</p>
+<ol>
+<li>Download one of the scientific poster templates from <a href="https://github.com/ugosan/svg-conference-poster">Ugo Sangiorgi</a> (These are developed from <a href="http://blog.felixbreuer.net/2010/10/24/poster.html">Felix Breuer's blog post</a>; note his discussion on design). </li>
+<li>Open it in Inkscape. </li>
+<li>Make notes in your open notebook <strong>from the point of view of layout:</strong> what elements of the design work? What aren't working? How would you repurpose this poster to fit the requirements of the assessment exercise (<a href="https://github.com/hist3907b-winter2015/syllabus/blob/master/exercise_assessment_guideline.md">remember, details here</a>)?</li>
+<li><a href="https://inkscape.org/en/doc/tutorials/basic/tutorial-basic.en.html">Visit Inkscape's website for help with the basics of Inkscape</a>. </li>
+<li>Modify the poster, and upload the svg or pdf or png version to your repository.</li>
+</ol>
+<p>PPT: </p>
+<p>There's a lot of information out there on making posters with powerpoint. </p>
+<ol>
+<li>Read <a href="http://www.makesigns.com/tutorials/scientific-poster-parts.aspx">parts 1,2, and 3</a> and then consider <a href="http://colinpurrington.com/tips/poster-design">Colin Purrington's advice</a>. Once you've read and digested, pick a poster from <a href="https://www.flickr.com/groups/pimpmyposter/pool/">Pimp my poster</a> that strikes use. </li>
+<li>Make notes in your open notebook: <strong>from the point of view of layout</strong> what elements of the design work? What aren't working? How would you repurpose this posert to fit the requirements ot he assessment exercises (<a href="https://github.com/hist3907b-winter2015/syllabus/blob/master/exercise_assessment_guideline.md">remember, visit Github for the details</a>)? </li>
+<li>Grab a template from <a href="http://colinpurrington.com/tips/poster-design#templates">from Colin Purrington's</a>, and use it to prototype a poster that works. </li>
+<li>Upload the poster as a pdf to your repository.</li>
+</ol>
 <p>If you want to explore layout in the context of webpage creation, I would point you to the the roster of lessons at <a href="http://www.codecademy.com/en/tracks/web">Codeacademy</a>. Same instructions: find an existing site that you will consider from the point of view of what works, what doesn't, and use that reflection to guide the construction of your own.</p>
 <hr />
 <h2 id="more">More</h2>
