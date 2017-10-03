@@ -275,7 +275,7 @@
             <div class="section">
               
                 <h1 id="regex-and-the-republic-of-texas">REGEX and the Republic of Texas</h1>
-<p>Regex comes in several different flavours. A good text editor on your own computer like Sublime Text or Atom can do Regex searches and replaces from the find-and-replace box; Word cannot do that. Remember, Regex searches for <em>patterns</em> in the text. The correspondence of the Republic of Texas was collated into a single volume and published with a helpful index in 1911. It was scanned and OCR'd by Google, and is now available as a text file from the Internet Archive. You can see the OCR'd text at <a href="http://archive.org/stream/diplomaticcorre33statgoog/diplomaticcorre33statgoog_djvu.txt">archive.org</a>. We are going to grab the index from that file, and transform it using regex.</p>
+<p>Regex comes in several different flavours. A good text editor on your own computer like Sublime Text or Atom can do Regex searches and replaces from the find-and-replace box; Word cannot do that. Remember, Regex searches for <strong>patterns</strong> in the text. The correspondence of the Republic of Texas was collated into a single volume and published with a helpful index in 1911. It was scanned and OCR'd by Google, and is now available as a text file from the Internet Archive. You can see the OCR'd text at <a href="http://archive.org/stream/diplomaticcorre33statgoog/diplomaticcorre33statgoog_djvu.txt">archive.org</a>. We are going to grab the index from that file, and transform it using regex.</p>
 <p>There are several hundred entries in that index. You could clean them up by hand, deleting and cutting and pasting, but with the power of regex, we'll go from this:</p>
 <pre><code>Sam Houston to A. B. Roman, September 12, 1842 101
 Sam Houston to A. B. Roman, October 29, 1842 101
@@ -292,7 +292,7 @@ Isaac Van Zandt, Anson Jones, January 11 1843
 <p>The change doesn't look like much, and you might think to yourself, 'hey, I could just do that by hand'. You could; but it'd take you ages, and if you made a mistake somewhere - are you sure you could do this consistently, for a couple of hours at a time? Probably not. Your time is better spent figuring out the search and replace patterns, and then setting your machine loose to implement it.</p>
 <p>Data formatted like this could be fed into a network analysis program, for instance, or otherwise visualized and analyzed (which we will do in the next module). Regex as we are going to use in this tutorial allows us to go from unstructured to structured data. <strong>There is a video at the end of this document that captures someone working through this exercise.</strong></p>
 <h2 id="getting-started">Getting started</h2>
-<p>In the previous module, we learned how to automatically grab text from sites like Canadiana. In this particular exercise today, we'll quickly download the file using <code>curl</code> (it's like wget, though there are some <a href="https://daniel.haxx.se/docs/curl-vs-wget.html">differences</a>. It's good to know both).</p>
+<p>In the previous module, we learned how to automatically grab text from sites like Canadiana. In this particular exercise today, we'll quickly download the file using <code>curl</code> (it's like wget, though there are some <a href="https://daniel.haxx.se/docs/curl-vs-wget.html">differences between the two commands</a>. It's good to know both).</p>
 <p>1. At the command line, type <code>$ curl http://archive.org/stream/diplomaticcorre33statgoog/diplomaticcorre33statgoog_djvu.txt &gt; texas.txt</code></p>
 <p>The <code>curl</code> command downloads the txt file and the the <code>&gt;</code> pushes the result of the curl command to a file called texas.txt.</p>
 <p>2. Open <code>texas.txt</code> with Nano and delete everything for the index of the list of letters (we just want the index). </p>
@@ -304,22 +304,25 @@ Isaac Van Zandt, Anson Jones, January 11 1843
 <pre><code>Sender, Recipient, Date
 </code></pre>
 
-<p>6. Scroll down through the text; notice there are many lines which don't include a letter, because they're either header info, or blank, or some other extraneous text. We're going to get rid of all of those lines too. We want to keep every line that has this information in it: Sender to Recipient, Month, Date, Year, Page</p>
-<p>WARNING: Regex can be very tricky. When I'm working with Regex, I copy and paste some of the text I'm working on into the box at <a href="http://www.regexr.com/">regexr</a> and fiddle with the pattern until it does what I want. In fact, spend some time looking at their examples before you go any further in this exercise.</p>
+<p>6. Scroll down through the text; notice there are many lines which don't include a letter, because they're either header info, or blank, or some other extraneous text. We're going to get rid of all of those lines too.</p>
+<p>We want to keep every line that has this information in it:</p>
+<ul>
+<li>Sender to Recipient, Month, Date, Year, Page</li>
+</ul>
+<p>WARNING: Regex can be very tricky. When I'm working with Regex, I copy and paste some of the text I'm working on into the box at <a href="http://www.regexr.com/">RegExr</a> and fiddle with the pattern until it does what I want. In fact, spend some time looking at their examples before you go any further in this exercise.</p>
 <h2 id="the-workflow">The workflow</h2>
 <p>We start by finding every line that looks like a reference to a letter, and put a tilde (a <code>~</code> symbol) at the beginning of it so we know to save it for later. Next, we get rid of all the lines that don't start with tildes, so that we're left with only the relevant text. After this is done, we format the remaining text by putting commas in appropriate places, so we can import it into a spreadsheet and do further edits there.</p>
-<p>We're going to use the <code>sed</code> and <code>grep</code> commands at the command prompt in our DHBox. Sed works by first identifying text that matches a pattern, and then swapping in the text we want to have-</p>
+<p>We're going to use the <code>sed</code> and <code>grep</code> commands at the command prompt in our DH Box. Sed works by first identifying text that matches a pattern, and then swapping in the text we want to have-</p>
 <p><code>$ sed 's/old text/new text/g' filename</code></p>
 <p>and grep works like this:</p>
 <p><code>$ grep 'PATTERN WE WANT' inputfile</code> which will print the results to the screen. If we want to redirect the results to a new file, we add this to the end: <code>&gt; outputfile</code>.</p>
 <h3 id="step-one">Step One</h3>
 <p><strong>Identifying Lines that have Correspondence Senders and Receivers in them</strong></p>
-<p><strong>Discussion</strong> Read in full before doing any manipulation of your text!</p>
-<p><strong>If you were using a text editor on your own computer</strong> like, for instance Notepad++, you would press ctrl-f or search-&gt;find to open the find dialogue box.  In that box, go to the 'Replace' tab, and check the radio box for 'Regular expression' at the bottom of the search box. In TextWrangler, hit command+f to open the find and replace dialogue box.  Tick off the ‘grep’ radio button (which tells TextWrangler that we want to do a regex search) and the ‘wraparound’ button (which tells TextWrangler to search everywhere). In Sublime text, command+f opens the 'find' box (and shift+command+f opens find <em>and</em> replace). Tick the '.*' button to tell Sublime we're working with regular expressions.</p>
-<p><strong>However, we're going to use the two commands sed and grep at the command prompt in DHBox</strong>.</p>
+<p><strong>Discussion:</strong> Read in full before doing any manipulation of your text!</p>
+<p><strong>If you were using a text editor on your own computer</strong> like, for instance Notepad++, you would press ctrl-f or search-&gt;find to open the find dialogue box.  In that box, go to the 'Replace' tab, and check the radio box for 'Regular expression' at the bottom of the search box. In TextWrangler, hit command+f to open the find and replace dialogue box.  Tick off the ‘grep’ radio button (which tells TextWrangler that we want to do a regex search) and the ‘wraparound’ button (which tells TextWrangler to search everywhere). In Sublime text, command+f opens the 'find' box (and shift+command+f opens find <strong>and</strong> replace). Tick the '.*' button to tell Sublime we're working with regular expressions.</p>
+<p><strong>However, we're going to use the two commands sed and grep at the command prompt in DH Box</strong>.</p>
 <p>Remember from our basic introduction that there's a way to see if the word "to" appears in full. Type</p>
 <pre><code>$ grep '\bto\b' texas.txt
-
 </code></pre>
 
 <p>The results print out to the screen. This command finds every instance of the word "to" (and not, for instance, also ‘potato’ or ‘tomorrow’ - try <code>grep 'to' texas.txt</code> instead to see the difference).</p>
@@ -334,10 +337,10 @@ Isaac Van Zandt, Anson Jones, January 11 1843
 <p>3. Once you're satisfied that you've got it right, we put the complete expression into our sed command:</p>
 <p><code>sed -r -i.bak 's/(.+\bto\b.+)/~\1/g' texas.txt</code></p>
 <p>where:</p>
-<p><code>-r</code> means extended regex. this saves us from having to 'escape' certain characters
-<code>-i.bak</code> means make a backup of the original input file, in case things go wrong.
-<code>-'s/old-pattern/newpattern/g'</code> is how we find and switch what we're looking for. the final g means 'globally', everywhere in the file
-<code>texas.txt</code> the filename that we're looking to change.</p>
+<p><code>-r</code> means extended regex. this saves us from having to 'escape' certain characters <br />
+<code>-i.bak</code> means make a backup of the original input file, in case things go wrong <br />
+<code>-'s/old-pattern/newpattern/g'</code> is how we find and switch what we're looking for the final g means 'globally', everywhere in the file <br />
+<code>texas.txt</code> the filename that we're looking to change <br /></p>
 <p>When you hit enter, the computer seems to pause for a moment, and then gives you the command prompt again. </p>
 <p>4. Type <code>ls</code> and you'll see that a new file, <code>texas.txt.bak</code> has been created.</p>
 <p>5. Type <code>nano texas.txt</code> and examine the file. You should now have ~ characters at the start of each entry of the index!</p>
@@ -356,7 +359,7 @@ Isaac Van Zandt, Anson Jones, January 11 1843
 
 <p>Within a set of square brackets <code>[]</code> the carrot <code>^</code> means search for anything that isn't within these brackets; in this case, the tilde <code>~</code>. The  <code>.+</code> as before means search for all the rest of the characters in the line as well. All together, the query returns any full line which does not begin with a tilde; that is, the lines we did not mark as looking like letters.</p>
 <p>By finding all <code>\r\n[^~].+</code> and replacing it with nothing, you effectively delete all the lines that don't look like the index entries. What you're left with is a series of entries, and a series of blank lines.</p>
-<p><strong>But DHBox makes this so much easier</strong></p>
+<p><strong>But DH Box makes this so much easier</strong></p>
 <p>We are simply going to get grep to find all the lines that have a tilde in them, and write them to a new file:</p>
 <p><code>$ grep '~' texas.txt &gt; index.txt</code></p>
 <p>Use Nano to confirm that this is true. </p>
@@ -386,10 +389,8 @@ Isaac Van Zandt, Anson Jones, January 11 1843
 <p>which will return ", 1836 51", ", 1839 52", etc.</p>
 <p>The next step is making the parenthetical groups which will be used to remove parts of the text with find-and-replace. In this case, we want to remove the comma and everything after year, but not the year or the space before it. Thus our query will look like:</p>
 <p><code>(,)( [0-9]{4})(.+)</code></p>
-<p>with the comma as the first group <code>"\1"</code>, the space and the year as the second <code>"\2"</code>, and the rest of the line as the third <code>"\3"</code>.  Given that all we care about retaining is the second group (we want to keep the year, but not the comma or the page number), what will the <em>replace</em> look like?</p>
-<ul>
-<li>Find the dates using a regex, and replace so that only the <em>second</em> group in the expression is kept. You might want to consult the introduction to regex again before you execute this one.</li>
-</ul>
+<p>with the comma as the first group <code>"\1"</code>, the space and the year as the second <code>"\2"</code>, and the rest of the line as the third <code>"\3"</code>.  Given that all we care about retaining is the second group (we want to keep the year, but not the comma or the page number), what will the <strong>replace</strong> look like?</p>
+<p>Find the dates using a regex, and replace so that only the <strong>second</strong> group in the expression is kept. You might want to consult the introduction to regex again before you execute this one.</p>
 <p>Remember, the first part of the sed command will be: <code>sed -r -i.bak</code> then the pattern to find, the pattern to replace with, and the file name. You want to use sed on the new index.txt file you made. Can you devise the right pattern?</p>
 <h3 id="step-four">Step Four</h3>
 <p><strong>Removing the tildes</strong>*</p>
@@ -424,7 +425,7 @@ Isaac Van Zandt, Anson Jones, January 11 1843
 <code>sed -r -i.bak 's/(\b to \b)/,/g' index.txt</code></p>
 <p>The pattern for step six is:</p>
 <p><code>grep -E ".+,.+,.+," index.txt</code></p>
-<p>In dhbox, the command will use <code>-r</code></p>
+<p>In DH Box, the command will use <code>-r</code></p>
 <p><code>grep -r ".+,.+,.+," index.txt</code></p>
 <p>The <code>-E</code> tells grep to treat the pattern as an extended regex (regex with a few more bells and whistles). On DHBox, the flag would be <code>-r</code>, nb.</p>
               

@@ -309,7 +309,8 @@
 <p>7. Select the location, person, and organization classifier (ie. 3class)</p>
 <p>8. Press ‘Run NER.’ </p>
 <p>At this point, the program will appear to ‘hang’ – nothing much will seem to be happening. However, in the background, the program has started to process your text. Depending on the size of your text, this could take anywhere from a few minutes to a few hours. Be patient! Watch the terminal window – once the program has results for you, these will start to scroll by in the terminal window. </p>
-<p>In the main program window, once the entire text has processed, the text will appear with colour-coded highlighting showing which words are location words, which ones are persons, which ones are organizations. You have now classified a text. Note: sometimes your computer may run out of memory – in that case, you’ll see an error referring to “Out of Heap Space” in your terminal window. That’s OK – just copy and paste a smaller bit of the document, say the first 10,000 lines or so. Then try again.</p>
+<p>In the main program window, once the entire text has processed, the text will appear with colour-coded highlighting showing which words are location words, which ones are persons, which ones are organizations. You have now classified a text. </p>
+<p><strong>Note:</strong> sometimes your computer may run out of memory – in that case, you’ll see an error referring to “Out of Heap Space” in your terminal window. That’s OK – just copy and paste a smaller bit of the document, say the first 10,000 lines or so. Then try again.</p>
 <h2 id="manipulating-that-data">Manipulating that data</h2>
 <p>Mac users can grab the data and paste it elsewhere; PC users will have to run the NER from the command line to get usable output.</p>
 <h3 id="mac-users">Mac Users</h3>
@@ -325,12 +326,18 @@ ORGANIZATION: Suprema<br></p>
 <pre><code class="Java">java -mx500m -cp stanford-ner.jar edu.stanford.nlp.ie.crf.CRFClassifier -loadClassifier classifiers/english.all.3class.distsim.crf.ser.gz -textFile texas-letters.txt -outputFormat inlineXML &gt; “my-ner-output.txt”
 </code></pre>
 
-<p>The first bit, <code>java –mx500m</code> says how much memory to use. If you have 1gb of memory available, you can type <code>java –mx 1g</code> (or 2g, or 3g, etc). The next part of the command calls the NER programme itself. You can set which classifier to use after the <code>–loadClassifier classifiers/</code> by typing in the exact file name for the classifier you wish to use (you are telling ‘loadClassifier’ the exact path to the classifier). At <code>–textFile</code> you give it the name of your input file (on our machine, called <code>texas-letters.txt</code>, and then specify the outputFormat. The <code>&gt;</code> character sends the output to a new text file, here called <code>my-ner-output.txt</code>. Hit enter, and a few moments later the programme will tell you something along the lines of</p>
+<ul>
+<li>The first bit, <code>java –mx500m</code> says how much memory to use. If you have 1gb of memory available, you can type <code>java –mx 1g</code> (or 2g, or 3g, etc). </li>
+<li>The next part of the command calls the NER programme itself. You can set which classifier to use after the <code>–loadClassifier classifiers/</code> by typing in the exact file name for the classifier you wish to use (you are telling ‘loadClassifier’ the exact path to the classifier). </li>
+<li>At <code>–textFile</code> you give it the name of your input file (on our machine, called <code>texas-letters.txt</code>, and then specify the outputFormat. </li>
+<li>The <code>&gt;</code> character sends the output to a new text file, here called <code>my-ner-output.txt</code>. </li>
+</ul>
+<p>3. Hit enter, and a few moments later the programme will tell you something along the lines of</p>
 <p><code>CRFCLassifier tagged 375281 words in 13745 documents at 10833.43 words per second</code></p>
-<p>3. Open the text file in Notepad++, and you’ll see output like this:</p>
+<p>4. Open the text file in Notepad++, and you’ll see output like this:</p>
 <p><code>In the name of the &lt;LOCATION&gt;Republic of Texas&lt;/LOCATION&gt;, Free, Sovereign and Independent. To all whom these Presents shall come or may in any wise concern. I &lt;PERSON&gt;Sam Houston&lt;/PERSON&gt; President thereof send Greeting</code></p>
 <p>Congratulations – you’ve successfully tagged a document using a named entity recognizer!</p>
-<p>Now you need to do a bit more data-munging before you can do anything useful. <a href="../regex-ner/">Imagine you wanted to eventually visualize this as a network</a>. You will need your regex skills again...</p>
+<p>Now you need to do a bit more data-munging before you can do anything useful. <a href="../regex-ner/">Imagine you wanted to eventually visualize this as a network</a>. You will need your regex skills again.</p>
               
             </div>
           </div>
