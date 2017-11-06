@@ -349,10 +349,10 @@
 <p><code>http://search.canadiana.ca/view/oocihm.16278/?r=0&amp;s=1&amp;fmt=json&amp;api_text=1</code></p>
 <p>The problem is: how to retrieve those oocihm numbers. The answer is, 'we write a program'. And the program that you want can be <a href="http://ianmilligan.ca/api-example-sh/">found on Ian Milligan's website</a>. Study that program carefully. There are a number of useful things happening in there, notably <strong>curl</strong>, <strong>jq</strong>, <strong>sed</strong>, and <strong>awk</strong>. <strong>curl</strong>  is a program for downloading webpages, <strong>jq</strong> for dealing with json, and <strong>sed</strong> and <strong>awk</strong> for searching within and cleaning up text. If this all sounds Greek to you, there is an excellent gentle introduction over at <a href="http://williamjturkel.net/2013/06/15/basic-text-analysis-with-command-line-tools-in-linux/">William Turkel's blog</a>.</p>
 <p>5. We need the command line program jq. We install it into our DH Box with <code>$ sudo apt-get install jq -y</code></p>
-<p>6. We need to create a program. Make a new directory for this exercise like so: <code>$ mkdir m2e4</code>. Then, change into that directory by typing <code>$ cd m2e4</code>. Make sure that's where you are by typing <code>$ pwd</code>. Now, make an empty file for our program with <code>$ touch canadiana.sh</code>. Touch makes an empty file; the .sh in the filename indicates that this is a shell script.</p>
-<p>7. Open the empty file with <code>$ nano canadiana.sh</code>. Now, the program that Ian Milligan wrote makes calls to the API that <strong>used to live</strong> at eco.canadiana.ca. But note the <a href="http://eco.canadiana.ca/view/oocihm.16278/?r=0&amp;s=1&amp;fmt=json&amp;api_text=1">error message on Canadiana's website</a>. So we have to change Milligan's script so that it points to the API at search.canadiana.ca. Copy the script below into your empty canadiana.sh. If you want, adjust the search parameters (in the line starting with <code>pages</code>) for material you're more interested in.</p>
-<pre><code>bash
-#! /bin/bash
+<p>6. We need to create a program. Make a new directory for this exercise like so: <code>$ mkdir m2e4</code>. Then, change into that directory by typing <code>$ cd m2e4</code>. </p>
+<p>7. Make sure that's where you are by typing <code>$ pwd</code>. Now, make an empty file for our program with <code>$ touch canadiana.sh</code>. Touch makes an empty file; the .sh in the filename indicates that this is a shell script.</p>
+<p>8. Open the empty file with <code>$ nano canadiana.sh</code>. Now, the program that Ian Milligan wrote makes calls to the API that <strong>used to live</strong> at eco.canadiana.ca. But note the <a href="http://eco.canadiana.ca/view/oocihm.16278/?r=0&amp;s=1&amp;fmt=json&amp;api_text=1">error message on Canadiana's website</a>. So we have to change Milligan's script so that it points to the API at search.canadiana.ca. Copy the script below into your empty canadiana.sh. If you want, adjust the search parameters (in the line starting with <code>pages</code>) for material you're more interested in.</p>
+<pre><code>#! /bin/bash
 
 pages=$(curl 'http://search.canadiana.ca/search?q=ottawa*&amp;field=&amp;so=score&amp;df=1914&amp;dt=1918&amp;fmt=json' | jq '.pages')
 
@@ -380,12 +380,12 @@ awk '$0=&quot;search.canadiana.ca/view/&quot;$0' cleanlist.txt| awk '{print $0 &
 wget -i urlstograb.txt -O output.txt
 </code></pre>
 
-<p>8. Hit ctrl+x to exit Nano, and save the changes.</p>
-<p>9. Before we can run this program, we have to tell DH Box that it is alright to run it. To change the 'permissions' on the file, type <code>$ chmod 755 canadiana.sh</code></p>
+<p>9. Hit ctrl+x to exit Nano, and save the changes.</p>
+<p>10. Before we can run this program, we have to tell DH Box that it is alright to run it. To change the 'permissions' on the file, type <code>$ chmod 755 canadiana.sh</code></p>
 <p>The <code>$ chmod</code> command means change mode. Each number represents a user permission for reading, writing, and executing files on your computer.  </p>
-<p>10. And now we can run the program (the ./ is important!) by typing <code>$ ./canadiana.sh</code></p>
+<p>11. And now we can run the program (the ./ is important!) by typing <code>$ ./canadiana.sh</code></p>
 <p>Ta da! You now have a pretty powerful tool now for grabbing data from one of the largest portals for Canadian history! </p>
-<p>11. Download your output.txt file to your computer via the file manager and have a look at it. </p>
+<p>12. Download your output.txt file to your computer via the file manager and have a look at it. </p>
 <p>Make sure to make a file noting what you've done, commands you've made, etc, and upload it in your Github repository.</p>
 <h2 id="exercise-5-mining-twitter">Exercise 5: Mining Twitter</h2>
 <p>Ed Summers is part of a project called '<a href="http://www.docnow.io/">Documenting the Now</a>' which is developing tools to collect and understand the historical materials being shared (and lost) on social media. One component of Documenting the Now is the Twitter Archiving Tool, '<a href="https://github.com/DocNow/twarc">Twarc</a>'. In this exercise, you are going to use Twarc to create an archive of Tweets relevant to a current trending news topic.</p>
@@ -406,7 +406,7 @@ wget -i urlstograb.txt -O output.txt
 <p>If you search for <code>canada150</code> , there are, what, 36 million Canadians? How many tweets is that likely to be? Quite a lot - and the command will run quietly for days grabbing that information, writing it to file, and you'll be sitting looking at the screen wondering if anything is happening. </p>
 <p>13. Try something smaller and more contained for now: <code>$ twarc search hist3814o &gt; search.json</code>. </p>
 <p><strong>Note that Twitter only gives access to the last two weeks or so via search.</strong> For grabbing the stream <strong>as an event happens</strong> you'd use the <code>twarc stream</code> command - see the Twarc documentation for more.</p>
-<p>It might take some time for the search to happen. <strong>You can always force-stop the search by hitting ctrl+c.</strong> If you do that though there could be an error in the formatting of the file which will throw an error when you get to step 10. You can still open the json in a text editor though, but you will have to go to the end of the file and fix the formatting.</p>
+<p>It might take some time for the search to happen. <strong>You can always force-stop the search by hitting ctrl+c.</strong> If you do that though there could be an error in the formatting of the file which will throw an error when you get to step 15. You can still open the json in a text editor though, but you will have to go to the end of the file and fix the formatting.</p>
 <p>The data being collected is in json format. That is, a list of 'keys' and 'values'. This is a handy format for computers, and some data visualization platforms require data in this format. For our purposes we might want to transform the json into a csv (comma separated) table - a spreadsheet.</p>
 <p>14. Type <code>$ sudo npm install json2csv --save -g</code>. This installs a command that can convert the json to csv format. Full details about the command can be found on <a href="https://github.com/zemirco/json2csv#command-line-interface">json2csv's Github repository</a>.</p>
 <p>15. Convert your <code>search.json</code> to csv by typing <code>json2csv -i search.json -o out.csv</code></p>

@@ -150,16 +150,6 @@
         
             <li><a class="toctree-l4" href="#more">More</a></li>
         
-            <li><a class="toctree-l4" href="#accessibility-and-design">Accessibility and Design</a></li>
-        
-            <li><a class="toctree-l4" href="#infographics-storytelling">Infographics / Storytelling</a></li>
-        
-            <li><a class="toctree-l4" href="#manylines">ManyLines</a></li>
-        
-            <li><a class="toctree-l4" href="#leaflet">Leaflet</a></li>
-        
-            <li><a class="toctree-l4" href="#designing-maps-with-processing-and-illustrator">Designing Maps with Processing and Illustrator</a></li>
-        
         </ul>
     
 
@@ -307,15 +297,18 @@
 <p>Some of the tools that we used in Module 4 give visual output as raster images, others as vectors. Sometimes, we would like to tweak these outputs to make them more visually appealling, or clearer, or more useful. A program like MS Paint is only useful for dealing with raster images (and then, only in certain kinds of cases). We need a program that can deal with both, and also, lets us edit the image by treating each edit we do as a mostly-transparent layer on top of the image. That way, we can add, rearrange, hide or reveal, our edits to create a composite image. A free program that is immensely useful in this regard is <a href="https://inkscape.org/en/">Inkscape</a>. Inkscape is also quite useful in that we can open a pdf file in it, break the visual elements of the pdf into individual layers, and then rearrange/touch up/fix them up to make them more esthetically appealing.</p>
 <p>In this first exercise, we will take the plot we generated in Module 4's exercise on topic modeling in R where we made a bar chart showing the number of articles by year. In R we exported that plot as a PDF. In Inkscape, we can import that pdf and 'explode' it so that we can manipulate its parts individually. We are going to take the simple bar chart and make it more legible, more visually appealing, for incorporation on a webpage.</p>
 <ol>
-<li>Download and install <a href="https://inkscape.org/en/">Inkscape</a> <strong>NB Mac the installation instructions are a bit more complicated for Mac. Pay attention and follow closely!</strong></li>
+<li>Download and install <a href="https://inkscape.org/en/">Inkscape</a> 
+<strong>NB Mac the installation instructions are a bit more complicated for Mac. Pay attention and follow closely!</strong></li>
 <li>Download the <a href="https://github.com/hist3907b-winter2015/module5-humanitiesvisualization/raw/master/publication-year.pdf">pdf we generated in R called publication-year.pdf (this downloads the pdf)</a></li>
 <li>Open that pdf. It's a pretty plain graphic. Right away there are at least two things we could do to make it more visually appealling. We could change the orientation of the characters in the y-axis to make them more legible. We can highlight bars of interest. And we could apply a colour scheme more generally that would make our graphic legible to folks with colour-blindness (see the 'going further' section at bottom).</li>
 <li>Start Inkscape. </li>
 <li>Click File &gt;&gt; Import &gt;&gt; and then navigate to where you save the 'publication-year.pdf'. </li>
 <li>Click Ok when you've got it selected. </li>
-<li>In the next pop-up, just accept the default settings and click 'ok'. Your Inkscape window should now look like this:<br><img alt="Image showing graph scaling in Inkscape" src="https://raw.githubusercontent.com/hist3907b-winter2015/module5-humanitiesvisualization/master/inkscape1.png" /></li>
+<li>In the next pop-up, just accept the default settings and click 'ok'. Your Inkscape window should now look like this:
+<br><br><img alt="Image showing graph scaling in Inkscape" src="https://raw.githubusercontent.com/hist3907b-winter2015/module5-humanitiesvisualization/master/inkscape1.png" /><br><br></li>
 <li>The pdf is now a layer in the new image you are creating in Inkscape. You can save this drawing, <strong>with its information about the layers and what is in each one</strong> by clicking File &gt;&gt; Save As. (<a href="https://raw.githubusercontent.com/hist3907b-winter2015/module5-humanitiesvisualization/master/exercise1drawing-final.svg">Visit Github for my version</a>). 'SVG' stands for 'scalable vector graphic'. (SVG is a kind of text file that describes the complete geometry of your illustration).</li>
-<li>Do you see the bounding box around the plot? If you grab any of those handles (the double-arrow things), you can make it bigger or smaller on your sheet. We can't edit any of the other elements yet - we can't change the colour of the bars, or the fonts of the text. We have to tell Inkscape to 'explode' these elements into their own 'objects'. In the menu bar at top, got to Object &gt;&gt; Ungroup. There are now a series of overlapping bounding boxes around each object.</li>
+<li>Do you see the bounding box around the plot? If you grab any of those handles (the double-arrow things), you can make it bigger or smaller on your sheet. <strong>To retain the image proportions, hold ctrl + shift as you drag.</strong> </li>
+<li>We can't edit any of the other elements yet - we can't change the colour of the bars, or the fonts of the text. We have to tell Inkscape to 'explode' these elements into their own 'objects'. In the menu bar at top, got to Object &gt;&gt; Ungroup. There are now a series of overlapping bounding boxes around each object.</li>
 <li>Zoom in (by pressing the + sign on your keyboard) so that you're looking at the numbers of the y-axis. We're going to rotate these by 90 degrees to make them more legible. Select the arrow icon from the toolbar on the left side of the screen.</li>
 <li>Click on the '50'. You'll get a bounding box around it. </li>
 <li>Click Object &gt;&gt; Rotate 90 CW. The 50 is now rotated! Do the same for the other numbers. </li>
@@ -324,10 +317,16 @@
 <li>Save</li>
 <li>Add a legend. Write it so that the important message you want your viewer to get is immediately clear. Choose a font from Inkscape's included fonts that <strong>supports</strong> your message.</li>
 <li>To export your image so that you can use it in a website or paper, click Edit &gt;&gt; Select All in All Layers. Every element of your image will now have a bounding box around it.</li>
-<li>Go to File &gt;&gt; Export Bitmap. Never mind the options in the popup; just hit 'Export'. Inkscape will automatically assign your drawing a name with .png; here's <a href="https://raw.githubusercontent.com/hist3907b-winter2015/module5-humanitiesvisualization/master/g3161.png">my version on Github</a>. Remember, if you want to edit this image again later, hit the 'save' button to save it as an svg. The svg will preserve all your layer information, while the png file is the visual representation (the png is in fact a raster graphic). Most browsers can handle svg files, so you could use that in your website; programs like Word seem to be able to handle raster graphics better than they do svg. You might want to experiment. In any event, every journal has different requirements for image formats. You would export your image to whatever those specifications are.</li>
+<li>Go to File &gt;&gt; Export Bitmap. Never mind the options in the popup; just hit 'Export'. Inkscape will automatically assign your drawing a name with .png; here's <a href="https://raw.githubusercontent.com/hist3907b-winter2015/module5-humanitiesvisualization/master/g3161.png">my version on Github</a>. <strong>Remember</strong> if you want to edit this image again later, hit the 'save' button to save it as an svg. The svg will preserve all your layer information, while the png file is the visual representation (the png is in fact a raster graphic). Most browsers can handle svg files, so you could use that in your website; programs like Word seem to be able to handle raster graphics better than they do svg. You might want to experiment. In any event, every journal has different requirements for image formats. You would export your image to whatever those specifications are.</li>
 </ol>
 <h3 id="going-further">Going further</h3>
-<p>In <a href="http://infoheap.com/create-and-use-color-palettes-in-inkscape/">infoheap's tutorial on inkscape</a>, you will learn how to load a custom colour palette. Why might you want to do that? You should be designing your work so that it is as universally accessible as possible. Many folks are colour-blind. Use <a href="http://colorbrewer2.org/">Color-brewer</a> to generate a colour-blind safe palette. Then look for the 'GIMP and Inkscape - GIMP color palette for this scheme.' Click on that link, and you'll get a text file with the scheme you generated. Use that scheme to alter the colours on your plot.</p>
+<p>In <a href="http://infoheap.com/create-and-use-color-palettes-in-inkscape/">infoheap's tutorial on inkscape</a>, you will learn how to load a custom colour palette. Why might you want to do that? You should be designing your work so that it is as universally accessible as possible. Many folks are colour-blind. </p>
+<ul>
+<li>Use <a href="http://colorbrewer2.org/">Color Brewer</a> to generate a colour-blind safe palette. </li>
+<li>Then look for the 'GIMP and Inkscape - GIMP color palette for this scheme.' </li>
+<li>Click on that link, and you'll get a text file with the scheme you generated. </li>
+<li>Use that scheme to alter the colours on your plot.</li>
+</ul>
 <hr />
 <h2 id="typography">Typography</h2>
 <p>Typographic plays an important role in visual communication. It can do everything from reduce eyestrain (do a search for 'easiest fonts to read on screen') to communicate power and authority. Is it any wonder that strong bold capitals come to be known as 'Roman'? But first: <a href="http://www.comicsanscriminal.com/">are you a comic sans criminal?</a></p>
@@ -369,7 +368,7 @@
 <p>Alternatively, you can make a one page slide in powerpoint doing the same thing.</p>
 </blockquote>
 <p><strong>Resources</strong></p>
-<p>Here's a graphic &amp; a movie to help with the theoretical side of things:</p>
+<p>Below is a graphic &amp; a movie to help with the theoretical side of things:</p>
 <p><img alt="Image showing color theory graphic" src="http://paper-leaf.com/wp-content/uploads/2010/01/ct_1920.jpg" /></p>
 <p><a href="https://www.lynda.com/Graphic-Design-tutorials/Understanding-rules-color/419419/534020-4.html">Understanding the rules of color, Lynda.com</a></p>
 <p>To learn how to style your webpage appropriately, you can <a href="http://www.codecademy.com/courses/web-beginner-en-TlhFi/0/1?curriculum_id=50579fb998b470000202dc8b">follow this tutorial on CSS from codeacademy.com</a>.</p>
@@ -392,8 +391,8 @@
 <p>PPT: </p>
 <p>There's a lot of information out there on making posters with powerpoint. </p>
 <ol>
-<li>Read <a href="http://www.makesigns.com/tutorials/scientific-poster-parts.aspx">parts 1, 2, and 3</a> and then consider <a href="http://colinpurrington.com/tips/poster-design">Colin Purrington's advice</a>. Once you've read and digested, pick a poster from <a href="https://www.flickr.com/groups/pimpmyposter/pool/">Pimp my poster</a> that strikes use. </li>
-<li>Make notes in your open notebook: <strong>from the point of view of layout</strong> what elements of the design work? What aren't working? How would you repurpose this posert to fit the requirements ot he assessment exercises (<a href="https://github.com/hist3907b-winter2015/syllabus/blob/master/exercise_assessment_guideline.md">remember, visit Github for the details</a>)? </li>
+<li>Read <a href="http://www.makesigns.com/tutorials/scientific-poster-parts.aspx">parts 1, 2, and 3 of the Make Signs tutorial</a> and then consider <a href="http://colinpurrington.com/tips/poster-design">Colin Purrington's advice</a>. Once you've read and digested, pick a poster from <a href="https://www.flickr.com/groups/pimpmyposter/pool/">Pimp my poster</a> that strikes use. </li>
+<li>Make notes in your open notebook: <strong>from the point of view of layout</strong> what elements of the design work? What aren't working? How would you repurpose this posert to fit the requirements ot he assessment exercises (<a href="https://github.com/hist3907b-winter2015/syllabus/blob/master/exercise_assessment_guideline.md">remember to visit Github for the details</a>)? </li>
 <li>Grab a template from <a href="http://colinpurrington.com/tips/poster-design#templates">from Colin Purrington's</a>, and use it to prototype a poster that works. </li>
 <li>Upload the poster as a pdf to your repository.</li>
 </ol>
@@ -401,7 +400,7 @@
 <hr />
 <h2 id="more">More</h2>
 <p>More resources, tutorials, and things to explore.</p>
-<h2 id="accessibility-and-design">Accessibility and Design</h2>
+<h3 id="accessibility-and-design">Accessibility and Design</h3>
 <p>While most of this applies to websites, think also about how the general principles apply to other ways &amp; means of telling our data stories.</p>
 <ul>
 <li><a href="http://www.w3.org/WAI/intro/people-use-web/">How People with Disabilities Use the Web</a></li>
@@ -412,8 +411,8 @@
 <li><a href="http://webaim.org/articles/userperspective/">Constructing a POUR Website</a> Percievable, Operable, Understandable, Robust. Applies much wider than design of websites.</li>
 <li><a href="https://support.office.com/en-us/article/Check-for-accessibility-issues-a16f6de0-2f39-4a2b-8bd8-5ad801426c7f?CorrelationId=19c77f4b-7307-4697-9320-8bbbe05aa85a&amp;ui=en-US&amp;rs=en-US&amp;ad=US">Checking Microsoft Office-generated documents for accessibility</a></li>
 </ul>
-<h2 id="infographics-storytelling">Infographics / Storytelling</h2>
-<h3 id="infographics">Infographics</h3>
+<h3 id="infographics-storytelling">Infographics / Storytelling</h3>
+<h4 id="infographics">Infographics</h4>
 <ul>
 <li><a href="https://eagereyes.org/blog/2010/the-difference-between-infographics-and-visualization">The Difference between Infographics and Visualizations</a></li>
 <li><a href="http://piktochart.com/infographics-design-series-design-your-infographic-like-a-pro/">Design hints for infographics</a></li>
@@ -422,7 +421,7 @@
 <li><a href="https://infoactive.co">Infoactive.co</a> (has a free option, but might not allow exports. You'd have to check).</li>
 <li><a href="http://www.easel.ly/">Easel.ly</a></li>
 </ul>
-<h3 id="storytelling">Storytelling</h3>
+<h4 id="storytelling">Storytelling</h4>
 <ul>
 <li><a href="https://creatavist.com/">Creatavist</a></li>
 <li><a href="https://medium.com/">Medium</a></li>
@@ -431,17 +430,17 @@
 <li><a href="https://timeline.knightlab.com">Timeline.js</a></li>
 <li><a href="https://storymap.knightlab.com/">Storymap</a></li>
 </ul>
-<h2 id="manylines">ManyLines</h2>
+<h3 id="manylines">ManyLines</h3>
 <p><a href="http://tools.medialab.sciences-po.fr/manylines">Manylines</a> is an application that allows you to create narratives from network graphs. In essence, you upload a network file in .gexf format (which you can export from Gephi) and it renders it on the screen. There are some layout options to make the graph more intelligible. Then, you take a series of snapshots zoomed in on the graph in different places, and add text to describe what it is that's important about these networks. The app puts a Prezi-like wrapper around your snapshots, and the whole can then be embedded in a website or be used as a standalone website. <a href="http://tools.medialab.sciences-po.fr/manylines/embed#/narrative/051b0a7a-c1af-458f-b6a1-e3b0964e577f">Check out my first attempt on medialab.</a> </p>
 <p>You can also embed nearly anything in the narrative panels - youtube videos, <a href="http://timeline.knightlab.com/">timeline.js</a>, as long as you know how to correctly format an <a href="http://www.w3schools.com/tags/tag_iframe.asp">iframe</a>.  </p>
 <p>To give this a try, why not use the Texan Correspondence network we generated in earlier modules? Export it in .gexf format from gephi, import to ManyLines, and go! The interface is fairly straightforward. Just follow the prompts.</p>
 <p><strong>Caveat Utilitor</strong> I don't know how long anything made with ManyLines will live on their website. But, knowing what you know about wget and other tools, do you see how you could archive a copy on your own machine? ManyLines is available on <a href="https://github.com/medialab/manylines">Github</a> so you can certainly use it locally.</p>
-<h2 id="leaflet">Leaflet</h2>
+<h3 id="leaflet">Leaflet</h3>
 <p>Maps can be created through a variety of services (<a href="https://www.mapbox.com/tilemill/">tilemill</a>, <a href="https://cartodb.com/">cartodb</a>, <a href="http://mapbox.com">mapbox</a>, for instance). These can then be embedded in your webpages or documents. Often, that's enough. But sometimes, you'd like to take control, and keep all the data, all the map, under your own name, in your own webspace. Visit the gentle introduction to using <a href="../../supporting materials/leaflet.txt/">leaflet.js in our supporting materials</a> to make, style, and serve your maps. <a href="https://github.com/shawngraham/daea">Visit a template on my Github repository</a> for mapping with leaflet, drawing all of your point data and ancillary information from a csv file.</p>
 <p>Oh, and Leaflet has <a href="http://leaflet-extras.github.io/leaflet-providers/preview/index.html">a list of background maps you can use</a>.</p>
-<h2 id="designing-maps-with-processing-and-illustrator">Designing Maps with Processing and Illustrator</h2>
-<p>Nicolas Felton is a renowned designer; this 90 minute workshop is worth watching and working through. <a href="http://www.skillshare.com/classes/design/Data-Visualization-Designing-Maps-with-Processing-and-Illustrator/1063775924">Skillshare</a></p>
-<p>Caveat: I do not use processing or illustrator, but processing is free and Inkscape can do many of the things that Illustrator does.</p>
+<h3 id="designing-maps-with-processing-and-illustrator">Designing Maps with Processing and Illustrator</h3>
+<p>Nicolas Felton is a renowned designer. Watch <a href="http://www.skillshare.com/classes/design/Data-Visualization-Designing-Maps-with-Processing-and-Illustrator/1063775924">his 90 minute workshop on Skillshare</a>.</p>
+<p>Caveat: I do not use Processing or Illustrator, but Processing is free and Inkscape can do many of the things that Illustrator does.</p>
               
             </div>
           </div>

@@ -277,8 +277,8 @@
             <div class="section">
               
                 <h1 id="using-igraph-to-visualize-network-data">Using igraph to visualize network data</h1>
-<p>In this exercise, we are doing a quick first pass on the network data generated from the Republic of Texas correspondence. I am providing you with the <strong>edge list</strong>, the links of to - from that we generated earlier. I am also providing you the <strong>node list</strong>, the list of individuals extracted from that edge list. If we keep our nodes and edges separated in csv tables, we can add other <strong>attributes</strong> later (things like date, or number of times a pair of individuals corresponded ie weight, or gender, or location, or what have you) to create different views or analyses. I used open refine (see the <a href="../open-refine/">lesson on open refine</a>) to clean this data up for you. Remember, 80 percent of all digital history work involves cleaning data!</p>
-<p>Here is the data that you need; download these, and use the filemanager to load them into your DH Box into your new R project for this tutorial.</p>
+<p>In this exercise, we are doing a quick first pass on the network data generated from the Republic of Texas correspondence. I am providing you with the <strong>edge list</strong>, the links of to - from that we generated earlier. I am also providing you the <strong>node list</strong>, the list of individuals extracted from that edge list. If we keep our nodes and edges separated in csv tables, we can add other <strong>attributes</strong> later (things like date, or number of times a pair of individuals corresponded ie weight, or gender, or location, or what have you) to create different views or analyses. I used Open Refine to clean this data up for you (recall our <a href="../open-refine/">lesson on open refine</a>). Remember, 80 percent of all digital history work involves cleaning data!</p>
+<p>Below is the data that you need; download both files and use the filemanager to load them into your DH Box into your new R project for this tutorial.</p>
 <ul>
 <li><a href="../../supporting materials/texaslinks.csv">List of links (this downloads a CSV file)</a></li>
 <li><a href="../../supporting materials/texasnodes.csv">List of nodes(this downloads a CSV file)</a></li>
@@ -358,6 +358,10 @@ head(links)
 <pre><code class="R"># let's make a net
 # notice that we are telling igraph that the network is directed, that the relationship Alice to Bob is different than Bob's to Alice (Alice is the _sender_, and Bob is the _receiver_)
 
+# In older DH Box version of igraph in R Studio: 
+net &lt;- graph.data.frame(d=links, vertices=nodes, directed=T)
+
+# OR Newer version of igraph in desktop R Studio:
 net &lt;- graph_from_data_frame(d=links, vertices=nodes, directed=T)
 
 # type 'net' again and run the line to see how the network is represented.
@@ -389,7 +393,12 @@ write.csv(closepeople, 'closeness.csv') # so we have it on file.
 </code></pre>
 
 <p>8. We can ask which individuals are hubs, and which are authorities. In the lingo, 'hubs' are individuals with many outgoing links (they <strong>sent</strong> lots of letters) while 'authorities' are individuals who <strong>received</strong> lots of letters. In the code below,</p>
-<pre><code>hs &lt;- hub_score(net, weights=NA)$vector
+<pre><code># In older DH Box version of igraph in R Studio: 
+hs &lt;- hub.score(net, weights=NA)$vector
+as &lt;- authority.score(net, weights=NA)$vector
+
+# OR Newer version of igraph in desktop R Studio:
+hs &lt;- hub_score(net, weights=NA)$vector
 as &lt;- authority_score(net, weights=NA)$vector
 
 par(mfrow=c(1,2))
@@ -401,7 +410,11 @@ plot(net, vertex.size=as*20, vertex.label = NA, edge.arrow.size=.1, main=&quot;A
 
 <p>Can you work out what command to give to write the hub score or the authority scores to a file?</p>
 <p>9. Let's look for 'modules' within this network. Broadly speaking, these are clumps of nodes that have more or less the same pattern of ties between them, <strong>within</strong> the group, than without.</p>
-<pre><code class="R">cfg &lt;- cluster_fast_greedy(as.undirected(net))
+<pre><code class="R"># In older DH Box version of igraph in R Studio: 
+cfg &lt;- fastgreedy.community(as.undirected(net))
+
+# OR Newer version of igraph in desktop R Studio:
+cfg &lt;- cluster_fast_greedy(as.undirected(net))
 
 lapply(cfg, function(x) write.table( data.frame(x), 'cfg.csv'  , append= T, sep=',' ))
 </code></pre>
@@ -413,7 +426,12 @@ lapply(cfg, function(x) write.table( data.frame(x), 'cfg.csv'  , append= T, sep=
 </code></pre>
 
 <p>2. You can export the plot by clicking on the 'export' button in the plot panel, to pdf or to png. But this is a pretty ugly network. We need to apply a <strong>layout</strong> to try to make it more visually understandable. There are many different layout options in igraph. We'll assign the layout we want to a variable, and then we'll give that variable to the plot command:</p>
-<pre><code>l1 &lt;- layout_with_fr(net)
+<pre><code># In older DH Box version of igraph in R Studio:
+l1 &lt;- layout.fruchterman.reingold(net)
+
+# OR Newer version of igraph in desktop R Studio:
+l1 &lt;- layout_with_fr(net)
+
 plot(cfg, net, layout=l1, vertex.size = 1, vertex.label.cex =.2, edge.arrow.size=.1, main=&quot;Communities&quot;)
 </code></pre>
 
