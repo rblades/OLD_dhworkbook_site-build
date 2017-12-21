@@ -133,6 +133,10 @@
                     
     <a class="" href="../../module-5/Exercises/">Exercises</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../../module-5/omeka/">Omeka</a>
+                </li>
     </ul>
       </li>
           
@@ -327,7 +331,7 @@ David G. Burnet,Richard G. Dunlap
 <li>In the Data Laboratory, select “Import Spreadsheet.” </li>
 <li>Press the ellipsis “...” and locate the CSV you created. Make sure that the Separator is listed as “Comma” and the “As table” is listed as “Edges table.” </li>
 <li>Press “Next,” then “Finish.” Your data should load up. </li>
-<li>Click on the “overview” tab and you will be presented with a tangled network graph. </li>
+<li>Click on the “overview” tab and you will be presented with a tangled network graph.</li>
 </ol>
 <h2 id="navigating-gephi">Navigating Gephi</h2>
 <p>Gephi is broken up into three panes: <strong>Overview</strong>, <strong>Data Laboratory</strong>, and <strong>Preview</strong>. </p>
@@ -342,6 +346,9 @@ David G. Burnet,Richard G. Dunlap
 <p>3. In the “Nodes” tab, click “Copy data to other column” at the bottom, select “ID”, and press “Ok” (Fig. 7.5). Upon doing so, the “Label” column will be filled with the appropriate labels for each correspondent. </p>
 <p>5. While you’re still in the Data Laboratory, look in the “Edges” tab and notice there is a “Weight” column. Gephi automatically counted every time a letter was sent from correspondent A to correspondent B and summed up all the occurrences, resulting in the “Weight.” This means that J. Pinckney Henderson sent three letters to James Webb, because Henderson is in the “Source” column, Webb in the “Target,”, and the “Weight” is three.</p>
 <p>6. Clicking on the Overview pane will take you to a visual representation of the network you just imported. In the middle of the screen, you will see your network in the “Graph” tab. The “Context” tab, at the top right, will show that you imported 234 nodes and 394 edges. At first, all the nodes will be randomly strewn across the screen and make little visual sense. </p>
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s5_jgK5hEFA" title="Importing your data into Gephi" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br> </p>
 <p>7. Fix the nodes by selecting a layout in the “Layout” tab – the best one for beginners is “Force Atlas 2.” </p>
 <p>8. Press the “Run” button and watch the nodes and edges reorganize on the screen into something slightly more manageable. After the layout runs for a few minutes, re-press the button (now labeled “Stop”) to settle the nodes in their place. </p>
 <p>You just ran a force-directed layout. Each dot is a correspondent in the network, and lines between dots represent letters sent between individuals. Thicker lines represent more letters, and arrows represent the direction the letters were sent, such that there may be up to two lines connecting any two correspondents (one for each direction).</p>
@@ -355,14 +362,23 @@ David G. Burnet,Richard G. Dunlap
 <p>14. Calculate the PageRank by clicking on the "Run" button next to "PageRank" in the "Statistics" tab. You will be presented with a prompt asking for a few parameters; make sure "Directed" network is selected and that the algorithm is taking edge weight into account (by selecting "Use edge weight"). Leave all other parameters at their default. </p>
 <p>15. Press "OK".</p>
 <p>16. Once PageRank is calculated, if you click back into the "Data Laboratory" and select the "Nodes" list in the Data Table, you can see that a new "PageRank" column has been added, with values for every node. The higher the PageRank, the more central a correspondent is in the network. </p>
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nEAO04nQeQc" title="Modifying your network visualization" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br> </p>
 <p>17. Going back to the Overview pane, you can visualize this centrality by changing the size of each correspondent’s node based on its PageRank. Do this in the "Ranking" tab on the left side of the Overview pane.</p>
 <p>18. Make sure "Nodes" is selected, press the icon of a little red diamond, and select PageRank from the drop-down menu. </p>
 <p>19. In the parameter options just below, enter the "Min size" as 1 and the "Max size" as 10. </p>
 <p>18. Press "Apply," and watch the nodes resize based on their PageRank. </p>
 <p>20. To be on the safe side and decrease clutter, re-run the "Force Atlas 2" layout as described above, making sure to keep the "Prevent Overlap" box checked.</p>
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kh9nR_W7B9w" title="Styling your network visualization" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br> </p>
 <p>At this point, the network is processed enough to visualize in the Preview pane, to finally begin making sense of the data. </p>
 <p>21. In Preview, on the left-hand side, select "Show Labels," "Proportional Size," "Rescale Weight," and deselect "Curved" edges. </p>
 <p>22. Press "Refresh." </p>
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2YBNnEmazq8" title="Previewing your final network visualization" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br> </p>
 <h2 id="so-what-have-we-got">So what have we got?</h2>
 <p>The visualization immediately reveals apparent structure: central figures on the top (Ashbel Smith and Anson Jones) and bottom (Mirabeau B. Lamar, James Webb, and James Treat), and two central figures who connect the two split communities (James Hamilton and James S. Mayfield). A quick search online shows the top network to be associated with the last president of the Republic of Texas, Anson Jones; whereas the bottom network largely revolves around the second president, Mirabeau Lamar. Experts on this period in history could use this analysis to understand the structure of communities building to the annexation of Texas or they could ask meta-questions about the nature of the data themselves. For example, why is Sam Houston, the first and third president of the Republic of Texas, barely visible in this network?</p>
 <p>Write up your own observations on this process in your open notebook, and export your gephi file as a .graphml file (because Gephi's <code>.gephi</code> format is a bit unstable, always save as or export your work in a variety of formats). Upload that to your repository.</p>

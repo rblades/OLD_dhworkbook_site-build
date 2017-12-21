@@ -133,6 +133,10 @@
                     
     <a class="" href="../../module-5/Exercises/">Exercises</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../../module-5/omeka/">Omeka</a>
+                </li>
     </ul>
       </li>
           
@@ -297,6 +301,9 @@ install.packages('igraph')
 library('igraph')
 </code></pre>
 
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vRg71uHhEA0" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br></p>
 <h2 id="getting-the-data-into-your-project">Getting the data into your project</h2>
 <p>For future reference, we're adapting our script from a more in-depth <a href="http://kateto.net/networks-r-igraph">tutorial of R igraph</a>.</p>
 <p>1. Bringing data into R is straightforward. We create a variable 'nodes' and a variable for 'links' and load the data from our csv files into them:</p>
@@ -374,6 +381,9 @@ plot(net, edge.arrow.size=.4,vertex.label=NA)
 
 </code></pre>
 
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LOky3-Rycms" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br></p>
 <p>Before we jump down the rabbit hole of visualization, let's recognize right now that <strong>visualizing</strong> a network is only rarely of analytical value. The value of network analysis comes from the various questions we can now start posing of our data when it is represented as a network. In this correspondence network, who is in the centre of the web? To whom would information flow? To whom would information leak? Are there cliques or ingroups? When we identify such individuals, how does that confirm or confound our expectations of the period and place?</p>
 <p>Many different kinds of metrics can be calculated (and <a href="http://kateto.net/networks-r-igraph">the Kateto R igraph tutorial will show you how</a>) but it's always worth remembering that a metric is only meaningful for a given network when we're dealing with like things - a network of people who write letters to one another; a network of banks that swap mortgages with one another. These are called 'one mode networks'. A network of people connected to the banks they use - a two mode network, because it connects two different kinds of things - might be useful to <strong>visualize</strong> but the metrics calculated might not be <strong>valid</strong> if the metric was designed to work on a one-mode network (for more on this and allied issues, visit <a href="http://www.scottbot.net/HIAL/index.html@p=6279.html">Scott Weingart's website</a>).</p>
 <p>6. Given our correspondence network, let's imagine that 'closeness' (a measure of how central a person is) and 'betweenness' (a measure of how many different strands of the network pass through this person) are the most historically interesting. Further, we're going to try to determine if there are subgroups in our network, cliques.</p>
@@ -420,6 +430,9 @@ lapply(cfg, function(x) write.table( data.frame(x), 'cfg.csv'  , append= T, sep=
 </code></pre>
 
 <p>We create a new variable called 'cfg' and get the 'cluster_fast_greedy' algorithm to perform its calculations. The next line writes the groups to a file, separating each group with an x. (If you tried 'write.csv' as before, you'll get an error message because the output of the algorithm gives a different kind of data type. R is fussy like this.) Examine that file - what groups do you spot? What might these mean, if you went back to the content of the original letters?</p>
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ek1QvOoN6q8" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br></p>
 <h2 id="visualization">Visualization</h2>
 <p>1. The line below will plot out our network, colouring it by the communities discerned above:</p>
 <pre><code>plot(cfg, net, vertex.size = 1, vertex.label.cex =.2, edge.arrow.size=.1, main=&quot;Communities&quot;)
@@ -455,6 +468,9 @@ for (layout in layouts) {
 </code></pre>
 
 <p>4. Good luck! Remember to save your script, and upload the entire project folder to your github repository.</p>
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lqGBYzNJCu0" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br></p>
               
             </div>
           </div>

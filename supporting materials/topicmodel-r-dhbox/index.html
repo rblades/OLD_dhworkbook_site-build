@@ -133,6 +133,10 @@
                     
     <a class="" href="../../module-5/Exercises/">Exercises</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../../module-5/omeka/">Omeka</a>
+                </li>
     </ul>
       </li>
           
@@ -303,6 +307,9 @@ ERROR: configuration failed for package ‘RCurl’
 library(&quot;RCurl&quot;)
 </code></pre>
 
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=ca9WV88XUv8" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br> </p>
 <h2 id="importing-data-directly-from-the-web">Importing data directly from the web</h2>
 <p>Melodee Beals has been using TEI to markup newspaper articles, creating the Colonial Newspapers Database (which she shared on github). We then used Github Pages and an XLST stylesheet to convert that database into a table of comma-separated values, a copy of which is at https://raw.githubusercontent.com/shawngraham/exercise/gh-pages/CND.csv. We are now going to topic model the text of those newspaper articles, to see what patterns of discourse may lie within.</p>
 <p>Now we want to tell R Studio to grab our data from our github page. The thing is, R Studio can easily grab materials from websites where the url is http; but when it is https (as it is with github), things get a bit more fussy. So what we do is use a special package to grab the data, and then shove it into a variable that we can then tease apart for our analysis.</p>
@@ -334,6 +341,9 @@ barplot(years, main=&quot;Publication Year&quot;, xlab=&quot;Year&quot;, ylab=&q
 </code></pre>
 
 <p>That line above passes the article ID and the text of our newspaper articles to the Mallet routine.  The stopwords list is generic; it might need to be curated to take into account the pecularities of your data. You might want to create your own, one for each project given the particulars of your project. Note that Jockers compiled hist stoplist for his research in literary history of the 19th century. Your mileage may vary! Finally, the last bit after ‘token.regexp’ applies a regular expression against our newspaper articles, cleaning them up.</p>
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=TBW-rMXPFH0" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br> </p>
 <h2 id="reading-data-from-a-directory">Reading data from a directory</h2>
 <p>This is an alternative way of ingesting documents for topic modeling. Earlier, you learned how to use wget and some other scripts to download full text documents from Canadiana.org as well as from the Provincial Archives in Quebec (the Shawville Equity). The code below loads those documents into Mallet, after which you can proceed to build a topic model. In the command line, cd into your folder that has your downloaded materials. At the command line, cd into your folder, and type $ pwd to get the full path. Copy it, go back to RStudio, and paste it into the line below between the " marks.</p>
 <pre><code class="r">documents &lt;- mallet.read.dir(&quot;/home/shawngraham/equity&quot;)
@@ -344,6 +354,9 @@ mallet.instances &lt;- mallet.import(documents$id, documents$text, &quot;en.txt&
 </code></pre>
 
 <p><strong>NB Do either one or the other, but not both: read from a file, where each row contains the complete text of the document, or read from a folder where each file contains the complete text of the document.</strong></p>
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tMfa2ENjqVM" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br> </p>
 <h2 id="building-the-topic-model">Building the topic model</h2>
 <p>The 'correct' number of topics is going to require trial-and-error. You don't want too few, because that would hide the complexity of your data; too many, and you're starting to split hair.</p>
 <pre><code class="r">#set the number of desired topics
@@ -384,6 +397,9 @@ doc.topics &lt;- mallet.doc.topics(topic.model, smoothed=T, normalized=T)
 topic.words &lt;- mallet.topic.words(topic.model, smoothed=T, normalized=T)
 </code></pre>
 
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IKAwSASkXjY" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br> </p>
 <p>Congratulations! You now have a topic model. Let’s look at some of our topics. What are the top words in topic 7? Notice that R indexes from 1, so this will be the topic that mallet called topic 6:</p>
 <pre><code class="r">mallet.top.words(topic.model, topic.words[7,])
 </code></pre>
@@ -404,6 +420,9 @@ write.csv(topics.labels, &quot;topics-labels.csv&quot;)
 </code></pre>
 
 <p>Some interesting patterns suggest themselves already! But a list of words doesn’t capture the relative importance of particular words in particular topics. A word might appear in more than one topic, for instance, but really dominate one rather than the other. When you examine the csv files, you'll notice that each document is given a series of percentages; these add up to 1, and are indicating the percentage which the different topics contribute to the overall composition of that document. Look for the largest numbers to get a sense of what's going on. We could ask R to cluster similarly composed documents together though...</p>
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=MaN3b3rSkxQ" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br> </p>
 <h2 id="a-simple-histogram">A simple histogram</h2>
 <pre><code>plot(hclust(dist(topic.words)), labels=topics.labels)
 </code></pre>
@@ -412,6 +431,9 @@ write.csv(topics.labels, &quot;topics-labels.csv&quot;)
 <pre><code>plot(hclust(dist(topic.words)))
 </code></pre>
 
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=TShK40wQ5GY" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br> </p>
 <p>Now, if we want to get really fancy, we can make a network visualization of how topics interlink due to their distribution in documents. The next bit of code does that, and saves in .graphml format, which packages like Gephi http://gephi.org can read.</p>
 <pre><code class="r">topic_docs &lt;- data.frame(topic.docs)
 names(topic_docs) &lt;- documents$article_id
@@ -425,6 +447,9 @@ topic_df_dist &lt;- as.matrix(daisy(t(topic_docs), metric = &quot;euclidean&quot
 topic_df_dist[ sweep(topic_df_dist, 1, (apply(topic_df_dist,1,min) + apply(topic_df_dist,1,sd) )) &gt; 0 ] &lt;- 0
 </code></pre>
 
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=RQdKc6FEqjY" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br></p>
 <pre><code class="r">install.packages(&quot;igraph&quot;)
 # the line above would normally install igraph. However, the latest version is not compatible
 # with this version of R. Thus, go to command line in DH Box, cd to the R folder, cd x86_64-pc-linux-gnu-library, cd 3.0 folder.
@@ -451,6 +476,9 @@ plot(g, layout=layout1, edge.curved = TRUE, vertex.size = 1, vertex.color= &quot
 <pre><code>write.graph(g, file=&quot;cnd.graphml&quot;, format=&quot;graphml&quot;)
 </code></pre>
 
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=BL9tlD9T3OU" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br></p>
 <p>There are many ways of visualizing and transforming our data. This document only captures a small fraction of the kinds of things you could do. Another good exploration is at <a href="http://www.matthewjockers.net/macroanalysisbook/expanded-stopwords-list/">Matthew Jockers' website</a> or the <a href="http://www.ranks.nl/stopwords/">global stopwords lists</a>. <a href="https://github.com/benmarwick/dayofarchaeology">Ben Marwick does really fun things with the Day of Archaeology blog posts</a> and indeed, some of the code above comes from Marwick’s explorations. Keep your R scripts in your open notebook, and somebody might come along and use them, cite them, improve them, share them! Keep also all your data. Visit <a href="https://github.com/shawngraham/ferguson">my own work for an example</a>.</p>
               
             </div>
