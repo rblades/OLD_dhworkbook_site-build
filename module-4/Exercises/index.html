@@ -474,14 +474,14 @@
 <h2 id="exercise-8-simple-mapping-and-georectifying">Exercise 8: Simple Mapping and Georectifying</h2>
 <p>In this exercise, you will find a historical map online, upload a copy to a mapwarper service, georectify it, and then display the map online, via a hosted service like CartoDB, and also through a map you will build yourself using leaflet.js. Finally, we will also convert csv to geojson using <a href="https://mapbox.github.io/togeojson/">Mapbox's geojson converter</a>, and we'll map that as a github gist. We'll also grab a geojson file hosted on github gist and import it into cartodb.</p>
 <h3 id="georectifying">Georectifying</h3>
-<p>Georectifying is the process of taking an image (whether it is of a historical map, chart, airphoto, or whatever) and manipulating its geometry so that it matches a geographic projection. Think of it like this: you take your handdrawn map, and use pushpins to pin down known locations on your map to a globe. As you pin, your image stretches and warps. Traditionally, this has not been an easy thing to do, if you are new to GIS. In recent years, the curve has flattened significantly. In this exercise, we'll grab an image, upload it to the Harvard Library MapWarper service, and then export it as a tileset which can be used in other mapping programs.</p>
+<p>Georectifying is the process of taking an image (whether it is of a historical map, chart, airphoto, or whatever) and manipulating its geometry so that it matches a geographic projection. Think of it like this: you take your handdrawn map, and use pushpins to pin down known locations on your map to a globe. As you pin, your image stretches and warps. Traditionally, this has not been an easy thing to do, if you are new to GIS. In recent years, the curve has flattened significantly. In this exercise, we'll grab an image, upload it to the Map Warper website, and then export it as a tileset which can be used in other mapping programs.</p>
 <p>1. Get a historical map. I like the Fire Insurance plans from the <a href="http://www.gvhs.ca/research/maps/maps-fire-insurance.html">Gatineau Valley Historical Society</a>; I'm sure you can find others to suit your interests.</p>
-<p>2. Right-click and save as to grab a copy. Save it somewhere handy.</p>
-<p>3. Go to <a href="http://warp.worldmap.harvard.edu/">Harvard World MapWarp</a> and sign up for an account. Then login.</p>
+<p>2. Right-click and save as to grab a copy. Save it somewhere easily accessible.</p>
+<p>3. Go to <a href="http://mapwarper.net">Map Warper</a> and sign up for an account. Then login.</p>
 <p><br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bidOaQiQU-4" title="Getting a historical map" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
-<p>4. Go to the upload screen: <br> <img alt="Image showing upload screen for Harvard World Maps" src="http://i.imgur.com/bmNCzg6.png" /></p>
+<p>4. Go to the upload screen: <br> <img alt="Image showing upload screen for Map Warper" src="http://i.imgur.com/bmNCzg6.png" /></p>
 <p>5. Fill in as much of the metadata as you can. Then select your map from your computer, and upload it.</p>
 <p><br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/08HjvUlOpdM" title="Adding metadata to your map" frameborder="0" gesture="media" allowfullscreen></iframe>
@@ -494,7 +494,7 @@
 <p><br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Wu_dTz-q9Ig" title="Georectifying your map" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
-<p>11. You can now click on the 'export' panel, and get the URL for your georectified image in a few different formats. If you clicked on the KML option, <a href="https://maps.google.com/maps?q=http://warp.worldmap.harvard.edu/maps/4152.kml&amp;output=classic&amp;dg=feature">a new Google Map window will open</a>. For many webmapping applications, the Tiles (Google/OSM scheme): Tiles Based URL is what you want. You'll get a URL like this: <code>http://warp.worldmap.harvard.edu/maps/tile/4152/z/x/y.png</code> Save that info. You'll need it later.</p>
+<p>11. You can now click on the 'export' panel, and get the URL for your georectified image in a few different formats. If you clicked on the KML option, a new Google Map window will open. For many webmapping applications, the Tiles (Google/OSM scheme): Tiles Based URL is what you want. You'll get a URL like this: <code>http://mapwarper.net/maps/tile/27418/{z}/{x}/{y}.png</code> Save that info. You'll need it later.</p>
 <p><br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Vg8Nv6fIl_k" title="Exporting your map" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
@@ -532,8 +532,7 @@
 <p>14. Under 'places', select 'coordinates'</p>
 <p>15. Click 'add new layer'</p>
 <p>16. In the popup, beside 'Choose one of Palladio default layers or create a new one.', select 'custom'. This is where you're going to paste it that tiles based URL from the map warper</p>
-<p>17. Paste in the URL, but <strong>replace</strong> the <code>/z/x/y</code> part with <code>{z}/{x}/{y}</code></p>
-<p>18. Click add</p>
+<p>17. Click add</p>
 <p>Below is a video walk through; places where you might have got into trouble include getting past the initial data entry box on Palladio, and finding where exactly to past in your georectified map url.</p>
 <iframe width="420" height="315" src="https://www.youtube.com/embed/KgLrvcA8v_M" frameborder="0" allowfullscreen></iframe>
 
