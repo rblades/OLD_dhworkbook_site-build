@@ -294,30 +294,30 @@ install.packages(&quot;RCurl&quot;)
 library(&quot;RCurl&quot;)
 </code></pre>
 
-<p>In the future, now that you've installed these packages you won't have to again, so you can comment them out by placing a <code>\#</code>in front.</p>
+<p>In the future, now that you've installed these packages you won't have to again, so you can comment them out by placing a <code>\#</code> in front.</p>
 <h3 id="how-to-fix-rcurl-package-installation-error">How to fix RCurl Package installation error</h3>
 <p>When attempting to run <code>install.packages("RCurl")</code> you may get an error along the lines of </p>
-<pre><code>checking for curl-config... no
+<pre><code class="r">checking for curl-config... no
 Cannot find curl-config
 ERROR: configuration failed for package ‘RCurl’
 </code></pre>
 
 <p>To fix this, navigate to the DH Box command line and type <code>sudo apt-get install libcurl4-gnutls-dev</code>. When the installation is successful, you can now install RCurl by running the last two lines of the script:</p>
-<pre><code>install.packages(&quot;RCurl&quot;)
+<pre><code class="r">install.packages(&quot;RCurl&quot;)
 library(&quot;RCurl&quot;)
 </code></pre>
 
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=ca9WV88XUv8" title="Preparing RStudio for network analysis" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ca9WV88XUv8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <br> </p>
 <h2 id="importing-data-directly-from-the-web">Importing data directly from the web</h2>
 <p>Melodee Beals has been using TEI to markup newspaper articles, creating the Colonial Newspapers Database (which she shared on github). We then used Github Pages and an XLST stylesheet to convert that database into a table of comma-separated values, a copy of which is at https://raw.githubusercontent.com/shawngraham/exercise/gh-pages/CND.csv. We are now going to topic model the text of those newspaper articles, to see what patterns of discourse may lie within.</p>
 <p>Now we want to tell R Studio to grab our data from our github page. The thing is, R Studio can easily grab materials from websites where the url is http; but when it is https (as it is with github), things get a bit more fussy. So what we do is use a special package to grab the data, and then shove it into a variable that we can then tease apart for our analysis.</p>
-<pre><code class="R">x &lt;- getURL(&quot;https://raw.githubusercontent.com/shawngraham/exercise/gh-pages/CND.csv&quot;, .opts = list(ssl.verifypeer = FALSE))
+<pre><code class="r">x &lt;- getURL(&quot;https://raw.githubusercontent.com/shawngraham/exercise/gh-pages/CND.csv&quot;, .opts = list(ssl.verifypeer = FALSE))
 </code></pre>
 
 <p>That line reaches out to the webpage and grabs the information and puts it into a variable called <code>x</code>.</p>
-<pre><code class="R">documents &lt;- read.csv(text = x, col.names=c(&quot;Article_ID&quot;, &quot;Newspaper Title&quot;, &quot;Newspaper City&quot;, &quot;Newspaper Province&quot;, &quot;Newspaper Country&quot;, &quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;, &quot;Article Type&quot;, &quot;Text&quot;, &quot;Keywords&quot;), colClasses=rep(&quot;character&quot;, 3), sep=&quot;,&quot;, quote=&quot;&quot;)
+<pre><code class="r">documents &lt;- read.csv(text = x, col.names=c(&quot;Article_ID&quot;, &quot;Newspaper Title&quot;, &quot;Newspaper City&quot;, &quot;Newspaper Province&quot;, &quot;Newspaper Country&quot;, &quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;, &quot;Article Type&quot;, &quot;Text&quot;, &quot;Keywords&quot;), colClasses=rep(&quot;character&quot;, 3), sep=&quot;,&quot;, quote=&quot;&quot;)
 </code></pre>
 
 <p>Now we've created a variable called <code>documents</code> and the <code>read.csv</code> command read all of the data pulled into x, and tells R that <code>documents</code> has columns called "Newspaper Title" etc. When we only want information from a particular column, we modify the variable slightly, eg <code>documents$Keywords</code> would only look at the information in the keywords column. Let's go on a brief digression and actually do that, and see what we learn about this corpus:</p>
@@ -330,19 +330,19 @@ library(&quot;RCurl&quot;)
 
 <p>The plot will appear in the bottom right pane of RStudio. You can click on 'zoom' to see the plot in a popup window. You can also export it as a png or pdf file. Clearly, we’re getting an Edinburgh/Glasgow perspective on things. And somewhere in our data, there’s a mispelled ‘Edinbugh’. Do you see any other error(s) in the plot? How would you correct it(them)?</p>
 <p>Let's do the same thing for year, and count the number of articles per year in this corpus:</p>
-<pre><code class="R">years &lt;- table(documents$Year)
+<pre><code class="r">years &lt;- table(documents$Year)
 barplot(years, main=&quot;Publication Year&quot;, xlab=&quot;Year&quot;, ylab=&quot;Number of Articles&quot;)
 </code></pre>
 
 <p>There’s a lot of material in 1789, another peak around 1819, againg in the late 1830s. We can ask ourselves now: is this an artefact of the data, or of our collection methods? This would be a question a reviewer would want answers to. Let’s assume for now that these two plots are ‘true’ - that, for whatever reasons, only Edinburgh and Glasgow were concerned with these colonial reports, and that they were particulary interested during those three periods. This is already an interesting question that we as historians would want to explore. Try making some more visualizations like this of other aspects of the data. What other patterns do you see that are worth investigating?</p>
 <p>Now, let's return to getting our data ready to create a topic model. In the line below, note that there is a file called 'en.txt' that it wants to load up. You need to create this file; it's a list of stopwords, or common words that we think do not add value to our model (words like 'the', 'and', 'of' and so on.) The decision of which words to exclude from our analysis is of course a theoretical position...</p>
 <p>To create that file, click on the 'new file' icon in the tool ribbon and select new text file. This will open a blank file in the edit window here. Copy and paste the list of words at <a href="../en.txt">en.txt</a> into that blank file and save it as en.txt. This file was put together by Matt Jockers.</p>
-<pre><code class="R">mallet.instances &lt;- mallet.import(documents$Article_ID, documents$Text, &quot;en.txt&quot;, token.regexp = &quot;\\p{L}[\\p{L}\\p{P}]+\\p{L}&quot;)
+<pre><code class="r">mallet.instances &lt;- mallet.import(documents$Article_ID, documents$Text, &quot;en.txt&quot;, token.regexp = &quot;\\p{L}[\\p{L}\\p{P}]+\\p{L}&quot;)
 </code></pre>
 
 <p>That line above passes the article ID and the text of our newspaper articles to the Mallet routine.  The stopwords list is generic; it might need to be curated to take into account the pecularities of your data. You might want to create your own, one for each project given the particulars of your project. Note that Jockers compiled hist stoplist for his research in literary history of the 19th century. Your mileage may vary! Finally, the last bit after ‘token.regexp’ applies a regular expression against our newspaper articles, cleaning them up.</p>
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=TBW-rMXPFH0" title="Importing data directly from the web" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TBW-rMXPFH0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <br> </p>
 <h2 id="reading-data-from-a-directory">Reading data from a directory</h2>
 <p>This is an alternative way of ingesting documents for topic modeling. Earlier, you learned how to use wget and some other scripts to download full text documents from Canadiana.org as well as from the Provincial Archives in Quebec (the Shawville Equity). The code below loads those documents into Mallet, after which you can proceed to build a topic model. In the command line, cd into your folder that has your downloaded materials. At the command line, cd into your folder, and type $ pwd to get the full path. Copy it, go back to RStudio, and paste it into the line below between the " marks.</p>
@@ -421,7 +421,7 @@ write.csv(topics.labels, &quot;topics-labels.csv&quot;)
 
 <p>Some interesting patterns suggest themselves already! But a list of words doesn’t capture the relative importance of particular words in particular topics. A word might appear in more than one topic, for instance, but really dominate one rather than the other. When you examine the csv files, you'll notice that each document is given a series of percentages; these add up to 1, and are indicating the percentage which the different topics contribute to the overall composition of that document. Look for the largest numbers to get a sense of what's going on. We could ask R to cluster similarly composed documents together though...</p>
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=MaN3b3rSkxQ" title="Training topics with MALLET" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MaN3b3rSkxQ" title="Training topics with MALLET" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br> </p>
 <h2 id="a-simple-histogram">A simple histogram</h2>
 <pre><code>plot(hclust(dist(topic.words)), labels=topics.labels)
@@ -432,7 +432,7 @@ write.csv(topics.labels, &quot;topics-labels.csv&quot;)
 </code></pre>
 
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=TShK40wQ5GY" title="Creating a simple histogram" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TShK40wQ5GY" title="Creating a simple histogram" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br> </p>
 <p>Now, if we want to get really fancy, we can make a network visualization of how topics interlink due to their distribution in documents. The next bit of code does that, and saves in .graphml format, which packages like Gephi http://gephi.org can read.</p>
 <pre><code class="r">topic_docs &lt;- data.frame(topic.docs)
@@ -448,7 +448,7 @@ topic_df_dist[ sweep(topic_df_dist, 1, (apply(topic_df_dist,1,min) + apply(topic
 </code></pre>
 
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=RQdKc6FEqjY" title="Clustering your data" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RQdKc6FEqjY" title="Clustering your data" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
 <pre><code class="r">install.packages(&quot;igraph&quot;)
 # the line above would normally install igraph. However, the latest version is not compatible
@@ -477,7 +477,7 @@ plot(g, layout=layout1, edge.curved = TRUE, vertex.size = 1, vertex.color= &quot
 </code></pre>
 
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=BL9tlD9T3OU" title="Graphing your data" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BL9tlD9T3OU" title="Graphing your data" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
 <p>There are many ways of visualizing and transforming our data. This document only captures a small fraction of the kinds of things you could do. Another good exploration is at <a href="http://www.matthewjockers.net/macroanalysisbook/expanded-stopwords-list/">Matthew Jockers' website</a> or the <a href="http://www.ranks.nl/stopwords/">global stopwords lists</a>. <a href="https://github.com/benmarwick/dayofarchaeology">Ben Marwick does really fun things with the Day of Archaeology blog posts</a> and indeed, some of the code above comes from Marwick’s explorations. Keep your R scripts in your open notebook, and somebody might come along and use them, cite them, improve them, share them! Keep also all your data. Visit <a href="https://github.com/shawngraham/ferguson">my own work for an example</a>.</p>
               

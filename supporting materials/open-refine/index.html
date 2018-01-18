@@ -293,9 +293,6 @@
 <li>Follow the installation instructions. </li>
 <li>Start Open Refine by double clicking on its icon. This will open a new browser window, pointing to <code>http://127.0.0.1:3333</code>. This location is your own computer, so even though it looks like it’s running on the internet, it isn’t. The ‘3333’ is a ‘port’, meaning that Open Refine is running much like a server, serving up a webpage via that port to the browser. (If the browser window doesn't open automatically, open one and put <code>http://127.0.0.1:3333</code> in the address bar).</li>
 </ol>
-<p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Y1M8zEsy9NE" title="Installing Open Refine" frameborder="0" gesture="media" allowfullscreen></iframe>
-<br></p>
 <h2 id="start-cleaning-our-texan-correspondence">Start Cleaning our Texan Correspondence</h2>
 <p>Make sure you have your data handy that you created in exercise 1, the Texan correspondence. You can get it out of your DH Box by using the DH Box filemanager. </p>
 <ol>
@@ -314,9 +311,6 @@
 <li>Repeat step 12 for "Recipient". The resulting spreadsheet will not be perfect, but it will be much easier to clean by hand than it would have been before taking this step. </li>
 <li>Click on ‘export’ at the top right of the window to get your data back out as a .csv file.</li>
 </ol>
-<p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/o8-e3_iKI1I" title="Cleaning our Correspondence with Open Refine" frameborder="0" gesture="media" allowfullscreen></iframe>
-<br></p>
 <h2 id="now-what">Now what?</h2>
 <p>The text you've just cleaned could now be loaded into something like <a href="http://palladio.designhumanities.org/">Palladio</a> or <a href="http://gephi.org">Gephi</a> or <a href="https://databasic.io/en/connectthedots/">Connect the Dots</a> for network analysis! However, every network analysis program has its own idiosyncracies. Gephi and Connect the Dots, for instance, can import lists of relationships if the CSV file has columns labelled 'source' and 'target' (Connect the Dots will <em>only</em> accept those two columns, so you'd have to delete the date column if you wanted to give that a try). So let's assume that's where we want to visualize &amp; analyze this data:</p>
 <p>In order to get this correspondence data into a network visualization tool, we will have to rename the "Sender" column to "source" and the "Recipient" column to "target". You could do this in a spreadsheet, of course. But since you have Open Refine running: </p>
@@ -329,9 +323,6 @@
 <li>Go ahead and drop this file into the Palladio interface. Do you see any interesting patterns? Make a note!</li>
 <li>Upload your cleaned file with a new name back <strong>into</strong> your DH Box; we will use this in the next module.</li>
 </ol>
-<p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QdJYiUODFE8" title="Preparing our file for export" frameborder="0" gesture="media" allowfullscreen></iframe>
-<br></p>
 <p><strong>Remember to copy your notes and any other information/observations/thoughts to your Github repo</strong></p>
 <h3 id="optional-going-further-with-open-refine-named-entity-extraction">Optional: Going further with Open Refine: Named Entity Extraction</h3>
 <p>Say we wanted, instead of the correspondence network, a visualization of all the places named in this body of letters. It might be interesting to visualize on a map the changing focus of Texas' diplomatic attention over time. There is a plugin for Open Refine that does what is called <a href="http://en.wikipedia.org/wiki/Named-entity_recognition">Named Entity Extraction</a>. The plugin, and how to install &amp; use it, is available on the <a href="http://freeyourmetadata.org/named-entity-extraction/">Free your metadata website</a>.</p>
