@@ -8,7 +8,7 @@
   
   <meta name="author" content="Shawn Graham">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Graphing the Net - HIST3814o Crafting Digital History</title>
+  <title>Graphing the net - HIST3814o Crafting Digital History</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Graphing the Net";
+    var mkdocs_page_name = "Graphing the net";
     var mkdocs_page_input_path = "supporting materials/graphing-the-net.txt.md";
     var mkdocs_page_url = "/supporting materials/graphing-the-net.txt/";
   </script>
@@ -133,10 +133,6 @@
                     
     <a class="" href="../../module-5/Exercises/">Exercises</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../../module-5/omeka/">Omeka</a>
-                </li>
     </ul>
       </li>
           
@@ -155,7 +151,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../ner/">NER</a>
+    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
                 </li>
                 <li class="">
                     
@@ -175,7 +171,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../cyoa.txt/">CYOA</a>
+    <a class="" href="../cyoa.txt/">Choose Your Own Adventure</a>
                 </li>
                 <li class="">
                     
@@ -183,11 +179,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../gephi.txt/">SNA with Gephi</a>
+    <a class="" href="../gephi.txt/">Social Network Analysis with Gephi</a>
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Graphing the Net</a>
+    <a class="current" href="./">Graphing the net</a>
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#graphing-the-net">Graphing the Net</a></li>
@@ -221,23 +217,31 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../quick-intro-r/">Quick Intro to R</a>
+    <a class="" href="../quick-intro-r/">Quick intro to R</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../git-rstudio/">Git</a>
+    <a class="" href="../git-rstudio/">Git in RStudio</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../topicmodel-r-dhbox/">TM, DHBox</a>
+    <a class="" href="../topicmodel-r-dhbox/">Topic Modeling, DH Box</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../topicmodel-r-yourmachine/">TM, Local</a>
+    <a class="" href="../topicmodel-r-yourmachine/">Topic Modeling, Local</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../netviz/">igraph</a>
+    <a class="" href="../netviz/">Network visualization with igraph</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../gh-pages/">Github pages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../inkscape/">Inkscape</a>
                 </li>
     </ul>
       </li>
@@ -268,7 +272,7 @@
         
       
     
-    <li>Graphing the Net</li>
+    <li>Graphing the net</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/shawngraham/dhworkbook/tree/gh-pages/edit/master/docs/supporting materials/graphing-the-net.txt.md"
@@ -299,16 +303,36 @@
 <li>When finished, close and restart Gephi with a new project.</li>
 </ol>
 <h2 id="getting-set-up-to-scrape">Getting set up to scrape</h2>
-<p>1. In Chrome, go to the settings page (the 'hamburg' icon at the extreme right of the address bar, or by typing <code>chrome://settings/</code> in the address bar. </p>
-<p>2. Click on 'show advanced settings' at the bottom of the page.</p>
-<p>3. Scroll down to 'Network' and click on 'change proxy settings'. </p>
-<p>4. In the popup that opens, click the 'connections' tab, and then the 'LAN Settings' button. </p>
+<ol>
+<li>
+<p>In Chrome, go to the settings page (the 'hamburg' icon at the extreme right of the address bar, or by typing <code>chrome://settings/</code> in the address bar. </p>
+</li>
+<li>
+<p>Click on 'show advanced settings' at the bottom of the page.</p>
+</li>
+<li>
+<p>Scroll down to 'Network' and click on 'change proxy settings'. </p>
+</li>
+<li>
+<p>In the popup that opens, click the 'connections' tab, and then the 'LAN Settings' button. </p>
 <p><strong>Another</strong> popup will open. </p>
-<p>5. Select the 'Use a proxy server for your LAN'. </p>
-<p>6. Enter <code>127.0.0.1</code> for the address, and <code>8088</code> for the port. Now, whenever you go to a website, the info will be echoed through that port. We need to set Gephi up to hear what's being passed.</p>
-<p>7. Open Gephi and start a new project. </p>
-<p>8. Go to 'file', then 'generate', and then 'http graph'. A pop up will open, asking you to specify a port. </p>
-<p>9. Input <code>8088</code>. Accept the defaults, and press OK. On the overview panel, nodes will begin to appear when you go to a URL in Chrome. </p>
+</li>
+<li>
+<p>Select the 'Use a proxy server for your LAN'. </p>
+</li>
+<li>
+<p>Enter <code>127.0.0.1</code> for the address, and <code>8088</code> for the port. Now, whenever you go to a website, the info will be echoed through that port. We need to set Gephi up to hear what's being passed.</p>
+</li>
+<li>
+<p>Open Gephi and start a new project. </p>
+</li>
+<li>
+<p>Go to 'file', then 'generate', and then 'http graph'. A pop up will open, asking you to specify a port. </p>
+</li>
+<li>
+<p>Input <code>8088</code>. Accept the defaults, and press OK. On the overview panel, nodes will begin to appear when you go to a URL in Chrome. </p>
+</li>
+</ol>
 <h2 id="begin-the-scrape">Begin the scrape</h2>
 <ol>
 <li>Go back to Chrome. </li>
@@ -331,7 +355,7 @@
         <a href="../multimode-networks.txt/" class="btn btn-neutral float-right" title="Multimode Networks"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../gephi.txt/" class="btn btn-neutral" title="SNA with Gephi"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../gephi.txt/" class="btn btn-neutral" title="Social Network Analysis with Gephi"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   

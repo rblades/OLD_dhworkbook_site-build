@@ -133,10 +133,6 @@
                     
     <a class="" href="../../module-5/Exercises/">Exercises</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../../module-5/omeka/">Omeka</a>
-                </li>
     </ul>
       </li>
           
@@ -155,7 +151,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../ner/">NER</a>
+    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
                 </li>
                 <li class=" current">
                     
@@ -191,7 +187,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../cyoa.txt/">CYOA</a>
+    <a class="" href="../cyoa.txt/">Choose Your Own Adventure</a>
                 </li>
                 <li class="">
                     
@@ -199,11 +195,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../gephi.txt/">SNA with Gephi</a>
+    <a class="" href="../gephi.txt/">Social Network Analysis with Gephi</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../graphing-the-net.txt/">Graphing the Net</a>
+    <a class="" href="../graphing-the-net.txt/">Graphing the net</a>
                 </li>
                 <li class="">
                     
@@ -219,23 +215,31 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../quick-intro-r/">Quick Intro to R</a>
+    <a class="" href="../quick-intro-r/">Quick intro to R</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../git-rstudio/">Git</a>
+    <a class="" href="../git-rstudio/">Git in RStudio</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../topicmodel-r-dhbox/">TM, DHBox</a>
+    <a class="" href="../topicmodel-r-dhbox/">Topic Modeling, DH Box</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../topicmodel-r-yourmachine/">TM, Local</a>
+    <a class="" href="../topicmodel-r-yourmachine/">Topic Modeling, Local</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../netviz/">igraph</a>
+    <a class="" href="../netviz/">Network visualization with igraph</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../gh-pages/">Github pages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../inkscape/">Inkscape</a>
                 </li>
     </ul>
       </li>
@@ -293,6 +297,9 @@
 <li>Follow the installation instructions. </li>
 <li>Start Open Refine by double clicking on its icon. This will open a new browser window, pointing to <code>http://127.0.0.1:3333</code>. This location is your own computer, so even though it looks like it’s running on the internet, it isn’t. The ‘3333’ is a ‘port’, meaning that Open Refine is running much like a server, serving up a webpage via that port to the browser. (If the browser window doesn't open automatically, open one and put <code>http://127.0.0.1:3333</code> in the address bar).</li>
 </ol>
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Y1M8zEsy9NE" title="Installing Open Refine" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br></p>
 <h2 id="start-cleaning-our-texan-correspondence">Start Cleaning our Texan Correspondence</h2>
 <p>Make sure you have your data handy that you created in exercise 1, the Texan correspondence. You can get it out of your DH Box by using the DH Box filemanager. </p>
 <ol>
@@ -311,6 +318,9 @@
 <li>Repeat step 12 for "Recipient". The resulting spreadsheet will not be perfect, but it will be much easier to clean by hand than it would have been before taking this step. </li>
 <li>Click on ‘export’ at the top right of the window to get your data back out as a .csv file.</li>
 </ol>
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/o8-e3_iKI1I" title="Cleaning our Correspondence with Open Refine" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br></p>
 <h2 id="now-what">Now what?</h2>
 <p>The text you've just cleaned could now be loaded into something like <a href="http://palladio.designhumanities.org/">Palladio</a> or <a href="http://gephi.org">Gephi</a> or <a href="https://databasic.io/en/connectthedots/">Connect the Dots</a> for network analysis! However, every network analysis program has its own idiosyncracies. Gephi and Connect the Dots, for instance, can import lists of relationships if the CSV file has columns labelled 'source' and 'target' (Connect the Dots will <em>only</em> accept those two columns, so you'd have to delete the date column if you wanted to give that a try). So let's assume that's where we want to visualize &amp; analyze this data:</p>
 <p>In order to get this correspondence data into a network visualization tool, we will have to rename the "Sender" column to "source" and the "Recipient" column to "target". You could do this in a spreadsheet, of course. But since you have Open Refine running: </p>
@@ -323,7 +333,10 @@
 <li>Go ahead and drop this file into the Palladio interface. Do you see any interesting patterns? Make a note!</li>
 <li>Upload your cleaned file with a new name back <strong>into</strong> your DH Box; we will use this in the next module.</li>
 </ol>
-<p><strong>Remember to copy your notes and any other information/observations/thoughts to your Github repo</strong></p>
+<p><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QdJYiUODFE8" title="Preparing our file for export" frameborder="0" gesture="media" allowfullscreen></iframe>
+<br></p>
+<p><strong>Remember to copy your notes and any other information/observations/thoughts to your GitHub repo</strong></p>
 <h3 id="optional-going-further-with-open-refine-named-entity-extraction">Optional: Going further with Open Refine: Named Entity Extraction</h3>
 <p>Say we wanted, instead of the correspondence network, a visualization of all the places named in this body of letters. It might be interesting to visualize on a map the changing focus of Texas' diplomatic attention over time. There is a plugin for Open Refine that does what is called <a href="http://en.wikipedia.org/wiki/Named-entity_recognition">Named Entity Extraction</a>. The plugin, and how to install &amp; use it, is available on the <a href="http://freeyourmetadata.org/named-entity-extraction/">Free your metadata website</a>.</p>
 <ol>
@@ -340,7 +353,7 @@
 <p><a href="https://voyant-tools.org/">Voyant-Tools</a> is a text analysis suite that we will explore in more depth in the next module. Feel free to load your material into it and begin exploring; there's nothing you can break. </p>
 <p>One interesting tool is called 'RezoViz', which will extract entities and tie them together into a network based on appearing in the same document. </p>
 <ol>
-<li>Upload some of your Equity texts to Voyant-Tools.</li>
+<li>Upload some of your Canadian war diary texts to Voyant-Tools.</li>
 <li>In the top right, there's a 'save' icon. </li>
 <li>Select 'url for a different tool/skin'. </li>
 <li>Select 'RezoViz' from the tools list that pops up. A new URL will appear in the box. </li>
@@ -348,7 +361,9 @@
 </ol>
 <p>What kinds of questions could this answer?</p>
 <h4 id="stanford-ner">Stanford NER</h4>
-<p>1. Download <a href="http://nlp.stanford.edu/software/CRF-NER.shtml">Stanford NER</a>.</p>
+<ol>
+<li>
+<p>Download <a href="http://nlp.stanford.edu/software/CRF-NER.shtml">Stanford NER</a>.</p>
 <ul>
 <li>
 <p><a href="http://historyinthecity.blogspot.ca/2014/06/how-to-use-stanfords-ner-and-extract.html">Mac instructions for Stanford NER</a>. The link is to Michelle Moravec's instructions, for Mac.</p>
@@ -361,23 +376,28 @@
 </li>
 <li>
 <p>Changing the file names as appropriate, type the following as a single line (highlight the text with your mouse - it scrolls to the right beyond the page, and then copy it):</p>
-</li>
-</ul>
 <pre><code>java -mx500m -cp stanford-ner.jar edu.stanford.nlp.ie.crf.CRFClassifier -loadClassifier classifiers/english.all.3class.distsim.crf.ser.gz -textFile texas-letters.txt -outputFormat inlineXML &gt; “my-ner-output.txt”
 </code></pre>
-
-<ul>
-<li>The first bit, <code>java –mx500m</code> says how much memory to use. If you have 1gb of memory available, you can type <code>java –mx 1g</code> (or 2g, or 3g, etc). </li>
+</li>
+<li>
+<p>The first bit, <code>java –mx500m</code> says how much memory to use. If you have 1gb of memory available, you can type <code>java –mx 1g</code> (or 2g, or 3g, etc). </p>
+</li>
 <li>The next part of the command calls the NER programme itself. You can set which classifier to use after the <code>–loadClassifier classifiers/</code> by typing in the exact file name for the classifier you wish to use (you are telling ‘loadClassifier’ the exact path to the classifier). </li>
 <li>At <code>–textFile</code> you give it the name of your input file (on our machine, called ‘texas-letters.txt’, and then specify the outputFormat. </li>
 <li>The <code>&gt;</code> character sends the output to a new text file, here called “my-ner-output.txt”. </li>
 </ul>
-<p>2. Hit enter, and a few moments later the programme will tell you something along the lines of</p>
+</li>
+<li>
+<p>Hit enter, and a few moments later the programme will tell you something along the lines of</p>
 <p><code>CRFCLassifier tagged 375281 words in 13745 documents at 10833.43 words per second</code></p>
-<p>3. Open the text file in your text editor, and you’ll see output like this:</p>
+</li>
+<li>
+<p>Open the text file in your text editor, and you’ll see output like this:</p>
 <blockquote>
 <p>In the name of the <code>&lt;LOCATION&gt;</code>Republic of Texas<code>&lt;/LOCATION&gt;</code>, Free, Sovereign and Independent. To all whom these Presents shall come or may in any wise concern. I <code>&lt;PERSON&gt;</code>Sam Houston<code>&lt;/PERSON&gt;</code> President thereof send Greeting</p>
 </blockquote>
+</li>
+</ol>
 <p>Congratulations! You've tagged a body of letters. What next? You could organize this into XML, you could visualize, you could regex to find and extract all of your locations, or persons, or...</p>
               
             </div>
@@ -389,7 +409,7 @@
         <a href="../regex/" class="btn btn-neutral float-right" title="Regular Expressions (regex)"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../ner/" class="btn btn-neutral" title="NER"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ner/" class="btn btn-neutral" title="Stanford Named Entity Recognizer"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   

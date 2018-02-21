@@ -8,7 +8,7 @@
   
   <meta name="author" content="Shawn Graham">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>TM, DHBox - HIST3814o Crafting Digital History</title>
+  <title>Topic Modeling, DH Box - HIST3814o Crafting Digital History</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "TM, DHBox";
+    var mkdocs_page_name = "Topic Modeling, DH Box";
     var mkdocs_page_input_path = "supporting materials/topicmodel-r-dhbox.md";
     var mkdocs_page_url = "/supporting materials/topicmodel-r-dhbox/";
   </script>
@@ -133,10 +133,6 @@
                     
     <a class="" href="../../module-5/Exercises/">Exercises</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../../module-5/omeka/">Omeka</a>
-                </li>
     </ul>
       </li>
           
@@ -155,7 +151,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../ner/">NER</a>
+    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
                 </li>
                 <li class="">
                     
@@ -175,7 +171,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../cyoa.txt/">CYOA</a>
+    <a class="" href="../cyoa.txt/">Choose Your Own Adventure</a>
                 </li>
                 <li class="">
                     
@@ -183,11 +179,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../gephi.txt/">SNA with Gephi</a>
+    <a class="" href="../gephi.txt/">Social Network Analysis with Gephi</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../graphing-the-net.txt/">Graphing the Net</a>
+    <a class="" href="../graphing-the-net.txt/">Graphing the net</a>
                 </li>
                 <li class="">
                     
@@ -203,15 +199,15 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../quick-intro-r/">Quick Intro to R</a>
+    <a class="" href="../quick-intro-r/">Quick intro to R</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../git-rstudio/">Git</a>
+    <a class="" href="../git-rstudio/">Git in RStudio</a>
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">TM, DHBox</a>
+    <a class="current" href="./">Topic Modeling, DH Box</a>
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#topic-modeling-in-r-dh-box-version">Topic Modeling in R, DH Box version</a></li>
@@ -235,11 +231,19 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../topicmodel-r-yourmachine/">TM, Local</a>
+    <a class="" href="../topicmodel-r-yourmachine/">Topic Modeling, Local</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../netviz/">igraph</a>
+    <a class="" href="../netviz/">Network visualization with igraph</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../gh-pages/">Github pages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../inkscape/">Inkscape</a>
                 </li>
     </ul>
       </li>
@@ -270,7 +274,7 @@
         
       
     
-    <li>TM, DHBox</li>
+    <li>Topic Modeling, DH Box</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/shawngraham/dhworkbook/tree/gh-pages/edit/master/docs/supporting materials/topicmodel-r-dhbox.md"
@@ -285,15 +289,14 @@
             <div class="section">
               
                 <h1 id="topic-modeling-in-r-dh-box-version">Topic Modeling in R, DH Box version</h1>
-<p>In this exercise, we're going to grab the Colonial Newspaper Database from my Github page, do some exploratory visualizations, and then create a topic model whose output can then be visualized further in other platforms (including as a network in Gephi or other such packaged). At the appropriate point, I show you how to import a directory of texts rather than a single file of data, and to feed that into the script.</p>
+<p>In this exercise, we're going to grab the Colonial Newspaper Database from my GitHub page, do some exploratory visualizations, and then create a topic model whose output can then be visualized further in other platforms (including as a network in Gephi or other such packaged). At the appropriate point, I show you how to import a directory of texts rather than a single file of data, and to feed that into the script.</p>
 <p>Go to your DH Box, and click on RStudio. At the right hand side where it says 'project (none)', click and create a new project in a new empty directory. (If you want to put this directory under version control with git, so that you can push your work to your github account, please read <a href="../git-rstudio/">the RStudio instructions</a>.)</p>
 <p>In the script panel (top left; click on the green plus side and select new R script if this pane isn't open) paste the following code and then run each line by putting the cursor in the line and hitting code &gt; run lines.</p>
-<pre><code class="r">install.packages(&quot;mallet&quot;)
-library(&quot;mallet&quot;)
-install.packages(&quot;RCurl&quot;)
-library(&quot;RCurl&quot;)
+<pre><code>    install.packages("mallet")
+    library("mallet")
+    install.packages("RCurl")
+    library("RCurl")
 </code></pre>
-
 <p>In the future, now that you've installed these packages you won't have to again, so you can comment them out by placing a <code>\#</code> in front.</p>
 <h3 id="how-to-fix-rcurl-package-installation-error">How to fix RCurl Package installation error</h3>
 <p>When attempting to run <code>install.packages("RCurl")</code> you may get an error along the lines of </p>
@@ -302,17 +305,17 @@ Cannot find curl-config
 ERROR: configuration failed for package ‘RCurl’
 </code></pre>
 
-<p>To fix this, navigate to the DH Box command line and type <code>sudo apt-get install libcurl4-gnutls-dev</code>. When the installation is successful, you can now install RCurl by running the last two lines of the script:</p>
+<p>To fix this, navigate to the DH Box command line and type <code>$ sudo apt-get install libcurl4-gnutls-dev</code>. When the installation is successful, you can now install RCurl by running the last two lines of the script:</p>
 <pre><code class="r">install.packages(&quot;RCurl&quot;)
 library(&quot;RCurl&quot;)
 </code></pre>
 
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ca9WV88XUv8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ca9WV88XUv8" title="Preparing RStudio for network analysis" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <br> </p>
 <h2 id="importing-data-directly-from-the-web">Importing data directly from the web</h2>
-<p>Melodee Beals has been using TEI to markup newspaper articles, creating the Colonial Newspapers Database (which she shared on github). We then used Github Pages and an XLST stylesheet to convert that database into a table of comma-separated values, a copy of which is at https://raw.githubusercontent.com/shawngraham/exercise/gh-pages/CND.csv. We are now going to topic model the text of those newspaper articles, to see what patterns of discourse may lie within.</p>
-<p>Now we want to tell R Studio to grab our data from our github page. The thing is, R Studio can easily grab materials from websites where the url is http; but when it is https (as it is with github), things get a bit more fussy. So what we do is use a special package to grab the data, and then shove it into a variable that we can then tease apart for our analysis.</p>
+<p>Melodee Beals has been using TEI to markup newspaper articles, creating the Colonial Newspapers Database (which she shared on github). We then used GitHub Pages and an XLST stylesheet to convert that database into a table of comma-separated values, a copy of which is at https://raw.githubusercontent.com/shawngraham/exercise/gh-pages/CND.csv. We are now going to topic model the text of those newspaper articles, to see what patterns of discourse may lie within.</p>
+<p>Now we want to tell RStudio to grab our data from our github page. The thing is, RStudio can easily grab materials from websites where the url is http; but when it is https (as it is with github), things get a bit more fussy. So what we do is use a special package to grab the data, and then shove it into a variable that we can then tease apart for our analysis.</p>
 <pre><code class="r">x &lt;- getURL(&quot;https://raw.githubusercontent.com/shawngraham/exercise/gh-pages/CND.csv&quot;, .opts = list(ssl.verifypeer = FALSE))
 </code></pre>
 
@@ -342,11 +345,11 @@ barplot(years, main=&quot;Publication Year&quot;, xlab=&quot;Year&quot;, ylab=&q
 
 <p>That line above passes the article ID and the text of our newspaper articles to the Mallet routine.  The stopwords list is generic; it might need to be curated to take into account the pecularities of your data. You might want to create your own, one for each project given the particulars of your project. Note that Jockers compiled hist stoplist for his research in literary history of the 19th century. Your mileage may vary! Finally, the last bit after ‘token.regexp’ applies a regular expression against our newspaper articles, cleaning them up.</p>
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TBW-rMXPFH0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<br> </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ca9WV88XUv8" title="Importing data directly from the web" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<br></p>
 <h2 id="reading-data-from-a-directory">Reading data from a directory</h2>
-<p>This is an alternative way of ingesting documents for topic modeling. Earlier, you learned how to use wget and some other scripts to download full text documents from Canadiana.org as well as from the Provincial Archives in Quebec (the Shawville Equity). The code below loads those documents into Mallet, after which you can proceed to build a topic model. In the command line, cd into your folder that has your downloaded materials. At the command line, cd into your folder, and type $ pwd to get the full path. Copy it, go back to RStudio, and paste it into the line below between the " marks.</p>
-<pre><code class="r">documents &lt;- mallet.read.dir(&quot;/home/shawngraham/equity&quot;)
+<p>This is an alternative way of ingesting documents for topic modeling. Earlier, you learned how to use wget and some other scripts to download full text documents from Canadiana.org as well as from the Library and Archives Canada (the Canadian war diary). The code below loads those documents into Mallet, after which you can proceed to build a topic model. In the command line, cd into your folder that has your downloaded materials. At the command line, cd into your folder, and type $ pwd to get the full path. Copy it, go back to RStudio, and paste it into the line below between the " marks.</p>
+<pre><code class="r">documents &lt;- mallet.read.dir(&quot;/home/shawngraham/war-diary-text&quot;)
 
 # your path will probably look like /home/your-account-in-dhbox/your-folder-of-materials
 
@@ -355,8 +358,8 @@ mallet.instances &lt;- mallet.import(documents$id, documents$text, &quot;en.txt&
 
 <p><strong>NB Do either one or the other, but not both: read from a file, where each row contains the complete text of the document, or read from a folder where each file contains the complete text of the document.</strong></p>
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tMfa2ENjqVM" title="Reading Data from a directory" frameborder="0" gesture="media" allowfullscreen></iframe>
-<br> </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ca9WV88XUv8" title="Reading data from a directory" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<br></p>
 <h2 id="building-the-topic-model">Building the topic model</h2>
 <p>The 'correct' number of topics is going to require trial-and-error. You don't want too few, because that would hide the complexity of your data; too many, and you're starting to split hair.</p>
 <pre><code class="r">#set the number of desired topics
@@ -398,8 +401,8 @@ topic.words &lt;- mallet.topic.words(topic.model, smoothed=T, normalized=T)
 </code></pre>
 
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/IKAwSASkXjY" title="Building the topic model" frameborder="0" gesture="media" allowfullscreen></iframe>
-<br> </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ca9WV88XUv8" title="Building the topic model" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<br></p>
 <p>Congratulations! You now have a topic model. Let’s look at some of our topics. What are the top words in topic 7? Notice that R indexes from 1, so this will be the topic that mallet called topic 6:</p>
 <pre><code class="r">mallet.top.words(topic.model, topic.words[7,])
 </code></pre>
@@ -421,8 +424,8 @@ write.csv(topics.labels, &quot;topics-labels.csv&quot;)
 
 <p>Some interesting patterns suggest themselves already! But a list of words doesn’t capture the relative importance of particular words in particular topics. A word might appear in more than one topic, for instance, but really dominate one rather than the other. When you examine the csv files, you'll notice that each document is given a series of percentages; these add up to 1, and are indicating the percentage which the different topics contribute to the overall composition of that document. Look for the largest numbers to get a sense of what's going on. We could ask R to cluster similarly composed documents together though...</p>
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MaN3b3rSkxQ" title="Training topics with MALLET" frameborder="0" gesture="media" allowfullscreen></iframe>
-<br> </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ca9WV88XUv8" title="Training topics with MALLET" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<br></p>
 <h2 id="a-simple-histogram">A simple histogram</h2>
 <pre><code>plot(hclust(dist(topic.words)), labels=topics.labels)
 </code></pre>
@@ -432,8 +435,8 @@ write.csv(topics.labels, &quot;topics-labels.csv&quot;)
 </code></pre>
 
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TShK40wQ5GY" title="Creating a simple histogram" frameborder="0" gesture="media" allowfullscreen></iframe>
-<br> </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ca9WV88XUv8" title="Creating a simple histogram" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<br></p>
 <p>Now, if we want to get really fancy, we can make a network visualization of how topics interlink due to their distribution in documents. The next bit of code does that, and saves in .graphml format, which packages like Gephi http://gephi.org can read.</p>
 <pre><code class="r">topic_docs &lt;- data.frame(topic.docs)
 names(topic_docs) &lt;- documents$article_id
@@ -448,7 +451,7 @@ topic_df_dist[ sweep(topic_df_dist, 1, (apply(topic_df_dist,1,min) + apply(topic
 </code></pre>
 
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/RQdKc6FEqjY" title="Clustering your data" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ca9WV88XUv8" title="Clustering your data" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <br></p>
 <pre><code class="r">install.packages(&quot;igraph&quot;)
 # the line above would normally install igraph. However, the latest version is not compatible
@@ -477,7 +480,7 @@ plot(g, layout=layout1, edge.curved = TRUE, vertex.size = 1, vertex.color= &quot
 </code></pre>
 
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/BL9tlD9T3OU" title="Graphing your data" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ca9WV88XUv8" title="Graphing your data" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <br></p>
 <p>There are many ways of visualizing and transforming our data. This document only captures a small fraction of the kinds of things you could do. Another good exploration is at <a href="http://www.matthewjockers.net/macroanalysisbook/expanded-stopwords-list/">Matthew Jockers' website</a> or the <a href="http://www.ranks.nl/stopwords/">global stopwords lists</a>. <a href="https://github.com/benmarwick/dayofarchaeology">Ben Marwick does really fun things with the Day of Archaeology blog posts</a> and indeed, some of the code above comes from Marwick’s explorations. Keep your R scripts in your open notebook, and somebody might come along and use them, cite them, improve them, share them! Keep also all your data. Visit <a href="https://github.com/shawngraham/ferguson">my own work for an example</a>.</p>
               
@@ -487,10 +490,10 @@ plot(g, layout=layout1, edge.curved = TRUE, vertex.size = 1, vertex.color= &quot
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../topicmodel-r-yourmachine/" class="btn btn-neutral float-right" title="TM, Local"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../topicmodel-r-yourmachine/" class="btn btn-neutral float-right" title="Topic Modeling, Local"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../git-rstudio/" class="btn btn-neutral" title="Git"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../git-rstudio/" class="btn btn-neutral" title="Git in RStudio"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   

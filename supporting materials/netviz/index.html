@@ -8,7 +8,7 @@
   
   <meta name="author" content="Shawn Graham">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>igraph - HIST3814o Crafting Digital History</title>
+  <title>Network visualization with igraph - HIST3814o Crafting Digital History</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "igraph";
+    var mkdocs_page_name = "Network visualization with igraph";
     var mkdocs_page_input_path = "supporting materials/netviz.md";
     var mkdocs_page_url = "/supporting materials/netviz/";
   </script>
@@ -133,10 +133,6 @@
                     
     <a class="" href="../../module-5/Exercises/">Exercises</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../../module-5/omeka/">Omeka</a>
-                </li>
     </ul>
       </li>
           
@@ -155,7 +151,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../ner/">NER</a>
+    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
                 </li>
                 <li class="">
                     
@@ -175,7 +171,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../cyoa.txt/">CYOA</a>
+    <a class="" href="../cyoa.txt/">Choose Your Own Adventure</a>
                 </li>
                 <li class="">
                     
@@ -183,11 +179,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../gephi.txt/">SNA with Gephi</a>
+    <a class="" href="../gephi.txt/">Social Network Analysis with Gephi</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../graphing-the-net.txt/">Graphing the Net</a>
+    <a class="" href="../graphing-the-net.txt/">Graphing the net</a>
                 </li>
                 <li class="">
                     
@@ -203,23 +199,23 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../quick-intro-r/">Quick Intro to R</a>
+    <a class="" href="../quick-intro-r/">Quick intro to R</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../git-rstudio/">Git</a>
+    <a class="" href="../git-rstudio/">Git in RStudio</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../topicmodel-r-dhbox/">TM, DHBox</a>
+    <a class="" href="../topicmodel-r-dhbox/">Topic Modeling, DH Box</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../topicmodel-r-yourmachine/">TM, Local</a>
+    <a class="" href="../topicmodel-r-yourmachine/">Topic Modeling, Local</a>
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">igraph</a>
+    <a class="current" href="./">Network visualization with igraph</a>
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#using-igraph-to-visualize-network-data">Using igraph to visualize network data</a></li>
@@ -236,6 +232,14 @@
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../gh-pages/">Github pages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../inkscape/">Inkscape</a>
                 </li>
     </ul>
       </li>
@@ -266,7 +270,7 @@
         
       
     
-    <li>igraph</li>
+    <li>Network visualization with igraph</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/shawngraham/dhworkbook/tree/gh-pages/edit/master/docs/supporting materials/netviz.md"
@@ -288,9 +292,9 @@
 <li><a href="../../supporting materials/texasnodes.csv">List of nodes(this downloads a CSV file)</a></li>
 </ul>
 <p>This tutorial will illustrate to you some of the ways the <code>igraph</code> package can be used to create quick visualizations or to generate network statistics. These of course on their own mean very little: this is where your historical sensibility comes into play, triangulating this generated data with other things you know about the historical context of the time, place and players!</p>
-<p>Remember to make a new project in R Studio by clicking the down arrow on the R button at the right hand side of the R Studio interface; start the project in a new folder. Then using the DH Box filemanager, upload the nodes and links data from your computer to that folder you just created.</p>
+<p>Remember to make a new project in RStudio by clicking the down arrow on the R button at the right hand side of the RStudio interface; start the project in a new folder. Then using the DH Box filemanager, upload the nodes and links data from your computer to that folder you just created.</p>
 <h2 id="installing-igraph">Installing igraph</h2>
-<p>Once that's accomplished, go back into R Studio and start a new script:</p>
+<p>Once that's accomplished, go back into RStudio and start a new script:</p>
 <pre><code class="R"># install igraph; this might take a long time
 # you only run this line the first time you install igraph:
 install.packages('igraph')
@@ -302,53 +306,55 @@ library('igraph')
 </code></pre>
 
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vRg71uHhEA0" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bidOaQiQU-4" title="Preparing your data for RStudio" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
 <h2 id="getting-the-data-into-your-project">Getting the data into your project</h2>
 <p>For future reference, we're adapting our script from a more in-depth <a href="http://kateto.net/networks-r-igraph">tutorial of R igraph</a>.</p>
-<p>1. Bringing data into R is straightforward. We create a variable 'nodes' and a variable for 'links' and load the data from our csv files into them:</p>
-<pre><code class="R"># now let's load up the data by putting the csv files into nodes and links.
-nodes &lt;- read.csv(&quot;texasnodes.csv&quot;, header=T, as.is=T)
-links &lt;- read.csv(&quot;texaslinks.csv&quot;, header=T, as.is=T)
+<ol>
+<li>
+<p>Bringing data into R is straightforward. We create a variable 'nodes' and a variable for 'links' and load the data from our csv files into them:</p>
+<pre><code># now let's load up the data by putting the csv files into nodes and links.
+nodes &lt;- read.csv("texasnodes.csv", header=T, as.is=T)
+links &lt;- read.csv("texaslinks.csv", header=T, as.is=T)
 </code></pre>
-
-<p>2. We can examine the start or end of a variable with the head or tail command; these look at the first few lines at the start ('head') or end ('tail') of the variable, eg:</p>
-<pre><code class="R">#examine data
+</li>
+<li>
+<p>We can examine the start or end of a variable with the head or tail command; these look at the first few lines at the start ('head') or end ('tail') of the variable, eg:</p>
+<pre><code>#examine data
 head(nodes)
-
 head(links)
 
 nrow(nodes); length(unique(nodes$id))
 # which gives the number of nodes in our data
 
-nrow(links); nrow(unique(links[,c(&quot;source&quot;, &quot;target&quot;)]))
+nrow(links); nrow(unique(links[,c("source", "target")]))
 # which gives the number of sources, and number of targets
 # which means some people sent more than one letter, and some people received more than one letter
 </code></pre>
-
-<p>3. Let's rearrange things so that instead of this:</p>
+</li>
+<li>
+<p>Let's rearrange things so that instead of this:</p>
 <pre><code>Alice -&gt; Bob, 1 letter
 Alice -&gt; Bob, 1 letter
 Alice -&gt; Bob, 1 letter
 </code></pre>
-
 <p>we have this:</p>
 <pre><code>Alice -&gt; Bob, 3 letters
 </code></pre>
-
 <p>That is, we're going to count up the number of times a particular relationship exists, and assign that count to the weight column. Much tidier all around! </p>
-<p>4. We do that like this:</p>
-<pre><code class="R">links &lt;- aggregate(links[,3], links[,-3], sum)
+</li>
+<li>
+<p>We do that like this:</p>
+<pre><code>links &lt;- aggregate(links[,3], links[,-3], sum)
 
-links &lt;- links[order(links$from, links$to),]
+links &lt;- links[order(links$target, links$source),]
 
-colnames(links)[3] &lt;- &quot;weight&quot;
+colnames(links)[3] &lt;- "weight"
 
 rownames(links) &lt;- NULL
 
 head(links)
 </code></pre>
-
 <p>You should see this:</p>
 <pre><code>&gt; head(links)
            source            target weight
@@ -358,17 +364,17 @@ head(links)
 4  James Hamilton Abner S. Lipscomb     14
 5     James Treat Abner S. Lipscomb     11
 6 Nathaniel Amory Abner S. Lipscomb      1
-
 </code></pre>
-
-<p>5. Now, let's tell R to stitch our links together into a network object (a data frame) that it can visualize and analyze:</p>
-<pre><code class="R"># let's make a net
+</li>
+<li>
+<p>Now, let's tell R to stitch our links together into a network object (a data frame) that it can visualize and analyze:</p>
+<pre><code># let's make a net
 # notice that we are telling igraph that the network is directed, that the relationship Alice to Bob is different than Bob's to Alice (Alice is the _sender_, and Bob is the _receiver_)
 
-# In older DH Box version of igraph in R Studio: 
+# In older DH Box version of igraph in RStudio: 
 net &lt;- graph.data.frame(d=links, vertices=nodes, directed=T)
 
-# OR Newer version of igraph in desktop R Studio:
+# OR Newer version of igraph in desktop RStudio:
 net &lt;- graph_from_data_frame(d=links, vertices=nodes, directed=T)
 
 # type 'net' again and run the line to see how the network is represented.
@@ -378,99 +384,90 @@ net
 plot(net, edge.arrow.size=.4,vertex.label=NA)
 
 # two quite distinct groupings, it would appear.
-
 </code></pre>
-
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LOky3-Rycms" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bidOaQiQU-4" title="Getting data into your project" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
 <p>Before we jump down the rabbit hole of visualization, let's recognize right now that <strong>visualizing</strong> a network is only rarely of analytical value. The value of network analysis comes from the various questions we can now start posing of our data when it is represented as a network. In this correspondence network, who is in the centre of the web? To whom would information flow? To whom would information leak? Are there cliques or ingroups? When we identify such individuals, how does that confirm or confound our expectations of the period and place?</p>
 <p>Many different kinds of metrics can be calculated (and <a href="http://kateto.net/networks-r-igraph">the Kateto R igraph tutorial will show you how</a>) but it's always worth remembering that a metric is only meaningful for a given network when we're dealing with like things - a network of people who write letters to one another; a network of banks that swap mortgages with one another. These are called 'one mode networks'. A network of people connected to the banks they use - a two mode network, because it connects two different kinds of things - might be useful to <strong>visualize</strong> but the metrics calculated might not be <strong>valid</strong> if the metric was designed to work on a one-mode network (for more on this and allied issues, visit <a href="http://www.scottbot.net/HIAL/index.html@p=6279.html">Scott Weingart's website</a>).</p>
-<p>6. Given our correspondence network, let's imagine that 'closeness' (a measure of how central a person is) and 'betweenness' (a measure of how many different strands of the network pass through this person) are the most historically interesting. Further, we're going to try to determine if there are subgroups in our network, cliques.</p>
-<pre><code class="R">## the 'degree' of a node is the count of its connections. In this code chunk, we calculate degree, then make both a histogram of the counts and a plot of the network where we size the nodes proportionately to their degree. What do we learn from these two visualizations?
-deg &lt;- degree(net, mode=&quot;all&quot;)
-hist(deg, breaks=1:vcount(net)-1, main=&quot;Histogram of node degree&quot;)
+</li>
+<li>
+<p>Given our correspondence network, let's imagine that 'closeness' (a measure of how central a person is) and 'betweenness' (a measure of how many different strands of the network pass through this person) are the most historically interesting. Further, we're going to try to determine if there are subgroups in our network, cliques.</p>
+<pre><code>## the 'degree' of a node is the count of its connections. In this code chunk, we calculate degree, then make both a histogram of the counts and a plot of the network where we size the nodes proportionately to their degree. What do we learn from these two visualizations?
+deg &lt;- degree(net, mode="all")
+hist(deg, breaks=1:vcount(net)-1, main="Histogram of node degree")
 plot(net, vertex.size=deg*2, vertex.label = NA)
 ## write this info to file for safekeeping
 write.csv(deg, 'degree.csv')
 </code></pre>
-
-<p>7. Now we'll look at closeness. If you know the width or <strong>diameter</strong> of your network (the maximum number of steps to get across it), then the node that is on average the shortest number of steps from all the others is the one that is most close. We calculate it like this:</p>
-<pre><code class="R">closepeople &lt;- closeness(net, mode=&quot;all&quot;, weights=NA)
+</li>
+<li>
+<p>Now we'll look at closeness. If you know the width or <strong>diameter</strong> of your network (the maximum number of steps to get across it), then the node that is on average the shortest number of steps from all the others is the one that is most close. We calculate it like this:</p>
+<pre><code>closepeople &lt;- closeness(net, mode="all", weights=NA)
 sort(closepeople, decreasing = T) # so that we see who is most close first
 write.csv(closepeople, 'closeness.csv') # so we have it on file.
-
 </code></pre>
-
-<p>8. We can ask which individuals are hubs, and which are authorities. In the lingo, 'hubs' are individuals with many outgoing links (they <strong>sent</strong> lots of letters) while 'authorities' are individuals who <strong>received</strong> lots of letters. In the code below,</p>
-<pre><code># In older DH Box version of igraph in R Studio: 
+</li>
+<li>
+<p>We can ask which individuals are hubs, and which are authorities. In the lingo, 'hubs' are individuals with many outgoing links (they <strong>sent</strong> lots of letters) while 'authorities' are individuals who <strong>received</strong> lots of letters. In the code below,</p>
+<pre><code># In older DH Box version of igraph in RStudio: 
 hs &lt;- hub.score(net, weights=NA)$vector
 as &lt;- authority.score(net, weights=NA)$vector
 
-# OR Newer version of igraph in desktop R Studio:
+# OR Newer version of igraph in desktop RStudio:
 hs &lt;- hub_score(net, weights=NA)$vector
 as &lt;- authority_score(net, weights=NA)$vector
 
 par(mfrow=c(1,2))
 
 # vertex.label.cex sets the size of the label; play with the sizes until you see something appealing.
-plot(net, vertex.size=hs*40, vertex.label.cex =.2, edge.arrow.size=.1, main=&quot;Hubs&quot;)
-plot(net, vertex.size=as*20, vertex.label = NA, edge.arrow.size=.1, main=&quot;Authorities&quot;)
+plot(net, vertex.size=hs*40, vertex.label.cex =.2, edge.arrow.size=.1, main="Hubs")
+plot(net, vertex.size=as*20, vertex.label = NA, edge.arrow.size=.1, main="Authorities")
 </code></pre>
-
 <p>Can you work out what command to give to write the hub score or the authority scores to a file?</p>
-<p>9. Let's look for 'modules' within this network. Broadly speaking, these are clumps of nodes that have more or less the same pattern of ties between them, <strong>within</strong> the group, than without.</p>
-<pre><code class="R"># In older DH Box version of igraph in R Studio: 
+</li>
+<li>
+<p>Let's look for 'modules' within this network. Broadly speaking, these are clumps of nodes that have more or less the same pattern of ties between them, <strong>within</strong> the group, than without.</p>
+<pre><code># In older DH Box version of igraph in RStudio: 
 cfg &lt;- fastgreedy.community(as.undirected(net))
 
-# OR Newer version of igraph in desktop R Studio:
+# OR Newer version of igraph in desktop RStudio:
 cfg &lt;- cluster_fast_greedy(as.undirected(net))
 
 lapply(cfg, function(x) write.table( data.frame(x), 'cfg.csv'  , append= T, sep=',' ))
 </code></pre>
-
 <p>We create a new variable called 'cfg' and get the 'cluster_fast_greedy' algorithm to perform its calculations. The next line writes the groups to a file, separating each group with an x. (If you tried 'write.csv' as before, you'll get an error message because the output of the algorithm gives a different kind of data type. R is fussy like this.) Examine that file - what groups do you spot? What might these mean, if you went back to the content of the original letters?</p>
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ek1QvOoN6q8" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bidOaQiQU-4" title="Measuring closeness in our network" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
+</li>
+</ol>
 <h2 id="visualization">Visualization</h2>
-<p>1. The line below will plot out our network, colouring it by the communities discerned above:</p>
-<pre><code>plot(cfg, net, vertex.size = 1, vertex.label.cex =.2, edge.arrow.size=.1, main=&quot;Communities&quot;)
+<ol>
+<li>
+<p>The line below will plot out our network, colouring it by the communities discerned above:</p>
+<pre><code>plot(cfg, net, vertex.size = 1, vertex.label.cex =.2, edge.arrow.size=.1, main="Communities")
 </code></pre>
-
-<p>2. You can export the plot by clicking on the 'export' button in the plot panel, to pdf or to png. But this is a pretty ugly network. We need to apply a <strong>layout</strong> to try to make it more visually understandable. There are many different layout options in igraph. We'll assign the layout we want to a variable, and then we'll give that variable to the plot command:</p>
-<pre><code># In older DH Box version of igraph in R Studio:
+</li>
+<li>
+<p>You can export the plot by clicking on the 'export' button in the plot panel, to pdf or to png. But this is a pretty ugly network. We need to apply a <strong>layout</strong> to try to make it more visually understandable. There are many different layout options in igraph. We'll assign the layout we want to a variable, and then we'll give that variable to the plot command:</p>
+<pre><code># In older DH Box version of igraph in RStudio:
 l1 &lt;- layout.fruchterman.reingold(net)
 
-# OR Newer version of igraph in desktop R Studio:
+# OR Newer version of igraph in desktop RStudio:
 l1 &lt;- layout_with_fr(net)
 
-plot(cfg, net, layout=l1, vertex.size = 1, vertex.label.cex =.2, edge.arrow.size=.1, main=&quot;Communities&quot;)
+plot(cfg, net, layout=l1, vertex.size = 1, vertex.label.cex =.2, edge.arrow.size=.1, main="Communities")
 </code></pre>
-
 <p>The 'layout_with_fr' is calling the 'Fruchterman-Reingold' algorithm, a kind of layout that imagines each node as a repulsive power, pushing against all the other nodes (it's part of a family of layouts called 'Forced Atlast'). That also means that if you ran the plot command a couple of times, the nodes might end up in different places each time - they are jostling for relative position, and this positioning itself carries no meaning in and of itself (so if a node is at the top of the screen, or the centre of the screen, don't read that to mean anything about importance).</p>
-<p>3. We'll finish with a piece of code that will draw thumbnails of your network using every possible layout in the package. This will give you a sense of which layouts might best suit the historical story you wish to tell.</p>
-<pre><code>layouts &lt;- grep(&quot;^layout_&quot;, ls(&quot;package:igraph&quot;), value=TRUE)[-1]
-
-# Remove layouts that do not apply to our graph.
-
-layouts &lt;- layouts[!grepl(&quot;bipartite|merge|norm|sugiyama|tree&quot;, layouts)]
-
-par(mfrow=c(3,3), mar=c(1,1,1,1))
-
-for (layout in layouts) {
-
-  print(layout)
-  V(net)$label &lt;- NA
-  l &lt;- do.call(layout, list(net))
-
-  plot(net, edge.arrow.mode=0, layout=l, main=layout) }
-</code></pre>
-
-<p>4. Good luck! Remember to save your script, and upload the entire project folder to your github repository.</p>
+</li>
+<li>
+<p>Good luck! Remember to save your script, and upload the entire project folder to your github repository.</p>
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lqGBYzNJCu0" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bidOaQiQU-4" title="Visualizing our network" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
+</li>
+</ol>
               
             </div>
           </div>
@@ -478,8 +475,10 @@ for (layout in layouts) {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../gh-pages/" class="btn btn-neutral float-right" title="Github pages"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../topicmodel-r-yourmachine/" class="btn btn-neutral" title="TM, Local"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../topicmodel-r-yourmachine/" class="btn btn-neutral" title="Topic Modeling, Local"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -519,6 +518,8 @@ The Crafting Digital History site is built with <a href="http://www.mkdocs.org">
       
         <span><a href="../topicmodel-r-yourmachine/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../gh-pages/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

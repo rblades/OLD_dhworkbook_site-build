@@ -8,7 +8,7 @@
   
   <meta name="author" content="Shawn Graham">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Quick Intro to R - HIST3814o Crafting Digital History</title>
+  <title>Quick intro to R - HIST3814o Crafting Digital History</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Quick Intro to R";
+    var mkdocs_page_name = "Quick intro to R";
     var mkdocs_page_input_path = "supporting materials/quick-intro-r.md";
     var mkdocs_page_url = "/supporting materials/quick-intro-r/";
   </script>
@@ -133,10 +133,6 @@
                     
     <a class="" href="../../module-5/Exercises/">Exercises</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../../module-5/omeka/">Omeka</a>
-                </li>
     </ul>
       </li>
           
@@ -155,7 +151,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../ner/">NER</a>
+    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
                 </li>
                 <li class="">
                     
@@ -175,7 +171,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../cyoa.txt/">CYOA</a>
+    <a class="" href="../cyoa.txt/">Choose Your Own Adventure</a>
                 </li>
                 <li class="">
                     
@@ -183,11 +179,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../gephi.txt/">SNA with Gephi</a>
+    <a class="" href="../gephi.txt/">Social Network Analysis with Gephi</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../graphing-the-net.txt/">Graphing the Net</a>
+    <a class="" href="../graphing-the-net.txt/">Graphing the net</a>
                 </li>
                 <li class="">
                     
@@ -203,7 +199,7 @@
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Quick Intro to R</a>
+    <a class="current" href="./">Quick intro to R</a>
     <ul class="subnav">
             
     <li class="toctree-l3"><a href="#a-quick-introduction-to-r-and-rstudio">A quick introduction to R and RStudio</a></li>
@@ -213,19 +209,27 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../git-rstudio/">Git</a>
+    <a class="" href="../git-rstudio/">Git in RStudio</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../topicmodel-r-dhbox/">TM, DHBox</a>
+    <a class="" href="../topicmodel-r-dhbox/">Topic Modeling, DH Box</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../topicmodel-r-yourmachine/">TM, Local</a>
+    <a class="" href="../topicmodel-r-yourmachine/">Topic Modeling, Local</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../netviz/">igraph</a>
+    <a class="" href="../netviz/">Network visualization with igraph</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../gh-pages/">Github pages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../inkscape/">Inkscape</a>
                 </li>
     </ul>
       </li>
@@ -256,7 +260,7 @@
         
       
     
-    <li>Quick Intro to R</li>
+    <li>Quick intro to R</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/shawngraham/dhworkbook/tree/gh-pages/edit/master/docs/supporting materials/quick-intro-r.md"
@@ -276,14 +280,26 @@
 <p>R allows us to do scripted analyses. We write out the sequence of transformations or analyses to be done, making a kind of program that we can then feed our data into. Once we have a workflow that does what we need it to do, it becomes trivial to re-use the code on other datasets. What's more, when we do an analysis, we can publish the scripts and the data. We don't have to taken an author's word for it: we can re-run the analysis ourselves or build upon it.</p>
 <p>This course only touches in the lightest manner on the potential for R for doing digital history. Please see Lincoln Mullen's <a href="http://dh-r.lincolnmullen.com/">Computational Historical Thinking with Applications in R</a> for more instruction.</p>
 <p>For now, we'll do a quick whistle-stop tour of using RStudio to do some analysis in R.</p>
-<p><img alt="Screenshot of R Studio in DH Box. Click the green plus sign to start a new script" src="https://i.imgur.com/4Egckof.png" /></p>
+<p><img alt="Screenshot of RStudio in DH Box. Click the green plus sign to start a new script" src="https://i.imgur.com/4Egckof.png" /></p>
 <p>You should always keep your research materials (scripts and associated data) organized in separate project folders. RStudio makes this easy for you. </p>
-<p>1. When you open RStudio to start a new project, click where it says 'project (none)' at the right hand side of the interface.</p>
-<p>2. Click on the down arrow, and select new R project. </p>
-<p>3. Follow the prompts, and create it in a new directory. R keeps track of what you're up to in a project file, so that you can pick up where you left off. <a href="../git-rstudio/">You should also keep your code under version control as well</a> so that you can recover from disaster and/or share your code/data with collaborators; click on that link to get version control set up.</p>
-<p>4. Sometimes, it might happen that RStudio crashes (this can be, in DH Box, related to memory issues). If that happens - if it just seems to 'hang' (and you've waited several minutes), you can refresh your browser, and go back to DH Box. You'll probably have to re-open your project file. </p>
-<p>5. Use the file panel at bottom right to find your *.rproj file (your R project file) and click on it to re-open. </p>
-<p>6. Save your work often, from the File &gt; Save menu.</p>
+<ol>
+<li>
+<p>When you open RStudio to start a new project, click where it says 'project (none)' at the right hand side of the interface.</p>
+</li>
+<li>
+<p>Click on the down arrow, and select new R project. </p>
+</li>
+<li>
+<p>Follow the prompts, and create it in a new directory. R keeps track of what you're up to in a project file, so that you can pick up where you left off. <a href="../git-rstudio/">You should also keep your code under version control as well</a> so that you can recover from disaster and/or share your code/data with collaborators; click on that link to get version control set up.</p>
+</li>
+<li>
+<p>Sometimes, it might happen that RStudio crashes (this can be, in DH Box, related to memory issues). If that happens - if it just seems to 'hang' (and you've waited several minutes), you can refresh your browser, and go back to DH Box. You'll probably have to re-open your project file. </p>
+</li>
+<li>
+<p>Use the file panel at bottom right to find your *.rproj file (your R project file) and click on it to re-open. </p>
+</li>
+<li>
+<p>Save your work often, from the File &gt; Save menu.</p>
 <p>RStudio divides the screen up into four neat panes. </p>
 <ul>
 <li>The top left is for writing your analytical script (or code; I will use the two words interchangeably)</li>
@@ -291,12 +307,26 @@
 <li>The top right is an environment pane which will show you the variables you've created, your history (commands you've run), and (once it's configured) git; indeed, other tools and plugins will appear as tabs here.</li>
 <li>The bottom right gives you a preview of any plots or charts you create; once you create one if you click 'zoom' the chart will open in its own pop up so that you can see it better. The file explorer and the help text also appear under tabs in this box.</li>
 </ul>
-<p>7. You write your script in the script box, and then you can get RStudio to run the code one line at a time by clicking on code &gt;&gt; run line (it runs the line of code where you left the cursor). If you select a number of lines of code and hit run line, all of that code will run. R scripts are text files that use .r as their file extension.</p>
-<p>8. The console is where the action happens. Click down in the console. </p>
-<p>9. Type <code>3 + 5</code> and hit enter. RStudio will run the calculation: <code>[1] 8</code>! The [1] indicates that this is the first result. </p>
-<p>10. Now type <code>a = 3</code> and hit enter. Over in the top right, the 'environment' pane updates to tell us that yes, a has a value of 3. </p>
-<p>11. Now type <code>b = 5</code>. The environment updates accordingly. </p>
-<p>12. Now type <code>a + b</code>. Hey, we can do algebra! Anything you can do in excel, we can do in code here in RStudio. </p>
+</li>
+<li>
+<p>You write your script in the script box, and then you can get RStudio to run the code one line at a time by clicking on code &gt;&gt; run line (it runs the line of code where you left the cursor). If you select a number of lines of code and hit run line, all of that code will run. R scripts are text files that use .r as their file extension.</p>
+</li>
+<li>
+<p>The console is where the action happens. Click down in the console. </p>
+</li>
+<li>
+<p>Type <code>3 + 5</code> and hit enter. RStudio will run the calculation: <code>[1] 8</code>! The [1] indicates that this is the first result. </p>
+</li>
+<li>
+<p>Now type <code>a = 3</code> and hit enter. Over in the top right, the 'environment' pane updates to tell us that yes, a has a value of 3. </p>
+</li>
+<li>
+<p>Now type <code>b = 5</code>. The environment updates accordingly. </p>
+</li>
+<li>
+<p>Now type <code>a + b</code>. Hey, we can do algebra! Anything you can do in excel, we can do in code here in RStudio. </p>
+</li>
+</ol>
 <p>A very good introduction to how R (the language) works is at <a href="http://tryr.codeschool.com/">Try R on codeschool</a>, an interactive tutorial in your browser. Go give some of that a shot.</p>
               
             </div>
@@ -305,7 +335,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../git-rstudio/" class="btn btn-neutral float-right" title="Git"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../git-rstudio/" class="btn btn-neutral float-right" title="Git in RStudio"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../glitch/" class="btn btn-neutral" title="Glitch"><span class="icon icon-circle-arrow-left"></span> Previous</a>
