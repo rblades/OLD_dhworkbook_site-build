@@ -147,11 +147,19 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../tei/">Text Encoding</a>
+    <a class="" href="../tei/">Text Encoding Initiative</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
+    <a class="" href="../git-rstudio/">Git in RStudio</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../regex/">Introduction to Regular Expressions (regex)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../regexex/">Regex & the Republic of Texas</a>
                 </li>
                 <li class="">
                     
@@ -159,7 +167,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../regex/">Regular Expressions (regex)</a>
+    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
                 </li>
                 <li class="">
                     
@@ -167,7 +175,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../regexex/">Regex & the Republic of Texas</a>
+    <a class="" href="../quick-intro-r/">Quick intro to R</a>
                 </li>
                 <li class="">
                     
@@ -179,11 +187,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../gephi.txt/">Social Network Analysis with Gephi</a>
+    <a class="" href="../glitch/">Glitch</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../graphing-the-net.txt/">Graphing the net</a>
+    <a class="" href="../gephi.txt/">Social Network Analysis with Gephi</a>
                 </li>
                 <li class=" current">
                     
@@ -213,19 +221,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../leaflet.txt/">Leaflet</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../glitch/">Glitch</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../quick-intro-r/">Quick intro to R</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../git-rstudio/">Git in RStudio</a>
+    <a class="" href="../graphing-the-net.txt/">Graphing the Net</a>
                 </li>
                 <li class="">
                     
@@ -241,11 +237,15 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../gh-pages/">Github pages</a>
+    <a class="" href="../inkscape/">Inkscape</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../inkscape/">Inkscape</a>
+    <a class="" href="../gh-pages/">GitHub Pages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../leaflet.txt/">Leaflet</a>
                 </li>
     </ul>
       </li>
@@ -291,7 +291,7 @@
             <div class="section">
               
                 <h1 id="transforming-2-mode-network-data-to-1-mode">Transforming 2-mode network data to 1-mode</h1>
-<p>Networks can be composed of all sorts of things. Trains, busses, Uber, metro - all of these can be combined into a 'transportation' network. Books, authors, editors, funders, censors, sponsors - a publishing network. Students, profs, classes, universities - an education network. Anytime you have more than one kind of <strong>thing</strong> (however defined) in your network, you formally have a bipartite (or tripartite, and so on, depending on the number of things) network. Visualizing such a network as nodes and edges can be a useful heuristic exercise. </p>
+<p>Networks can be composed of all sorts of things. Trains, busses, Uber, metro &mdash; all of these can be combined into a 'transportation' network. Books, authors, editors, funders, censors, sponsors &mdash; a publishing network. Students, profs, classes, universities &mdash; an education network. Anytime you have more than one kind of <strong>thing</strong> (however defined) in your network, you formally have a bipartite (or tripartite, and so on, depending on the number of things) network. Visualizing such a network as nodes and edges can be a useful heuristic exercise. </p>
 <p><strong>But</strong></p>
 <p>If you are doing this in Gephi, and you run some of Gephi's metrics (statistics) on a bipartite network, your results may not mean what you think they mean. The metrics, the algorithms assume 1-mode networks. Thus, running them on 2-mode (or more!) networks will result in ....issues.</p>
 <p><img alt="Image of Princess Bride meme on Betweeness Centrality" src="http://i.imgur.com/OlcOnrp.jpg" /></p>
@@ -315,7 +315,7 @@ ProbB -&gt; student1 <br></p>
 <p>Open Gephi. Across the top of Gephi in the menu ribbon you’ll see <strong>File Workspace View Tools Window Plugins Help</strong>. </p>
 </li>
 <li>
-<p>To get and install the plugin, select <strong>Tools &gt;&gt; Plugins</strong> (The top level menu item 'Plugins' is empty and not used - a useful reminder that Gephi is still in <strong>beta</strong>).</p>
+<p>To get and install the plugin, select <strong>Tools &gt;&gt; Plugins</strong> (The top level menu item 'Plugins' is empty and not used &mdash; a useful reminder that Gephi is still in <strong>beta</strong>).</p>
 </li>
 <li>
 <p>In the popup, under ‘available plugins’ look for ‘MultimodeNetworksTransformation’. Tick this box, then click on Install.</p>
@@ -331,7 +331,7 @@ ProbB -&gt; student1 <br></p>
 <p>Under ‘file’, select -&gt; New project.</p>
 </li>
 <li>
-<p>On the data  laboratory tab, select Import-spreadsheet, and in the pop-up, make sure to select under ‘as table: EDGES table. Select women-orgs.csv.</p>
+<p>On the data  laboratory tab, select Import-spreadsheet, and in the pop-up, make sure to select under ‘as table: EDGES table. Select <code>women-orgs.csv</code>.</p>
 </li>
 <li>
 <p>Click ‘next’, click finish.</p>
@@ -339,7 +339,7 @@ ProbB -&gt; student1 <br></p>
 <li>
 <p>On the data table, have ‘edges’ selected. This is showing you the source and the target for each link (aka ‘edge’). This implies a directionality to the relationship that we just don’t know – so down below, when we get to statistics, we will always have to make sure to tell Gephi that we want the network treated as ‘undirected’. More on that below.</p>
 <p><img alt="Image of Gephi data import interface" src="http://electricarchaeologist.files.wordpress.com/2013/10/slide2.jpg" /></p>
-<p>Loading your csv file, step 1.</p>
+<p>Loading your CSV file, step 1.</p>
 <p><img alt="Image of CSV import interface" src="http://electricarchaeologist.files.wordpress.com/2013/10/slide3.jpg" /></p>
 <p>Loading your CSV file, step 2</p>
 </li>
@@ -347,7 +347,7 @@ ProbB -&gt; student1 <br></p>
 <p>Click on ‘copy data to other column’. Select ‘Id’. In the pop-up, select ‘Label’. You now have your edges labelled.</p>
 </li>
 <li>
-<p>Just as you did above, now import NODES (Women-names.csv)</p>
+<p>Just as you did above, now import NODES <code>women-names.csv</code>.</p>
 </li>
 <li>
 <p>Making sure you're on the Nodes page in the data laboratory, copy ID to Label to that your nodes are labelled.</p>
@@ -440,7 +440,7 @@ ProbB -&gt; student1 <br></p>
 <li>Click the black letter ‘A’ and select ‘node size’.</li>
 </ol>
 <p>Mrs. Mary Elliot-Murray-Kynynmound and Mrs. John Henry Wilson should now dominate your network (if you go back to the original data zip, you'll be able to find Peter's key to figure out who's who). Who were these ladies? What organizations were they members of? Who were they connected to? To the archives!</p>
-<p>Congratulations! You’ve imported historical network data into Gephi, transformed it, manipulated it, and run some analyses. Play with the settings on ‘preview’ in order to share your visualization as svg, pdf, or png.</p>
+<p>Congratulations! You’ve imported historical network data into Gephi, transformed it, manipulated it, and run some analyses. Play with the settings on ‘preview’ in order to share your visualization as SVG, PDF, or PNG.</p>
 <p>Now go back to your original gephi file, and recast it as organizations to organizations via shared members, to figure out which organizations were key in early 20th century Ontario… make appropriate notes in your open notebook.</p>
               
             </div>
@@ -449,10 +449,10 @@ ProbB -&gt; student1 <br></p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../leaflet.txt/" class="btn btn-neutral float-right" title="Leaflet"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../graphing-the-net.txt/" class="btn btn-neutral float-right" title="Graphing the Net"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../graphing-the-net.txt/" class="btn btn-neutral" title="Graphing the net"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../gephi.txt/" class="btn btn-neutral" title="Social Network Analysis with Gephi"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -490,10 +490,10 @@ The Crafting Digital History site is built with <a href="http://www.mkdocs.org">
           <a href="https://github.com/shawngraham/dhworkbook/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../graphing-the-net.txt/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../gephi.txt/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../leaflet.txt/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../graphing-the-net.txt/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

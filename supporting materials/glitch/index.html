@@ -147,11 +147,19 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../tei/">Text Encoding</a>
+    <a class="" href="../tei/">Text Encoding Initiative</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
+    <a class="" href="../git-rstudio/">Git in RStudio</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../regex/">Introduction to Regular Expressions (regex)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../regexex/">Regex & the Republic of Texas</a>
                 </li>
                 <li class="">
                     
@@ -159,7 +167,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../regex/">Regular Expressions (regex)</a>
+    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
                 </li>
                 <li class="">
                     
@@ -167,7 +175,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../regexex/">Regex & the Republic of Texas</a>
+    <a class="" href="../quick-intro-r/">Quick intro to R</a>
                 </li>
                 <li class="">
                     
@@ -176,22 +184,6 @@
                 <li class="">
                     
     <a class="" href="../geoparsing-w-python.txt/">Geoparsing with Python</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../gephi.txt/">Social Network Analysis with Gephi</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../graphing-the-net.txt/">Graphing the net</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../multimode-networks.txt/">Multimode Networks</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../leaflet.txt/">Leaflet</a>
                 </li>
                 <li class=" current">
                     
@@ -210,7 +202,7 @@
         
             <li><a class="toctree-l4" href="#a-static-website-generator-for-photography">A static website generator for photography</a></li>
         
-            <li><a class="toctree-l4" href="#host-the-site-on-github">Host the site on github</a></li>
+            <li><a class="toctree-l4" href="#host-the-site-on-github">Host the site on GitHub</a></li>
         
             <li><a class="toctree-l4" href="#conclusion">Conclusion</a></li>
         
@@ -221,11 +213,15 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../quick-intro-r/">Quick intro to R</a>
+    <a class="" href="../gephi.txt/">Social Network Analysis with Gephi</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../git-rstudio/">Git in RStudio</a>
+    <a class="" href="../multimode-networks.txt/">Multimode Networks</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../graphing-the-net.txt/">Graphing the Net</a>
                 </li>
                 <li class="">
                     
@@ -241,11 +237,15 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../gh-pages/">Github pages</a>
+    <a class="" href="../inkscape/">Inkscape</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../inkscape/">Inkscape</a>
+    <a class="" href="../gh-pages/">GitHub Pages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../leaflet.txt/">Leaflet</a>
                 </li>
     </ul>
       </li>
@@ -298,7 +298,7 @@
 <li>Get images from Open Context (<code>ocget.sh</code>)</li>
 <li>Glitch them (<code>do-glitch.sh</code>)</li>
 <li>Make a website out of them (<code>expose</code>)</li>
-<li>Push them to github Pages (<code>git</code>)</li>
+<li>Push them to GitHub Pages (<code>git</code>)</li>
 </ol>
 <h2 id="open-context">Open Context</h2>
 <p>Open Context publishes archaeological data on the web. Archaeology generates vast amounts of information, both through excavation and through analysis. Open Context exists to publish curated versions of this data with unique digital object identifiers so that the source data of archaeology can be re-examined and re-studied in the future. Archaeology, uniquely amongst the historical disciplines, tends to destroy its subject matter, so reproducibility and open access data are extremely important issues. At <a href="https://opencontext.org/about/services">Open Context's API page</a>, they explain how to programmatically obtain information from their site. </p>
@@ -382,7 +382,7 @@ find ./ -name '*out.png' -exec cp -prv '{}' 'out/' ';'
 <li>
 <p>At the prompt, type <code>$ expose</code>. </p>
 <p>Ta da! You now have a fully functional website showing off your glitch art.</p>
-<p>You can customize it to use an alternative theme, a few bells and whistles; see the Expose documentation. One thing that you should do is to add captions for your images. You write these as either .txt or .md files, but make sure the file name for the caption is the same as for the image <strong>and</strong> put it in the same folder as the source images! You do this <strong>before</strong> you run the expose script. So <code>beaker-pic.png</code> would have as a caption file <code>beaker-pic.txt</code> or <code>beaker-pic.md</code>. You specify where the caption goes on the image in the YAML; that is, the metadata for your caption. So, if we opened 'beaker-pic.md' we might see,</p>
+<p>You can customize it to use an alternative theme, a few bells and whistles; see the Expose documentation. One thing that you should do is to add captions for your images. You write these as either .txt or .md files, but make sure the file name for the caption is the same as for the image <strong>and</strong> put it in the same folder as the source images! You do this <strong>before</strong> you run the expose script. So <code>beaker-pic.png</code> would have as a caption file <code>beaker-pic.txt</code> or <code>beaker-pic.md</code>. You specify where the caption goes on the image in the YAML; that is, the metadata for your caption. So, if we opened <code>beaker-pic.md</code> we might see,</p>
 <pre><code>---
 top: 30
 left: 5
@@ -396,8 +396,8 @@ Beakers were used to carry rare aromatic herbs and spices...
 </li>
 </ol>
 <p>More possibilities for sorting out the position of the text are discussed in the Expose documentation.</p>
-<h2 id="host-the-site-on-github">Host the site on github</h2>
-<p>You can push the code for your site to github, and then use github's gh-pages feature to serve it up as a live website! Expose creates all of the code for the website inside a new folder called <code>_site</code>.</p>
+<h2 id="host-the-site-on-github">Host the site on GitHub</h2>
+<p>You can push the code for your site to GitHub, and then use GitHub's gh-pages feature to serve it up as a live website! Expose creates all of the code for the website inside a new folder called <code>_site</code>.</p>
 <ol>
 <li>Type <code>$ cd _site</code></li>
 <li>Turn this folder into a git repository: <code>git init</code>.</li>
@@ -407,7 +407,7 @@ Beakers were used to carry rare aromatic herbs and spices...
 <li>Tell git where your remote repository is: <code>$ git remote add origin https://github.com/YOUR-ACCOUNT/YOUR-NEW-REPO-YOU-JUST-MADE.git</code></li>
 <li>Push your materials to GitHub: <code>$ git push -u origin master</code> (Git might ask for your account username and password)</li>
 <li>Once that finishes, go back to GitHub and reload the page at https://github.com/YOUR-ACCOUNT/YOUR-NEW-REPO-YOU-JUST-MADE. You should see your changes.</li>
-<li>On the button where it says 'Branch: Master', click on the down arrow. In the box where it says faintly 'Find or create a branch', type <code>gh-pages</code>. This is a special branch which tells GitHub, 'serve this up as actual code when the user goes to the special github.io version of github'.</li>
+<li>On the button where it says 'Branch: Master', click on the down arrow. In the box where it says faintly 'Find or create a branch', type <code>gh-pages</code>. This is a special branch which tells GitHub, 'serve this up as actual code when the user goes to the special github.io version of GitHub'.</li>
 <li>Click on the gearwheel icon, to go to the settings page (You can also find it at https://github.com/YOUR-ACCOUNT/YOUR-NEW-REPO-YOU-JUST-MADE/settings). </li>
 <li>Scroll down to the box that says 'GitHub Pages'. </li>
 <li>In the green box, it says 'you're site is published at https://YOUR-ACCOUNT.github.io/YOUR-NEW-REPO-YOU-JUST-MADE'. </li>
@@ -422,10 +422,10 @@ Beakers were used to carry rare aromatic herbs and spices...
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../quick-intro-r/" class="btn btn-neutral float-right" title="Quick intro to R"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../gephi.txt/" class="btn btn-neutral float-right" title="Social Network Analysis with Gephi"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../leaflet.txt/" class="btn btn-neutral" title="Leaflet"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../geoparsing-w-python.txt/" class="btn btn-neutral" title="Geoparsing with Python"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -463,10 +463,10 @@ The Crafting Digital History site is built with <a href="http://www.mkdocs.org">
           <a href="https://github.com/shawngraham/dhworkbook/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../leaflet.txt/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../geoparsing-w-python.txt/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../quick-intro-r/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../gephi.txt/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

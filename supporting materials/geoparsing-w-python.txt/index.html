@@ -147,11 +147,19 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../tei/">Text Encoding</a>
+    <a class="" href="../tei/">Text Encoding Initiative</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
+    <a class="" href="../git-rstudio/">Git in RStudio</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../regex/">Introduction to Regular Expressions (regex)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../regexex/">Regex & the Republic of Texas</a>
                 </li>
                 <li class="">
                     
@@ -159,7 +167,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../regex/">Regular Expressions (regex)</a>
+    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
                 </li>
                 <li class="">
                     
@@ -167,7 +175,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../regexex/">Regex & the Republic of Texas</a>
+    <a class="" href="../quick-intro-r/">Quick intro to R</a>
                 </li>
                 <li class="">
                     
@@ -185,11 +193,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../gephi.txt/">Social Network Analysis with Gephi</a>
+    <a class="" href="../glitch/">Glitch</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../graphing-the-net.txt/">Graphing the net</a>
+    <a class="" href="../gephi.txt/">Social Network Analysis with Gephi</a>
                 </li>
                 <li class="">
                     
@@ -197,19 +205,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../leaflet.txt/">Leaflet</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../glitch/">Glitch</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../quick-intro-r/">Quick intro to R</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../git-rstudio/">Git in RStudio</a>
+    <a class="" href="../graphing-the-net.txt/">Graphing the Net</a>
                 </li>
                 <li class="">
                     
@@ -225,11 +221,15 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../gh-pages/">Github pages</a>
+    <a class="" href="../inkscape/">Inkscape</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../inkscape/">Inkscape</a>
+    <a class="" href="../gh-pages/">GitHub Pages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../leaflet.txt/">Leaflet</a>
                 </li>
     </ul>
       </li>
@@ -277,7 +277,7 @@
                 <h1 id="geoparsing-with-python">Geoparsing with Python</h1>
 <p>This exercise draws from the work of <a href="http://fredgibbs.net/">Fred Gibbs</a></p>
 <ul>
-<li><a href="http://fredgibbs.net/tutorials/extract-transform-save-csv.html">extract, transform, and save as csv</a></li>
+<li><a href="http://fredgibbs.net/tutorials/extract-transform-save-csv.html">extract, transform, and save as CSV</a></li>
 <li><a href="http://fredgibbs.net/tutorials/extract-geocode-placenames-from-text-file.html">extract geocoded placenames from a text file</a></li>
 <li><a href="http://fredgibbs.net/tutorials/create-kml-file-python.html">create a kml file with python</a></li>
 </ul>
@@ -285,10 +285,10 @@
 <p>You should also read and understand Fred Gibbs' tutorial on <a href="http://fredgibbs.net/tutorials/install-python-modules">installing python modules</a> because you will need to install some helper modules.</p>
 <p>In Module 3, you used the NER to extract place names from a text. After some further munging with regex, you might have ended up with a CSV that looks like <a href="https://raw.githubusercontent.com/hist3907b-winter2015/module4-holes/master/texas.csv">this one on GitHub</a>.</p>
 <ol>
-<li>Use Openrefine to open that csv file. In the same way you tidied up in the <a href="https://github.com/hist3907b-winter2015/module3-wranglingdata/blob/master/openrefine.md">Open Refine tutorial in module 3</a>, clean up this CSV so that you merge together place names appropriately (ie. so that '4ustin' gets merged with 'Austin'). Do this for all the columns.</li>
-<li>Export the table as a new csv - call it 'cleaned-places.csv'.</li>
-<li>Open that csv in your spreadsheet program. Copy and paste all of the columns so that they become a single list. (ie. one column of place names).</li>
-<li>Using your spreadsheet's filtering options, see if you can remove any more duplicates. (It might be useful to keep track of how many duplicates you delete, in a new file, eg -&gt; Texas,200 &lt;- that kind of information might be handy, as in <a href="http://mappingtexts.stanford.edu/whitepaper/MappingTexts_WhitePaper.pdf">the mapping texts project (pdf opens in new tab)</a>).</li>
+<li>Use Openrefine to open that CSV file. In the same way you tidied up in the <a href="https://github.com/hist3907b-winter2015/module3-wranglingdata/blob/master/openrefine.md">Open Refine tutorial in module 3</a>, clean up this CSV so that you merge together place names appropriately (ie. so that '4ustin' gets merged with 'Austin'). Do this for all the columns.</li>
+<li>Export the table as a new CSV &mdash; call it <code>cleaned-places.csv</code>.</li>
+<li>Open that CSV in your spreadsheet program. Copy and paste all of the columns so that they become a single list. (ie. one column of place names).</li>
+<li>Using your spreadsheet's filtering options, see if you can remove any more duplicates. (It might be useful to keep track of how many duplicates you delete, in a new file, eg -&gt; Texas,200 &lt;- that kind of information might be handy, as in <a href="http://mappingtexts.stanford.edu/whitepaper/MappingTexts_WhitePaper.pdf">the mapping texts project (PDF opens in new tab)</a>).</li>
 <li>Save the file you were removing the duplicates from (which has just a single column of unique place names) as 'placelist.txt'</li>
 <li>Now, at this point, we're going to open up our text editor and create a new python program, following <a href="http://fredgibbs.net/tutorials/extract-geocode-placenames-from-text-file.html">Gibbs' tutorial</a>. His complete script is at the bottom of his post, but make sure you understand everything that is going on. Do you see the places where he has to import new python modules to make his script work? Make sure you've installed those modules. Let's call your completed script 'geoparse.py'. Done that? Good. </li>
 <li>Open your terminal, navigate to the folder you're working in, and run your script: <code>python geoparse.py</code></li>
@@ -316,7 +316,7 @@ Brazos  32.661389,-98.121667<br></p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../gephi.txt/" class="btn btn-neutral float-right" title="Social Network Analysis with Gephi"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../glitch/" class="btn btn-neutral float-right" title="Glitch"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../cyoa.txt/" class="btn btn-neutral" title="Choose Your Own Adventure"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -360,7 +360,7 @@ The Crafting Digital History site is built with <a href="http://www.mkdocs.org">
         <span><a href="../cyoa.txt/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../gephi.txt/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../glitch/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

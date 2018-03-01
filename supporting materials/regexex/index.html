@@ -147,23 +147,15 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../tei/">Text Encoding</a>
+    <a class="" href="../tei/">Text Encoding Initiative</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
+    <a class="" href="../git-rstudio/">Git in RStudio</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../open-refine/">Open Refine</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../regex/">Regular Expressions (regex)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../regex-ner/">Going further with regex</a>
+    <a class="" href="../regex/">Introduction to Regular Expressions (regex)</a>
                 </li>
                 <li class=" current">
                     
@@ -185,6 +177,22 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../open-refine/">Open Refine</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../regex-ner/">Going further with regex</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../quick-intro-r/">Quick intro to R</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../cyoa.txt/">Choose Your Own Adventure</a>
                 </li>
                 <li class="">
@@ -193,11 +201,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../gephi.txt/">Social Network Analysis with Gephi</a>
+    <a class="" href="../glitch/">Glitch</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../graphing-the-net.txt/">Graphing the net</a>
+    <a class="" href="../gephi.txt/">Social Network Analysis with Gephi</a>
                 </li>
                 <li class="">
                     
@@ -205,19 +213,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../leaflet.txt/">Leaflet</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../glitch/">Glitch</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../quick-intro-r/">Quick intro to R</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../git-rstudio/">Git in RStudio</a>
+    <a class="" href="../graphing-the-net.txt/">Graphing the Net</a>
                 </li>
                 <li class="">
                     
@@ -233,11 +229,15 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../gh-pages/">Github pages</a>
+    <a class="" href="../inkscape/">Inkscape</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../inkscape/">Inkscape</a>
+    <a class="" href="../gh-pages/">GitHub Pages</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../leaflet.txt/">Leaflet</a>
                 </li>
     </ul>
       </li>
@@ -297,15 +297,15 @@ Sam Houston, A. B. Roman, October 29 1842
 Isaac Van Zandt, Anson Jones, January 11 1843
 </code></pre>
 
-<p>The change doesn't look like much, and you might think to yourself, 'hey, I could just do that by hand'. You could; but it'd take you ages, and if you made a mistake somewhere - are you sure you could do this consistently, for a couple of hours at a time? Probably not. Your time is better spent figuring out the search and replace patterns, and then setting your machine loose to implement it.</p>
-<p>Data formatted like this could be fed into a network analysis program, for instance, or otherwise visualized and analyzed (which we will do in the next module). Regex as we are going to use in this tutorial allows us to go from unstructured to structured data. <strong>There is a video at the end of this document that captures someone working through this exercise.</strong></p>
+<p>The change doesn't look like much, and you might think to yourself, 'hey, I could just do that by hand'. You could but it'd take you ages, and if you made a mistake somewhere &mdash; are you sure you could do this consistently, for a couple of hours at a time? Probably not. Your time is better spent figuring out the search and replace patterns, and then setting your machine loose to implement it.</p>
+<p>Data formatted like this could be fed into a network analysis program, for instance, or otherwise visualized and analyzed (which we will do in the next module). Regex as we are going to use in this tutorial allows us to go from unstructured to structured data.</p>
 <h2 id="getting-started">Getting started</h2>
 <p>In the previous module, we learned how to automatically grab text from sites like Canadiana. In this particular exercise today, we'll quickly download the file using <code>curl</code> (it's like wget, though there are some <a href="https://daniel.haxx.se/docs/curl-vs-wget.html">differences between the two commands</a>. It's good to know both).</p>
 <ol>
-<li>At the command line, type <code>$ curl http://archive.org/stream/diplomaticcorre33statgoog/diplomaticcorre33statgoog_djvu.txt &gt; texas.txt</code></li>
-</ol>
-<p>The <code>curl</code> command downloads the txt file and the the <code>&gt;</code> pushes the result of the curl command to a file called texas.txt.</p>
-<ol>
+<li>
+<p>At the command line, type <code>$ curl http://archive.org/stream/diplomaticcorre33statgoog/diplomaticcorre33statgoog_djvu.txt &gt; texas.txt</code></p>
+<p>The <code>curl</code> command downloads the txt file and the the <code>&gt;</code> pushes the result of the curl command to a file called <code>texas.txt</code>.</p>
+</li>
 <li>
 <p>Open <code>texas.txt</code> with Nano and delete everything except for the index of the list of letters (we just want the index). </p>
 <blockquote>
@@ -325,16 +325,16 @@ Isaac Van Zandt, Anson Jones, January 11 1843
 <li>
 <p>Save the file in nano: ctrl+x, Y, enter </p>
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AFoHj91meVo" title="Downloading and editing our correspondence" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4Qf334BqXm4?rel=0" title="Downloading and editing our correspondence" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
 </li>
 </ol>
 <p>WARNING: Regex can be very tricky. When I'm working with Regex, I copy and paste some of the text I'm working on into the box at <a href="http://www.regexr.com/">RegExr</a> and fiddle with the pattern until it does what I want. In fact, spend some time looking at their examples before you go any further in this exercise.</p>
 <h2 id="the-workflow">The workflow</h2>
 <p>We start by finding every line that looks like a reference to a letter, and put a tilde (a <code>~</code> symbol) at the beginning of it so we know to save it for later. Next, we get rid of all the lines that don't start with tildes, so that we're left with only the relevant text. After this is done, we format the remaining text by putting commas in appropriate places, so we can import it into a spreadsheet and do further edits there.</p>
-<p>We're going to use the <code>sed</code> and <code>grep</code> commands at the command prompt in our DH Box. Sed works by first identifying text that matches a pattern, and then swapping in the text we want to have-</p>
+<p>We're going to use the <code>sed</code> and <code>grep</code> commands at the command prompt in our DH Box. Sed works by first identifying text that matches a pattern, and then swapping in the text we want to have, like the following:</p>
 <p><code>$ sed 's/old text/new text/g' filename</code></p>
-<p>and grep works like this:</p>
+<p>and grep works in the following way:</p>
 <p><code>$ grep 'PATTERN WE WANT' inputfile</code> which will print the results to the screen. If we want to redirect the results to a new file, we add this to the end: <code>&gt; outputfile</code>.</p>
 <h3 id="step-one">Step One</h3>
 <p><strong>Identifying Lines that have Correspondence Senders and Receivers in them</strong></p>
@@ -350,16 +350,16 @@ Isaac Van Zandt, Anson Jones, January 11 1843
 <ol>
 <li>
 <p>Type <code>$ grep '\bto\b' texas.txt</code></p>
-<p>The results print out to the screen. This command finds every instance of the word "to" (and not, for instance, also ‘potato’ or ‘tomorrow’ - try <code>grep 'to' texas.txt</code> instead to see the difference).</p>
+<p>The results print out to the screen. This command finds every instance of the word "to" (and not, for instance, also ‘potato’ or ‘tomorrow’ &mdash; try <code>grep 'to' texas.txt</code> instead to see the difference).</p>
 <p>We don't just want to find "to", but the entire line that contains it. We assume that every line that contains the word “to” in full is a line that has relevant letter information, and every line that does not is one we do not need. </p>
 <p>You learned earlier that the query <code>.+</code> returns any amount of text, no matter what it says. Thus, the pattern that we will build when we are ready to use the <code>sed</code> command (where the 's' means 'stream' and 'ed' means 'editor') will include <code>.+\bto\b.+</code> so that we edit every line which includes the word "to" in full, no matter what comes before or after it, and none of the lines which don't.</p>
-<p>As mentioned earlier, we want to add a tilde ~ before each of the lines that look like letters, so we can save them for later. This involves the find-and-replace function, and a query identical to the one before, but with parentheses around it, so it looks like</p>
+<p>As mentioned earlier, we want to add a tilde <code>~</code> before each of the lines that look like letters, so we can save them for later. This involves the find-and-replace function, and a query identical to the one before, but with parentheses around it, so it looks like</p>
 <pre><code>(.+\&lt;to\&gt;)
 </code></pre>
 <p>and the entire line is placed within a parenthetical group. Since this the first group in our search expression, we can replace that group with <code>\1</code> and put the tilde in front of it like so: <code>~\1</code>.</p>
 </li>
 <li>
-<p>Copy and past some of your text into <a href="http://RegExr.com">RegExr.com</a>. </p>
+<p>Copy and paste some of your text into <a href="http://RegExr.com">RegExr.com</a>. </p>
 </li>
 <li>
 <p>Write your regular expression (ie. what you're trying to find), and your substitution (ie. what you're replace with) in the RegExr interface. </p>
@@ -367,20 +367,23 @@ Isaac Van Zandt, Anson Jones, January 11 1843
 <li>
 <p>Once you're satisfied that you've got it right, we put the complete expression into our sed command:</p>
 <p><code>sed -r -i.bak 's/(.+\bto\b.+)/~\1/g' texas.txt</code></p>
-<p>where:</p>
-<p><code>-r</code> means extended regex. this saves us from having to 'escape' certain characters <br />
-<code>-i.bak</code> means make a backup of the original input file, in case things go wrong <br />
-<code>-'s/old-pattern/newpattern/g'</code> is how we find and switch what we're looking for the final g means 'globally', everywhere in the file <br />
-<code>texas.txt</code> the filename that we're looking to change <br /></p>
-<p>When you hit enter, the computer seems to pause for a moment, and then gives you the command prompt again. </p>
+<p>Where:</p>
+<ul>
+<li><code>-r</code> means extended regex. this saves us from having to 'escape' certain characters.</li>
+<li><code>-i.bak</code> means make a backup of the original input file, in case things go wrong.</li>
+<li><code>-'s/old-pattern/newpattern/g'</code> is how we find and switch what we're looking for the final g means 'globally', everywhere in the file.</li>
+<li><code>texas.txt</code> the filename that we're looking to change.</li>
+</ul>
+<p><br />
+When you hit enter, the computer seems to pause for a moment, and then gives you the command prompt again. </p>
 </li>
 <li>
 <p>Type <code>ls</code> and you'll see that a new file, <code>texas.txt.bak</code> has been created.</p>
 </li>
 <li>
-<p>Type <code>nano texas.txt</code> and examine the file. You should now have ~ characters at the start of each entry of the index!</p>
+<p>Type <code>nano texas.txt</code> and examine the file. You should now have <code>~</code> characters at the start of each entry of the index!</p>
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nXDFbLH59_M" title="Editing our file with grep and sed in the command line" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RQNyjSyQzjg?rel=0" title="Editing our file with grep and sed in the command line" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
 </li>
 </ol>
@@ -391,48 +394,47 @@ Isaac Van Zandt, Anson Jones, January 11 1843
 <p>After running the find-and-replace, you should note your document now has most of the lines with tildes in front of it, and a few which do not. The next step is to remove all the lines that do not include a tilde. <strong>If you were using a text editor on your own computer</strong>, the search string to find all lines which don't begin with tildes is <code>\n[^~].+</code></p>
 <p>A <code>\n</code> at the beginning of a query searches for a new line, which means it's going to start searching at the first character of each new line.  </p>
 <p><strong>However, given the evolution of computing, it may well be that this won’t quite work on your system.</strong></p>
-<p>Linux based systems use <code>\n</code> for a new line, while Windows often uses <code>\r\n</code>, and older Macs just use <code>\r</code>. These are the sorts of things that can drive us crazy, and so we digital historians need to keep in mind! Since this will likely cause much frustration, your safest bet will be to save a copy of what you are working on, and then experiment to see what gives you the best result. In most cases, this will be:</p>
+<p>Linux based systems use <code>\n</code> for a new line, while Windows often uses <code>\r\n</code>, and older Macs just use <code>\r</code>. These are the sorts of things that can drive us crazy, and so we digital historians need to keep in mind! Since this will likely cause much frustration, your safest bet will be to save a copy of what you are working on, and then experiment to see what gives you the best result. In most cases, the syntax will be the following:</p>
 <pre><code>\r\n[^~].+
 </code></pre>
 
 <p>Within a set of square brackets <code>[]</code> the carrot <code>^</code> means search for anything that isn't within these brackets; in this case, the tilde <code>~</code>. The  <code>.+</code> as before means search for all the rest of the characters in the line as well. All together, the query returns any full line which does not begin with a tilde; that is, the lines we did not mark as looking like letters.</p>
 <p>By finding all <code>\r\n[^~].+</code> and replacing it with nothing, you effectively delete all the lines that don't look like the index entries. What you're left with is a series of entries, and a series of blank lines.</p>
 <p><strong>But DH Box makes this so much easier</strong></p>
-<p>We are simply going to get grep to find all the lines that have a tilde in them, and write them to a new file:</p>
-<p><code>$ grep '~' texas.txt &gt; index.txt</code></p>
+<p>We are simply going to get grep to find all the lines that have a tilde in them, and write them to a new file: <code>$ grep '~' texas.txt &gt; index.txt</code>.</p>
 <p>Use Nano to confirm that this is true. </p>
 <p>Wasn't that easy?</p>
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/EcbvmipiuLI" title="Removing irrelevant lines in our correspondence" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TRI46x2zp2U?rel=0" title="Removing irrelevant lines in our correspondence" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
 <h3 id="step-three">Step Three</h3>
 <p><strong>Transforming into CSV format</strong></p>
 <p><strong>Discussion</strong></p>
-<p>To turn this text file into a spreadsheet, we'll want to separate it out into one column for sender, one for recipient, and one for date, each separated by a single comma. Notice that most lines have extraneous page numbers attached to them; we can get rid of those with regular expressions. There's also usually a comma separating the month-date and the year, which we'll get rid of as well. In the end, the first line should go from looking like:</p>
+<p>To turn this text file into a spreadsheet, we'll want to separate it out into one column for sender, one for recipient, and one for date, each separated by a single comma. Notice that most lines have extraneous page numbers attached to them; we can get rid of those with regular expressions. There's also usually a comma separating the month-date and the year, which we'll get rid of as well. In the end, the first line should go from looking like the following:</p>
 <pre><code>    ~Sam Houston to J. Pinckney Henderson, December 31, 1836 51
 </code></pre>
-<p>to</p>
+<p>to looking like the following:</p>
 <pre><code>    Sam Houston, J. Pinckney Henderson, December 31 1836
 </code></pre>
 <p>such that each data point is in its own column.</p>
 <p>You will start by removing the page number after the year and the comma between the year and the month-date. To do this, first locate the year on each line by using the regex:</p>
 <pre><code>    [0-9]{4}
 </code></pre>
-<p>We can find any digit between 0 and 9 by searching for <code>[0-9]</code>, and <code>{4}</code> will find four of them together. Now extend that search out by appending <code>.+</code> to the end of the query; as seen before, it will capture the entire rest of the line. The query</p>
+<p>We can find any digit between 0 and 9 by searching for <code>[0-9]</code>, and <code>{4}</code> will find four of them together. Now extend that search out by appending <code>.+</code> to the end of the query; as seen before, it will capture the entire rest of the line. The following query:</p>
 <pre><code>    [0-9]{4}.+
 </code></pre>
-<p>will return, for example, "1836 51", "1839 52", and "1839 53" from the first three lines of the text. We also want to capture the comma preceding the year, so add a comma and a space before the query, resulting in</p>
+<p>will return, for example, "1836 51", "1839 52", and "1839 53" from the first three lines of the text. We also want to capture the comma preceding the year, so add a comma and a space before the query, resulting in the following: </p>
 <pre><code>     , [0-9]{4}.+
 </code></pre>
 <p>which will return ", 1836 51", ", 1839 52", etc.</p>
-<p>The next step is making the parenthetical groups which will be used to remove parts of the text with find-and-replace. In this case, we want to remove the comma and everything after year, but not the year or the space before it. Thus our query will look like:</p>
+<p>The next step is making the parenthetical groups which will be used to remove parts of the text with find-and-replace. In this case, we want to remove the comma and everything after year, but not the year or the space before it. Thus our query will look like the following:</p>
 <pre><code>    (,)( [0-9]{4})(.+)
 </code></pre>
 <p>with the comma as the first group <code>"\1"</code>, the space and the year as the second <code>"\2"</code>, and the rest of the line as the third <code>"\3"</code>.  Given that all we care about retaining is the second group (we want to keep the year, but not the comma or the page number), what will the <strong>replace</strong> look like?</p>
 <p>Find the dates using a regex, and replace so that only the <strong>second</strong> group in the expression is kept. You might want to consult the introduction to regex again before you execute this one.</p>
-<p>Remember, the first part of the sed command will be: <code>sed -r -i.bak</code> then the pattern to find, the pattern to replace with, and the file name. You want to use sed on the new index.txt file you made. Can you devise the right pattern?</p>
+<p>Remember, the first part of the sed command will be: <code>sed -r -i.bak</code> then the pattern to find, the pattern to replace with, and the file name. You want to use sed on the new <code>index.txt</code> file you made. Can you devise the right pattern?</p>
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qy_xzaBk9cs" title="Transforming our file into CSV format" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/syyFk2rhSc8?rel=0" title="Transforming our file into CSV format" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
 <h3 id="step-four">Step Four</h3>
 <p><strong>Removing the tildes</strong>*</p>
@@ -440,7 +442,7 @@ Isaac Van Zandt, Anson Jones, January 11 1843
 <li>Find the tildes that we used to mark off our text of interest, and replace them with nothing to delete them.</li>
 </ul>
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/g_1QGPgFbdE" title="Removing the tildes before each line" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eg3p5BN1oKs?rel=0" title="Removing the tildes before each line" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
 <h3 id="step-five">Step Five</h3>
 <p><strong>Separating Senders and Receivers</strong></p>
@@ -450,23 +452,23 @@ Isaac Van Zandt, Anson Jones, January 11 1843
 <li>Devise the regex to find the word, and replace with a comma.</li>
 </ul>
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/L6iBhhQmGKY" title="Separating Senders and Receivers" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ESj9_rYQ2jw?rel=0" title="Separating Senders and Receivers" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
 <h3 id="step-six">Step Six</h3>
 <p><strong>Cleaning up</strong></p>
 <p><strong>Discussion</strong></p>
 <p>You may notice that some lines still do not fit our criteria. Line 22, for example, reads "Abner S. Lipscomb, James Hamilton and A. T. Bumley, AugUHt 15, ". It has an incomplete date; these we don't need to worry about for our purposes. More worrisome are lines, like 61 "Copy and summary of instructions United States Department of State, " which include none of the information we want. We can get rid of these lines later in a spreadsheet.  </p>
-<p>The only non-standard lines we need to worry about with regular expressions are the ones with more than 2 commas, like line 178, "A. J. Donelson, Secretary of State [Allen,. arf interim], December 10 1844". Notice that our second column, the name of the recipient, has a comma inside of it. If you were to import this directly into a spreadsheet, you would get four columns, one for sender, two for recipient, and one for date, which would break any analysis you would then like to run. Unfortunately these lines need to be fixed by hand, but happily regular expressions make finding them easy. The query:</p>
+<p>The only non-standard lines we need to worry about with regular expressions are the ones with more than 2 commas, like line 178, "A. J. Donelson, Secretary of State [Allen,. arf interim], December 10 1844". Notice that our second column, the name of the Recipient, has a comma inside of it. If you were to import this directly into a spreadsheet, you would get four columns, one for Sender, two for Recipient, and one for date, which would break any analysis you would then like to run. Unfortunately these lines need to be fixed by hand, but happily regular expressions make finding them easy. The query:</p>
 <p><code>.+,.+,.+,</code></p>
-<p>will show you every line with more than 2 commas, because it finds any line that has any set of characters, then a comma, then any other set, then another comma, and so forth. Use Grep to find these.  </p>
+<p>will show you every line with more than 2 commas, because it finds any line that has any set of characters, then a comma, then any other set, then another comma, and so forth. Use grep to find these.  </p>
 <ul>
-<li>At the top of the file, add a new line that simply reads "Sender, Recipient, Date". These will be the column headers. Make a copy as a csv file by using the <code>cp</code> command: <code>cp index.txt cleaned-correspondence.csv</code>.</li>
+<li>At the top of the file, add a new line that simply reads "Sender, Recipient, Date". These will be the column headers. Make a copy as a CSV file by using the <code>cp</code> command: <code>cp index.txt cleaned-correspondence.csv</code>.</li>
 </ul>
 <p><strong>Congratulations!</strong></p>
 <p><br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PG3tRoRbR8M" title="Cleaning our file" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4bLRLWlQYG0?rel=0" title="Cleaning our file" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
-<p>You've now used regex to extract, transform, and clean historical text. As a csv file, you could now load this data into a network analysis program such as <a href="http://gephi.org">Gephi</a> to explore the ramifications of this correspondence network. Upload your file to your repository, and make a note of the original location of the file, the transformations that you've done, and the date/time. You will be using your <code>cleaned-correspondence.csv</code> file in the next exercise using <a href="../open-refine/"><strong>Open Refine</strong></a>, where we'll sort out some of the messy OCR (fixing names, and so on).</p>
+<p>You've now used regex to extract, transform, and clean historical text. As a CSV file, you could now load this data into a network analysis program such as <a href="http://gephi.org">Gephi</a> to explore the ramifications of this correspondence network. Upload your file to your repository, and make a note of the original location of the file, the transformations that you've done, and the date/time. You will be using your <code>cleaned-correspondence.csv</code> file in the next exercise using <a href="../open-refine/"><strong>Open Refine</strong></a>, where we'll sort out some of the messy OCR (fixing names, and so on).</p>
 <h4 id="the-pattern-youre-after">The pattern you're after:</h4>
 <p>The pattern you want in step three is
 <code>sed -r -i.bak 's/(,)( [0-9]{4})(.+)/\2/g' index.txt</code>.</p>
@@ -486,10 +488,10 @@ Isaac Van Zandt, Anson Jones, January 11 1843
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../cyoa.txt/" class="btn btn-neutral float-right" title="Choose Your Own Adventure"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../open-refine/" class="btn btn-neutral float-right" title="Open Refine"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../regex-ner/" class="btn btn-neutral" title="Going further with regex"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../regex/" class="btn btn-neutral" title="Introduction to Regular Expressions (regex)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -527,10 +529,10 @@ The Crafting Digital History site is built with <a href="http://www.mkdocs.org">
           <a href="https://github.com/shawngraham/dhworkbook/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../regex-ner/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../regex/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../cyoa.txt/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../open-refine/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

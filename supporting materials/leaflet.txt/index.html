@@ -147,11 +147,19 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../tei/">Text Encoding</a>
+    <a class="" href="../tei/">Text Encoding Initiative</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
+    <a class="" href="../git-rstudio/">Git in RStudio</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../regex/">Introduction to Regular Expressions (regex)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../regexex/">Regex & the Republic of Texas</a>
                 </li>
                 <li class="">
                     
@@ -159,7 +167,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../regex/">Regular Expressions (regex)</a>
+    <a class="" href="../ner/">Stanford Named Entity Recognizer</a>
                 </li>
                 <li class="">
                     
@@ -167,7 +175,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../regexex/">Regex & the Republic of Texas</a>
+    <a class="" href="../quick-intro-r/">Quick intro to R</a>
                 </li>
                 <li class="">
                     
@@ -179,15 +187,39 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../glitch/">Glitch</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../gephi.txt/">Social Network Analysis with Gephi</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../graphing-the-net.txt/">Graphing the net</a>
+    <a class="" href="../multimode-networks.txt/">Multimode Networks</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../multimode-networks.txt/">Multimode Networks</a>
+    <a class="" href="../graphing-the-net.txt/">Graphing the Net</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../topicmodel-r-dhbox/">Topic Modeling, DH Box</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../topicmodel-r-yourmachine/">Topic Modeling, Local</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../netviz/">Network visualization with igraph</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../inkscape/">Inkscape</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../gh-pages/">GitHub Pages</a>
                 </li>
                 <li class=" current">
                     
@@ -206,38 +238,6 @@
     
 
     </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../glitch/">Glitch</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../quick-intro-r/">Quick intro to R</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../git-rstudio/">Git in RStudio</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../topicmodel-r-dhbox/">Topic Modeling, DH Box</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../topicmodel-r-yourmachine/">Topic Modeling, Local</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../netviz/">Network visualization with igraph</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../gh-pages/">Github pages</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../inkscape/">Inkscape</a>
                 </li>
     </ul>
       </li>
@@ -345,7 +345,7 @@
 </li>
 </ol>
 <h3 id="going-further">Going further</h3>
-<p>Let's say you have a whole bunch of information that you want to represent on the map. Perhaps it's in a well organized csv file, with a latitude and a longitude column in decimal degrees. Adding points one at a time to the map as described above would take ages. Instead, let's convert that csv to geojson, and then use <a href="https://github.com/bmcbride/bootleaf">bootleaf</a> to make a map.</p>
+<p>Let's say you have a whole bunch of information that you want to represent on the map. Perhaps it's in a well organized CSV file, with a latitude and a longitude column in decimal degrees. Adding points one at a time to the map as described above would take ages. Instead, let's convert that CSV to geojson, and then use <a href="https://github.com/bmcbride/bootleaf">bootleaf</a> to make a map.</p>
 <p>Bootleaf is a template that uses a common html template package, '<a href="http://getbootstrap.com/">Bootstrap</a>' as a wrapper for a leaflet powered map that draws its points of interest from a geojson file. To get this up and running, do the following steps:</p>
 <ol>
 <li>
@@ -358,7 +358,7 @@
 <p>In your copy of bootleaf, you now have a gh-pages version of the site. If you go to <code>&lt;yourusername&gt;.github.io/bootleaf</code> you should see an active version of the map.</p>
 </li>
 <li>
-<p>Now, the map is grabbing its data from a series of geojson files. You can use <a href="https://mapbox.github.io/togeojson/">the 'to geo json' service</a> to convert your csv to geojson. There are other services.</p>
+<p>Now, the map is grabbing its data from a series of geojson files. You can use <a href="https://mapbox.github.io/togeojson/">the 'to geo json' service</a> to convert your CSV to geojson. There are other services.</p>
 </li>
 <li>
 <p>Clone your repository in your desktop (by pressing the clone your repo in desktop).</p>
@@ -439,7 +439,7 @@ var mapquestHYB = L.layerGroup([L.tileLayer("http://{s}.mqcdn.com/tiles/1.0.0/sa
 <p>...and then you'd have to go through the rest of that file and change up the .geojson pointers to point to your own data.</p>
 </li>
 <li>
-<p>Visit GitHub for a <a href="https://github.com/shawngraham/daea">template for mapping with leaflet</a>, drawing all of your point data and ancillary information from a csv file. Study the index.html file carefully to identify which lines you'd modify to change the base map, and to identify how elements in the csv are being rendered on the screen. <a href="https://xtina-r.github.io/daea/">Visit this example that a former student made</a>.</p>
+<p>Visit GitHub for a <a href="https://github.com/shawngraham/daea">template for mapping with leaflet</a>, drawing all of your point data and ancillary information from a CSV file. Study the index.html file carefully to identify which lines you'd modify to change the base map, and to identify how elements in the CSV are being rendered on the screen. <a href="https://xtina-r.github.io/daea/">Visit this example that a former student made</a>.</p>
 </li>
 </ol>
 <p><strong>Further reading:</strong> Arian Katsimbras on making beautiful maps with <a href="https://medium.com/@ArianKatsimbras/tilemill-c886a3ccba6a">Tilemill</a>.</p>
@@ -450,10 +450,8 @@ var mapquestHYB = L.layerGroup([L.tileLayer("http://{s}.mqcdn.com/tiles/1.0.0/sa
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../glitch/" class="btn btn-neutral float-right" title="Glitch"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../multimode-networks.txt/" class="btn btn-neutral" title="Multimode Networks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../gh-pages/" class="btn btn-neutral" title="GitHub Pages"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -491,10 +489,8 @@ The Crafting Digital History site is built with <a href="http://www.mkdocs.org">
           <a href="https://github.com/shawngraham/dhworkbook/tree/gh-pages" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../multimode-networks.txt/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../gh-pages/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../glitch/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
