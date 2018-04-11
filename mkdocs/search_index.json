@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Crafting Digital History, A Workbook by Shawn Graham and Rob Blades\n\n\n\n\nThis workbook supports \n#HIST3814o\n in the Late Summer term at \nCarleton University\n. This is the third major reworking of the workbook. The original \nWinter 2015 version is available on GitHub.\n\n\nFor more advanced tutorials and help, please see\n\n\n\n\n\n\nThe Programming Historian\n\n\n\n\n\n\nDigital History Methods in R\n\n\n\n\n\n\nShawn Graham, shawn dot graham at carleton dot ca, \n@electricarchaeo\n\n\n\n\n\n\nDisclaimer: Photosensitivity and eye strain\n\n\nSome of the digital tools and tutorial videos used in this workbook can potentially cause eye strain or effect those with photosensitivity. Make sure to take breaks often, relax your eyes, and stretch.\n\n\nOriginal content by Shawn Graham is \n\n\nlicensed under a \nCreative Commons Attribution-NonCommercial 4.0 International License\n.\n\n\nCite this workbook:", 
+            "text": "Crafting Digital History, A Workbook by Shawn Graham and Rob Blades\n\n\n\n\nThis workbook supports \n#HIST3814o\n in the Late Summer term at \nCarleton University\n. This is the third major reworking of the workbook. The original \nWinter 2015 version is available on GitHub.\n\n\nFor more advanced tutorials and help, please see\n\n\n\n\n\n\nThe Programming Historian\n\n\n\n\n\n\nDigital History Methods in R\n\n\n\n\n\n\nShawn Graham, shawn dot graham at carleton dot ca, \n@electricarchaeo\n\n\n\n\n\n\nCAUTION: Photosensitivity and eye strain\n\n\nSome of the digital tools and tutorial videos used in this workbook can potentially cause eye strain or effect those with photosensitivity. Make sure to take breaks often, relax your eyes, and stretch.\n\n\nOriginal content by Shawn Graham is \n\n\nlicensed under a \nCreative Commons Attribution-NonCommercial 4.0 International License\n.\n\n\nCite this workbook:", 
             "title": "Home"
         }, 
         {
@@ -11,9 +11,9 @@
             "title": "Crafting Digital History, A Workbook by Shawn Graham and Rob Blades"
         }, 
         {
-            "location": "/#disclaimer-photosensitivity-and-eye-strain", 
+            "location": "/#caution-photosensitivity-and-eye-strain", 
             "text": "Some of the digital tools and tutorial videos used in this workbook can potentially cause eye strain or effect those with photosensitivity. Make sure to take breaks often, relax your eyes, and stretch.  Original content by Shawn Graham is   licensed under a  Creative Commons Attribution-NonCommercial 4.0 International License .  Cite this workbook:", 
-            "title": "Disclaimer: Photosensitivity and eye strain"
+            "title": "CAUTION: Photosensitivity and eye strain"
         }, 
         {
             "location": "/introduction/crafting-digital-history/", 
