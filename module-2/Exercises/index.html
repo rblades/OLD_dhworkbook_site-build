@@ -157,7 +157,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../../module-5/Exercises/">Exercises</a>
+    <a class="" href="../../module-5/Exercises/">Exercises (OPTIONAL)</a>
                 </li>
     </ul>
       </li>
@@ -623,10 +623,12 @@ wget -i urlstograb.txt -O output.txt
 <p>Paste in the following script and save it as <code>ocr</code> in RStudio.</p>
 <pre><code>install.packages('magick')
 install.packages('magrittr')
+install.packages('pdftools')
 install.packages('tesseract')
 library(magick) 
-library(magrittr) 
-library(tesseract) 
+library(magrittr)
+library(pdftools)
+library(tesseract)
 text &lt;- image_read("~/war-diary/e001518087.jpg") %&gt;% 
   image_resize("2000") %&gt;% 
   image_convert(colorspace = 'gray') %&gt;% 
@@ -634,7 +636,11 @@ text &lt;- image_read("~/war-diary/e001518087.jpg") %&gt;%
   image_ocr()
 write.table(text, "~/ocr-test/R.txt")
 </code></pre>
-<p>Before installing any packages in RStudio, we need to install some dependencies in the command line. The reason is that since DH Box runs an older version of RStudio, not everything installs as planned.</p>
+<p>The above script first installs three packages to RStudio, Magick, Magrittr, and Tesseract. Magick processes the image as high quality; Magrittr uses the symbols <code>%&gt;%</code> as a pipe that forces the values of an expression into the next function (allowing our script to perform it's conversion in steps); Tesseract is the actual OCR engine that converts our image to text. Then the script loads each package. Lastly, the script processes the image, OCRs the text, and writes it to a <code>txt</code> file.</p>
+<p>Before installing any packages in the DH Box RStudio, we need to install some dependencies in the command line. The reason is that since DH Box runs an older version of RStudio, not everything installs as planned compared to the desktop RStudio.</p>
+</li>
+<li>
+<p>Type <code>$ sudo apt-get install libcurl4-gnutls-dev</code> in the command line to install the libcurl library (this installs RCurl).</p>
 </li>
 <li>
 <p>Type <code>$ sudo apt-get install libmagick++-dev</code> in the command line to install the libmagick library.</p>
@@ -647,6 +653,9 @@ write.table(text, "~/ocr-test/R.txt")
 </li>
 <li>
 <p>Type <code>$ sudo apt-get install tesseract-ocr-eng</code> in the command line to install the English Tesseract library.</p>
+</li>
+<li>
+<p>Type <code>$ sudo apt-get install libpoppler-cpp-dev</code> in the command line to install the poppler cpp library.</p>
 </li>
 <li>
 <p>Navigate to RStudio and run each <code>install.packages</code> line in our script. This will take some time.</p>
@@ -683,13 +692,7 @@ write.table(text, "~/ocr-test/R.txt")
 </li>
 <li>
 <p>In RStudio, change the file paths in your script to the following:</p>
-<pre><code>install.packages('magick')
-install.packages('magrittr')
-install.packages('tesseract')
-library(magick) 
-library(magrittr) 
-library(tesseract) 
-text &lt;- image_read("~/ocr-test/R_1.png") %&gt;% 
+<pre><code>text &lt;- image_read("~/ocr-test/R_1.png") %&gt;% 
   image_resize("2000") %&gt;% 
   image_convert(colorspace = 'gray') %&gt;% 
   image_trim() %&gt;% 
@@ -710,7 +713,8 @@ write.table(text, "~/ocr-test/R_1.txt")
 <br></p>
 </li>
 <li>
-<p>Choose either the command line or the R method to convert more of the war diary files to text. Save these files into a new directory called <code>war-diary-text</code>. We will use these text files for future work in topic modeling and text analysis. How might your decision on which method to use change the results you would get in, say, a topic modeling tool? </p>
+<p>Choose either the command line or the R method to convert more of the war diary files to text. Save these files into a new directory called <code>war-diary-text</code>. We will use these text files for future work in topic modeling and text analysis. How might your decision on which method to use change the results you would get in, say, a topic modeling tool?</p>
+<p><strong>Hint:</strong> Check below for <a href="#batch-converting-image-files">a way to automate the conversion process</a>.</p>
 <p><br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/puUNq1qzFmY?rel=0" title="Converting the war diary files to text using RStudio" frameborder="0" gesture="media" allowfullscreen></iframe>
 <br></p>
@@ -718,10 +722,41 @@ write.table(text, "~/ocr-test/R_1.txt")
 </ol>
 <p>Think about how these conversions can change based on the image being run through Tesseract. Does Tesseract have an easier time converting computer text even though it's in an image format? How might OCR conversions affect the way historians work on batch files? How does the context of the text change how historians analyse it? </p>
 <p>Look up the <a href="https://github.com/tesseract-ocr/tesseract/wiki/Command-Line-Usage">Tesseract wiki</a>. What other options could you use with the Tesseract command to improve the results? When you decide to download Tesseract to you own computer, use the following two guides to automating bulk OCR (multiple files) with Tesseract: <a href="https://diging.atlassian.net/wiki/display/DCH/Tutorial%3A+Text+Extraction+and+OCR+with+Tesseract+and+ImageMagick">Peirson's</a> and <a href="http://benschmidt.org/dighist13/?page_id=129">Schmidt's</a>.</p>
+<h3 id="batch-converting-image-files">Batch converting image files</h3>
+<p>Now that you've learned to convert image files to text individually, you should know that there is a quicker way to do this. The following script takes your Canadian war diary <code>jpg</code> image files and OCRs them using the same process as above. However this time, the <code>function(i)</code> (<code>i</code> stands for iterate), goes through the folder for each <code>jpg</code> file and converts them to a <code>png</code> file into a text file with the suffix <code>-ocr.txt</code> until it notes there are no more image files to convert. The converted files will output to the same folder, in our case <code>war-diary</code>. </p>
+<pre><code>    library(magick) 
+    library(magrittr)
+    library(pdftools)
+    library(tesseract)
+
+    dest &lt;- "/war-diary"
+    myfiles &lt;- list.files(path = dest, pattern = "jpg", full.names = TRUE)
+
+    # improve the images
+    # ocr 'em
+    # write the output to text file
+
+    lapply(myfiles, function(i){
+        text &lt;- image_read(i) %&gt;%
+        image_resize("3000x") %&gt;%
+        image_convert(type = 'Grayscale') %&gt;%
+        image_trim(fuzz = 40) %&gt;%
+        image_write(format = 'png', density = '300x300') %&gt;%
+        tesseract::ocr()
+
+    outfile &lt;- paste(i,"-ocr.txt",sep="")
+    cat(text, file=outfile, sep="\n")
+
+    })
+</code></pre>
+<p>You can probably understand now why this method works much better than the previous R script: we automate our process (ie. we run the script just once and it iterates through the folder for us), append a suffix to the txt file name noting the OCRd text, and output it all to the same folder.</p>
+<p>Keep these files somewhere handy on your computer! We will use them throughout the course.</p>
+<p>By iterating through the folder, we have created a loop. Loops can be a very powerful tool for Digital Historians, as we can begin to automate processes that would take much longer by hand. Read more about <a href="https://www.r-bloggers.com/how-to-write-the-first-for-loop-in-r/">'for loops' on the R-blogger website</a>.</p>
+<p><strong>NB</strong> The above script processes dozens of images and may take quite a bit of time to complete. </p>
 <h2 id="reference">Reference</h2>
 <p>Part of this tutorial was adapted from <a href="https://programminghistorian.org">The Programming Historian</a> released under the CC-BY license, including:</p>
-<p>Ian Milligan, "Automated Downloading with Wget," The Programming Historian 1 (2012), https://programminghistorian.org/lessons/automated-downloading-with-wget.</p>
-<p>Kellen Kurschinski, "Applied Archival Downloading with Wget," The Programming Historian 2 (2013), https://programminghistorian.org/lessons/applied-archival-downloading-with-wget.</p>
+<p>Ian Milligan, "Automated Downloading with Wget," The Programming Historian 1 (2012), <a href="https://programminghistorian.org/lessons/automated-downloading-with-wget">https://programminghistorian.org/lessons/automated-downloading-with-wget</a>.</p>
+<p>Kellen Kurschinski, "Applied Archival Downloading with Wget," The Programming Historian 2 (2013), <a href="https://programminghistorian.org/lessons/applied-archival-downloading-with-wget">https://programminghistorian.org/lessons/applied-archival-downloading-with-wget</a>.</p>
 <p><a href="https://twitter.com/superboreen/status/958418116324790273">Twitter user 'superboreen' on R OCR</a>.</p>
               
             </div>
@@ -779,7 +814,6 @@ The Crafting Digital History site is built with <a href="http://www.mkdocs.org">
     </span>
 </div>
     <script src="../../js/theme.js"></script>
-      <script src="../../js/tota11y.min.js"></script>
 
 </body>
 </html>

@@ -131,7 +131,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../../module-5/Exercises/">Exercises</a>
+    <a class="" href="../../module-5/Exercises/">Exercises (OPTIONAL)</a>
                 </li>
     </ul>
       </li>
@@ -299,13 +299,16 @@
 </code></pre>
 <p>In the future, now that you've installed these packages you won't have to again, so you can comment them out by placing a <code>\#</code> in front.</p>
 <h3 id="how-to-fix-rcurl-package-installation-error">How to fix RCurl Package installation error</h3>
-<p>When attempting to run <code>install.packages("RCurl")</code> you may get an error along the lines of </p>
+<p>When attempting to run <code>install.packages("RCurl")</code> you may get an error along the lines of the following:</p>
 <pre><code class="r">checking for curl-config... no
 Cannot find curl-config
 ERROR: configuration failed for package ‘RCurl’
 </code></pre>
 
-<p>To fix this, navigate to the DH Box command line and type <code>$ sudo apt-get install libcurl4-gnutls-dev</code>. When the installation is successful, you can now install RCurl by running the last two lines of the script:</p>
+<p>To fix this, navigate to the DH Box command line and type the following command:</p>
+<pre><code>$ sudo apt-get install libcurl4-gnutls-dev
+</code></pre>
+<p>When the installation is successful, you can now install RCurl by running the last two lines of the script:</p>
 <pre><code class="r">install.packages(&quot;RCurl&quot;)
 library(&quot;RCurl&quot;)
 </code></pre>
@@ -540,7 +543,6 @@ The Crafting Digital History site is built with <a href="http://www.mkdocs.org">
     </span>
 </div>
     <script src="../../js/theme.js"></script>
-      <script src="../../js/tota11y.min.js"></script>
 
 </body>
 </html>
